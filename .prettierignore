@@ -1,0 +1,5 @@
+# Ignore artifacts:
+coverage
+bundle-analysis.html
+dist
+commitlint.config.js

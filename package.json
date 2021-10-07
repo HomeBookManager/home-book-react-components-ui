@@ -1,0 +1,149 @@
+{
+  "name": "home-book-manager-react-library-template",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "17.1.0",
+    "@rollup/plugin-node-resolve": "11.2.0",
+    "@rollup/plugin-typescript": "8.2.0",
+    "@storybook/addon-actions": "^6.3.9",
+    "@storybook/addon-essentials": "^6.3.9",
+    "@storybook/addon-links": "^6.3.9",
+    "@storybook/addons": "^6.3.9",
+    "@storybook/node-logger": "^6.3.9",
+    "@storybook/preset-create-react-app": "^3.2.0",
+    "@storybook/react": "^6.3.9",
+    "@storybook/theming": "^6.3.9",
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "@types/enzyme": "^3.10.9",
+    "@types/jest": "^26.0.15",
+    "@types/node": "^12.0.0",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "@types/react-test-renderer": "^17.0.1",
+    "@types/styled-components": "^5.1.14",
+    "@typescript-eslint/eslint-plugin": "^4.32.0",
+    "@typescript-eslint/parser": "^4.32.0",
+    "@wojtekmaj/enzyme-adapter-react-17": "^0.6.3",
+    "branch-name-lint": "^2.1.1",
+    "enzyme": "^3.11.0",
+    "enzyme-to-json": "^3.6.2",
+    "eslint": "^7.32.0",
+    "eslint-plugin-react": "^7.26.1",
+    "husky": "^7.0.2",
+    "lodash": "^4.17.21",
+    "node-sass": "^6.0.1",
+    "postcss": "8.1.1",
+    "prettier": "^2.4.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "4.0.3",
+    "react-test-renderer": "^17.0.2",
+    "rollup": "^2.40.0",
+    "rollup-plugin-postcss": "4.0.0",
+    "rollup-plugin-terser": "7.0.2",
+    "rollup-plugin-visualizer": "4.2.0",
+    "sass": "1.26.11",
+    "sass-loader": "^12.1.0",
+    "storybook-addon-designs": "^6.2.0",
+    "stylelint": "^13.13.1",
+    "stylelint-config-standard": "^22.0.0",
+    "stylelint-order": "^4.1.0",
+    "stylelint-scss": "^3.21.0",
+    "tslib": "2.1.0",
+    "typescript": "^4.1.2"
+  },
+  "scripts": {
+    "build": "rollup -c",
+    "build:publish": "npm run build && npm publish",
+    "build-storybook": "build-storybook -s public",
+    "eslint-ts": "eslint . --ext .ts --fix --max-warnings=0",
+    "eslint-tsx": "eslint . --ext .tsx --fix --max-warnings=0",
+    "prepare": "husky install",
+    "prettier:check": "npx prettier --check .",
+    "prettier:write": "npx prettier --write .",
+    "test": "react-scripts test --watchAll",
+    "test:check": "react-scripts test --watchAll=false --passWithNoTests",
+    "storybook": "start-storybook -p 6006 -s public"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ],
+    "overrides": [
+      {
+        "files": [
+          "**/*.stories.*"
+        ],
+        "rules": {
+          "import/no-anonymous-default-export": "off"
+        }
+      },
+      {
+        "files": [
+          "**/*.stories.*"
+        ],
+        "rules": {
+          "import/no-anonymous-default-export": "off"
+        }
+      }
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "jest": {
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ]
+  },
+  "branchNameLinter": {
+    "prefixes": [
+      "feature",
+      "bugfix",
+      "hotfix"
+    ],
+    "suggestions": {
+      "features": "feature",
+      "feat": "feature",
+      "fix": "hotfix",
+      "releases": "release"
+    },
+    "banned": [
+      "wip"
+    ],
+    "skip": [
+      "skip-ci"
+    ],
+    "disallowed": [
+      "master",
+      "develop",
+      "staging"
+    ],
+    "regex": "^((bugfix|feature|hotfix)/LW-([0-9]{4})((-([a-z]{1,})){1,})$)",
+    "regexOptions": "i",
+    "separator": "/",
+    "msgBranchBanned": "Branches with the name \"%s\" are not allowed.",
+    "msgBranchDisallowed": "Pushing to \"%s\" is not allowed, use git-flow.",
+    "msgPrefixNotAllowed": "Branch prefix \"%s\" is not allowed.",
+    "msgPrefixSuggestion": "Instead of \"%s\" try \"%s\".",
+    "msgseparatorRequired": "Branch \"%s\" must contain a separator \"%s\".",
+    "msgDoesNotMatchRegex": "Branch \"%s\" does not match the allowed pattern: \"%s\""
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "plugins": ["stylelint-scss", "stylelint-order"],
+  "rules": {
+    "at-rule-name-case": "lower",
+    "at-rule-no-unknown": null,
+    "color-named": "never",
+    "block-no-empty": true,
+    "color-hex-case": "lower",
+    "color-hex-length": "long",
+    "comment-no-empty": true,
+    "declaration-block-no-duplicate-custom-properties": true,
+    "declaration-block-no-duplicate-properties": true,
+    "declaration-block-no-shorthand-property-overrides": true,
+    "font-family-no-duplicate-names": true,
+    "font-family-no-missing-generic-family-keyword": true,
+    "font-weight-notation": "numeric",
+    "function-calc-no-invalid": true,
+    "function-linear-gradient-no-nonstandard-direction": true,
+    "keyframe-declaration-no-important": true,
+    "length-zero-no-unit": true,
+    "media-feature-name-no-unknown": true,
+    "no-duplicate-at-import-rules": true,
+    "no-duplicate-selectors": true,
+    "no-empty-source": true,
+    "no-extra-semicolons": true,
+    "no-invalid-position-at-import-rule": true,
+    "no-missing-end-of-source-newline": true,
+    "number-leading-zero": "always",
+    "number-no-trailing-zeros": true,
+    "order/properties-alphabetical-order": true,
+    "property-case": "lower",
+    "rule-empty-line-before": [
+      "always",
+      {
+        "except": ["first-nested"]
+      }
+    ],
+    "scss/at-rule-no-unknown": true,
+    "scss/dollar-variable-pattern": "^--hb-",
+    "scss/selector-no-redundant-nesting-selector": true,
+    "selector-pseudo-class-no-unknown": true,
+    "selector-pseudo-element-no-unknown": true,
+    "selector-type-no-unknown": true,
+    "shorthand-property-no-redundant-values": true,
+    "unit-allowed-list": ["px", "%", "deg"],
+    "unit-case": "lower",
+    "unit-no-unknown": true,
+    "value-keyword-case": "lower"
+  }
+}
