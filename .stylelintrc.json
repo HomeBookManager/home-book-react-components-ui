@@ -17,6 +17,7 @@
     "function-calc-no-invalid": true,
     "function-linear-gradient-no-nonstandard-direction": true,
     "keyframe-declaration-no-important": true,
+    "keyframes-name-pattern": "^((animation)((-([a-z]{1,})){1,})$)",
     "length-zero-no-unit": true,
     "media-feature-name-no-unknown": true,
     "no-duplicate-at-import-rules": true,
