@@ -8,15 +8,16 @@ import { getFiles } from './scripts/buildUtils';
 import { terser } from 'rollup-plugin-terser';
 
 // services
-import rollupPluginSvg from './src/services/library/rollup-plugin-svg';
+import rollupPluginSvg from './src/services/library/rollup-plugin-svg.lib';
 
-const extensions = ['.js', '.ts', '.jsx', '.tsx'];
-const excludeExtensions = ['.stories.tsx'];
+const extensions = ['.js', '.ts', '.tsx'];
+const excludeExtensions = ['.lib.js', '.stories.tsx'];
 
 export default {
   input: [
     './src/index.ts',
     ...getFiles('./src/components', extensions, excludeExtensions),
+    ...getFiles('./src/services', extensions, excludeExtensions),
   ],
   output: {
     dir: 'dist',
