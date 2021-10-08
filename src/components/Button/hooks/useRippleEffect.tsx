@@ -18,15 +18,13 @@ export const useRippleEffect = (
   ) => {
     const { style } = htmlSpan;
     const {
-      clientY,
-      clientX,
       currentTarget: { clientHeight, clientWidth, offsetLeft, offsetTop },
     } = event;
     const diameter = Math.max(clientWidth, clientHeight);
     const radius = diameter / 2;
 
-    style.left = `${clientX - offsetLeft - radius}px`;
-    style.top = `${clientY - offsetTop - radius}px`;
+    style.left = `${event.clientX - offsetLeft - radius}px`;
+    style.top = `${event.clientY - offsetTop - radius}px`;
     style.width = style.height = `${diameter}px`;
   };
 
@@ -34,11 +32,8 @@ export const useRippleEffect = (
     event: MouseEvent<HTMLButtonElement>,
     htmlSpan: HTMLSpanElement
   ) => {
-    const { currentTarget } = event;
-    const { classList } = htmlSpan;
-
-    classList.add(rippleClassName);
-    currentTarget.appendChild(htmlSpan);
+    htmlSpan.classList.add(rippleClassName);
+    event.currentTarget.appendChild(htmlSpan);
   };
 
   const clickHandler = useCallback(
