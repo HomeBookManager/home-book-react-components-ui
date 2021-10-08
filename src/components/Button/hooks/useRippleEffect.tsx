@@ -4,8 +4,8 @@ export const useRippleEffect = (
   rippleClassName: string
 ): ((event: MouseEvent<HTMLButtonElement>) => void) => {
   const removePreviouslyHTMLSpan = (event: MouseEvent<HTMLButtonElement>) => {
-    const { currentTarget } = event;
-    const ripple = currentTarget.getElementsByClassName(rippleClassName)[0];
+    const ripple =
+      event.currentTarget.getElementsByClassName(rippleClassName)[0];
 
     if (ripple) {
       ripple.remove();
