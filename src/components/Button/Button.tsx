@@ -24,7 +24,6 @@ export const Button: FC<TProps> = ({ children, onClick }) => {
   return (
     <button className="Button" onClick={onClickHandler}>
       {children}
-      {/* <span className="Button__ripple" /> */}
     </button>
   );
 };
