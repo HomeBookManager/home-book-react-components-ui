@@ -1,6 +1,6 @@
-@mixin ripple {
-  animation: animation-riple 400ms linear forwards;
-  background-color: rgba(99, 69, 69, 0.7);
+@mixin ripple($background-color: #ffffff) {
+  animation: animation-riple 750ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  background-color: $background-color;
   border-radius: 50%;
   position: absolute;
   transform: scale(0);

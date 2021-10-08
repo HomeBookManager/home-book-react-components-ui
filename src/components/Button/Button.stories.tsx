@@ -5,6 +5,7 @@ import Button from './Button';
 
 // others
 import { BASIC_BUTTON } from '../../stories/constants';
+import { Variant } from './constants';
 
 export default {
   component: Button,
@@ -17,6 +18,8 @@ export default {
   title: BASIC_BUTTON,
 } as ComponentMeta<typeof Button>;
 
-const Template: ComponentStory<typeof Button> = () => <Button>Button</Button>;
+const Template: ComponentStory<typeof Button> = () => (
+  <Button variant={Variant.contained}>Button</Button>
+);
 
 export const BasicButton = Template.bind({});
