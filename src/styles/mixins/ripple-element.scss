@@ -1,0 +1,14 @@
+@mixin ripple {
+  animation: animation-riple 400ms linear forwards;
+  background-color: rgba(99, 69, 69, 0.7);
+  border-radius: 50%;
+  position: absolute;
+  transform: scale(0);
+}
+
+@keyframes animation-riple {
+  to {
+    opacity: 0;
+    transform: scale(4);
+  }
+}

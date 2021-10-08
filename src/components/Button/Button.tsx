@@ -11,7 +11,7 @@ export type TProps = {
 };
 
 export const Button: FC<TProps> = ({ children, onClick }) => {
-  const rippleEffect = useRippleEffect();
+  const rippleEffect = useRippleEffect('Button__ripple');
 
   const onClickHandler = (event: MouseEvent<HTMLButtonElement>): void => {
     rippleEffect(event);

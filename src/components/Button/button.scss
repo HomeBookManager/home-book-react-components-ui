@@ -1,3 +1,5 @@
+@import '../../styles/mixins/ripple-element.scss';
+
 .Button {
   background-color: #6200ee;
   border: none;
@@ -9,17 +11,6 @@
   transition: background 0.4s;
 
   &__ripple {
-    animation: riple 0.25s linear forwards;
-    background-color: rgba(99, 69, 69, 0.7);
-    border-radius: 50%;
-    position: absolute;
-    transform: scale(0);
-  }
-}
-
-@keyframes riple {
-  to {
-    opacity: 0;
-    transform: scale(4);
+    @include ripple;
   }
 }

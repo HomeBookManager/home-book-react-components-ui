@@ -1,8 +1,8 @@
 import { MouseEvent, useCallback } from 'react';
 
-export const useRippleEffect = (): ((
-  event: MouseEvent<HTMLButtonElement>
-) => void) => {
+export const useRippleEffect = (
+  rippleClassName: string
+): ((event: MouseEvent<HTMLButtonElement>) => void) => {
   const adjustHTMLSpanBeforeAppend = (
     event: MouseEvent<HTMLButtonElement>,
     htmlSpan: HTMLSpanElement
@@ -16,9 +16,9 @@ export const useRippleEffect = (): ((
     const diameter = Math.max(clientWidth, clientHeight);
     const radius = diameter / 2;
 
-    style.width = style.height = `${diameter}px`;
     style.left = `${clientX - offsetLeft - radius}px`;
     style.top = `${clientY - offsetTop - radius}px`;
+    style.width = style.height = `${diameter}px`;
   };
 
   const appendHTMLSpanToButton = (
@@ -27,13 +27,13 @@ export const useRippleEffect = (): ((
   ) => {
     const { currentTarget } = event;
     const { classList } = htmlSpan;
-    const ripple = currentTarget.getElementsByClassName('Button__ripple')[0];
-
-    classList.add('Button__ripple');
+    const ripple = currentTarget.getElementsByClassName(rippleClassName)[0];
 
     if (ripple) {
       ripple.remove();
     }
+
+    classList.add(rippleClassName);
     currentTarget.appendChild(htmlSpan);
   };
 
