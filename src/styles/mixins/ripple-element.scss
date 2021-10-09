@@ -1,7 +1,8 @@
-@mixin ripple($background-color: #000000) {
+@mixin ripple($background-color) {
   animation: 0.9s ease 1 forwards animation-riple;
   background-color: $background-color;
   border-radius: 9999px;
+  filter: brightness(1.5);
   height: 20px;
   position: absolute;
   width: 20px;

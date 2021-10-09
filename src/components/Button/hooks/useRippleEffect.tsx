@@ -1,6 +1,7 @@
 import { MouseEvent, useEffect, useState } from 'react';
 
 const initialCoords = { x: -1, y: -1 };
+export const className = 'ripple';
 
 export const useRippleEffect = (
   className: string

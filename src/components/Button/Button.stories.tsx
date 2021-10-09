@@ -19,7 +19,11 @@ export default {
 } as ComponentMeta<typeof Button>;
 
 const Template: ComponentStory<typeof Button> = () => (
-  <Button variant={Variant.contained}>Button</Button>
+  <>
+    <Button variant={Variant.default}>Button</Button>
+    <Button variant={Variant.contained}>Button</Button>
+    <Button variant={Variant.outlined}>Button</Button>
+  </>
 );
 
 export const BasicButton = Template.bind({});

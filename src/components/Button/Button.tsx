@@ -1,28 +1,39 @@
 import { FC, MouseEvent, ReactNode } from 'react';
 
 // hooks
-import { useRippleEffect } from './hooks/useRippleEffect';
+import {
+  className as rippleClassName,
+  useRippleEffect,
+} from './hooks/useRippleEffect';
 
 // others
-import { className, Variant } from './constants';
+import { className, Color, Variant } from './constants';
 
 // styles
 import './button.scss';
 
 export type TProps = {
   children?: ReactNode | string;
+  color?: Color;
+  disabled?: boolean;
   onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
   variant?: Variant;
 };
 
 export const Button: FC<TProps> = ({
   children,
+  color = Color.primary,
+  disabled = false,
   onClick,
   variant = Variant.default,
 }) => {
+  const styleClassNames = [
+    className,
+    `${className}__${variant}`,
+    `${className}__${variant}--${color}`,
+  ];
   const { clickHandler: clickHandlerRipple, component: Component } =
-    useRippleEffect('Button__ripple');
-  const styleClassNames = [className, `${className}__${variant}`];
+    useRippleEffect(`${className}__${variant}--${color}__${rippleClassName}`);
 
   const onClickHandler = (event: MouseEvent<HTMLButtonElement>): void => {
     clickHandlerRipple(event);
@@ -33,7 +44,11 @@ export const Button: FC<TProps> = ({
   };
 
   return (
-    <button className={styleClassNames.join(' ')} onClick={onClickHandler}>
+    <button
+      className={styleClassNames.join(' ')}
+      disabled={disabled}
+      onClick={onClickHandler}
+    >
       {children}
       {Component && <Component />}
     </button>

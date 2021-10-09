@@ -1,0 +1,26 @@
+@import './button.scss';
+
+$--hb-text-map: (
+  default-primary: $--hb-btn-default-primary-text,
+  default-primary-hover: $--hb-btn-default-primary-text-hover,
+  default-primary-disabled: $--hb-btn-default-primary-text-disabled,
+  contained-primary: $--hb-btn-contained-primary-text,
+  contained-primary-hover: $--hb-btn-contained-primary-text-hover,
+  contained-primary-disabled: $--hb-btn-contained-primary-text-disabled,
+  outlined-primary: $--hb-btn-outlined-primary-text,
+  outlined-primary-hover: $--hb-btn-outlined-primary-text-hover,
+  outlined-primary-disabled: $--hb-btn-outlined-primary-text-disabled,
+);
+
+$--hb-background-color-map: (
+  default-primary-hover: $--hb-btn-default-primary-background-hover,
+  contained-primary: $--hb-btn-contained-primary-background,
+  contained-primary-hover: $--hb-btn-contained-primary-background-hover,
+  contained-primary-disabled: $--hb-btn-contained-primary-background-disabled,
+);
+
+$--hb-border-map: (
+  outlined-primary: $--hb-btn-outlined-primary-border,
+  outlined-primary-hover: $--hb-btn-outlined-primary-border-hover,
+  outlined-primary-disabled: $--hb-btn-outlined-primary-border-disabled,
+);

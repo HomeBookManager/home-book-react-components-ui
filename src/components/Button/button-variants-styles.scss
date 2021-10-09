@@ -1,0 +1,98 @@
+@import '../../styles/colors/button/button-map.scss';
+@import '../../styles/mixins/ripple-element.scss';
+
+@mixin idle-styles($variant, $color) {
+  @if $variant == 'contained' {
+    background-color: map-get(
+      $--hb-background-color-map,
+      $variant + '-' + $color
+    );
+  } @else if $variant == 'outlined' {
+    border-color: map-get($--hb-border-map, $variant + '-' + $color);
+  }
+}
+
+@mixin hover-styles($variant, $color) {
+  @if $variant != 'outlined' {
+    background-color: map-get(
+      $--hb-background-color-map,
+      $variant + '-' + $color + '-hover'
+    );
+  } @else {
+    border-color: map-get($--hb-border-map, $variant + '-' + $color + '-hover');
+  }
+}
+
+@mixin disabled-styles($variant, $color) {
+  @if $variant == 'contained' {
+    background-color: map-get(
+      $--hb-background-color-map,
+      $variant + '-' + $color + '-disabled'
+    );
+  } @else if $variant == 'outlined' {
+    border-color: map-get(
+      $--hb-border-map,
+      $variant + '-' + $color + '-disabled'
+    );
+  }
+}
+
+@mixin ripple-styles($variant, $color) {
+  @if $variant == 'default' {
+    @include ripple(
+      map-get($--hb-text-map, $variant + '-' + $color + '-hover')
+    );
+  } @else if $variant == 'contained' {
+    @include ripple(
+      map-get($--hb-background-color-map, $variant + '-' + $color + '-hover')
+    );
+  } @else {
+    @include ripple(
+      map-get($--hb-border-map, $variant + '-' + $color + '-hover')
+    );
+  }
+}
+
+@mixin color-styles($variant, $color: 'primary') {
+  color: map-get($--hb-text-map, $variant + '-' + $color);
+  @include idle-styles($variant, $color);
+
+  &:hover:enabled {
+    color: map-get($--hb-text-map, $variant + '-' + $color + '-hover');
+    @include hover-styles($variant, $color);
+  }
+
+  &:disabled {
+    color: map-get($--hb-text-map, $variant + '-' + $color + '-disabled');
+    cursor: not-allowed;
+    @include disabled-styles($variant, $color);
+  }
+
+  &__ripple {
+    @include ripple-styles($variant, $color);
+  }
+}
+
+@mixin variant-styles($variant: 'default') {
+  &--primary {
+    @include color-styles($variant);
+  }
+}
+
+@mixin button-variant-styles {
+  &__default {
+    background: unset;
+    @include variant-styles;
+  }
+
+  &__contained {
+    box-shadow: 0 1px 2px 0 #969696;
+    @include variant-styles('contained');
+  }
+
+  &__outlined {
+    background: unset;
+    border: 1px solid;
+    @include variant-styles('outlined');
+  }
+}

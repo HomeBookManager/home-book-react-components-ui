@@ -1,4 +1,4 @@
-@import '../../styles/mixins/ripple-element.scss';
+@import './button-variants-styles.scss';
 
 .Button {
   border: none;
@@ -11,20 +11,5 @@
     box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
     border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
     color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-
-  &__ripple {
-    @include ripple;
-  }
-
-  &__default {
-    background: unset;
-  }
-
-  &__contained {
-    box-shadow: 0 1px 2px 0 #969696;
-  }
-
-  &__outlined {
-    background: unset;
-  }
+  @include button-variant-styles;
 }
