@@ -1,51 +1,50 @@
-import { MouseEvent, useCallback } from 'react';
+import { MouseEvent, useEffect, useState } from 'react';
 
 export const useRippleEffect = (
-  rippleClassName: string
-): ((event: MouseEvent<HTMLButtonElement>) => void) => {
-  const removePreviouslyHTMLSpan = (event: MouseEvent<HTMLButtonElement>) => {
-    const ripple =
-      event.currentTarget.getElementsByClassName(rippleClassName)[0];
+  className: string
+): {
+  clickHandler: (event: MouseEvent<HTMLButtonElement>) => void;
+  component: (() => JSX.Element) | null;
+} => {
+  const initialCoords = { x: -1, y: -1 };
+  const [coords, setCoords] = useState(initialCoords);
+  const [isRippling, setIsRippling] = useState(false);
+  const component = isRippling
+    ? (): JSX.Element => (
+        <span
+          className={className}
+          style={{
+            left: coords.x,
+            top: coords.y,
+          }}
+        />
+      )
+    : null;
 
-    if (ripple) {
-      ripple.remove();
+  const clickHandler = (event: MouseEvent<HTMLButtonElement>): void => {
+    const { clientX, clientY, currentTarget } = event;
+    const { left, top } = currentTarget.getBoundingClientRect();
+
+    setCoords({
+      x: clientX - left,
+      y: clientY - top,
+    });
+  };
+
+  useEffect(() => {
+    if (coords.x !== -1 && coords.y !== -1) {
+      setIsRippling(true);
+      setTimeout(() => setIsRippling(false), 300);
+    } else {
+      setIsRippling(false);
     }
-  };
+  }, [coords]);
 
-  const adjustHTMLSpanBeforeAppend = (
-    event: MouseEvent<HTMLButtonElement>,
-    htmlSpan: HTMLSpanElement
-  ) => {
-    const { style } = htmlSpan;
-    const {
-      currentTarget: { clientHeight, clientWidth, offsetLeft, offsetTop },
-    } = event;
-    const diameter = Math.max(clientWidth, clientHeight);
-    const radius = diameter / 2;
+  useEffect(() => {
+    if (!isRippling) {
+      setCoords(initialCoords);
+    }
+  }, [isRippling]);
 
-    style.left = `${event.clientX - offsetLeft - radius}px`;
-    style.top = `${event.clientY - offsetTop - radius}px`;
-    style.width = style.height = `${diameter}px`;
-  };
-
-  const appendHTMLSpan = (
-    event: MouseEvent<HTMLButtonElement>,
-    htmlSpan: HTMLSpanElement
-  ) => {
-    htmlSpan.classList.add(rippleClassName);
-    event.currentTarget.appendChild(htmlSpan);
-  };
-
-  const clickHandler = useCallback(
-    (event: MouseEvent<HTMLButtonElement>): void => {
-      const htmlSpan = document.createElement('span');
-
-      removePreviouslyHTMLSpan(event);
-      adjustHTMLSpanBeforeAppend(event, htmlSpan);
-      appendHTMLSpan(event, htmlSpan);
-    },
-    []
-  );
-
-  return clickHandler;
+  return { clickHandler, component };
 };

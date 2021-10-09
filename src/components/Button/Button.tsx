@@ -4,7 +4,7 @@ import { FC, MouseEvent, ReactNode } from 'react';
 import { useRippleEffect } from './hooks/useRippleEffect';
 
 // others
-import { Variant } from './constants';
+import { className, Variant } from './constants';
 
 // styles
 import './button.scss';
@@ -20,12 +20,12 @@ export const Button: FC<TProps> = ({
   onClick,
   variant = Variant.default,
 }) => {
-  const rippleEffect = useRippleEffect('Button__ripple');
-  const className = 'Button';
+  const { clickHandler: clickHandlerRipple, component: Component } =
+    useRippleEffect('Button__ripple');
   const styleClassNames = [className, `${className}__${variant}`];
 
   const onClickHandler = (event: MouseEvent<HTMLButtonElement>): void => {
-    rippleEffect(event);
+    clickHandlerRipple(event);
 
     if (onClick) {
       onClick(event);
@@ -35,6 +35,7 @@ export const Button: FC<TProps> = ({
   return (
     <button className={styleClassNames.join(' ')} onClick={onClickHandler}>
       {children}
+      {Component && <Component />}
     </button>
   );
 };
