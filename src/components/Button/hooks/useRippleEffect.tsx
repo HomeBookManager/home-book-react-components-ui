@@ -1,12 +1,13 @@
 import { MouseEvent, useEffect, useState } from 'react';
 
+const initialCoords = { x: -1, y: -1 };
+
 export const useRippleEffect = (
   className: string
 ): {
   clickHandler: (event: MouseEvent<HTMLButtonElement>) => void;
   component: (() => JSX.Element) | null;
 } => {
-  const initialCoords = { x: -1, y: -1 };
   const [coords, setCoords] = useState(initialCoords);
   const [isRippling, setIsRippling] = useState(false);
   const component = isRippling
