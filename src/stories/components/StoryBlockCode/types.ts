@@ -7,7 +7,13 @@ export type TBlockCodeData = {
   children?: ReactNode | string;
 };
 
+export type TImportContext = {
+  itemsToImports: string;
+  path: string;
+};
+
 export type TBlockCode = {
   data: Array<TBlockCodeData>;
   componentName: string;
+  importsContext: Array<TImportContext>;
 };

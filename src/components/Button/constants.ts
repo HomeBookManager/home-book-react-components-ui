@@ -1,4 +1,5 @@
 // others
+import { libraryName } from '../../constants';
 import { TBlockCode } from 'stories/components/StoryBlockCode/types';
 
 export const className = 'Button';
@@ -34,6 +35,12 @@ export const blockCodeData: TBlockCode = {
     {
       attributes: [{ name: 'variant', value: 'Variant.outlined' }],
       children: Variant.outlined,
+    },
+  ],
+  importsContext: [
+    {
+      itemsToImports: '{ Button, Variant }',
+      path: libraryName,
     },
   ],
 };

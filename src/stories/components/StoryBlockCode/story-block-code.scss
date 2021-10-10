@@ -5,7 +5,29 @@
   margin-top: 50px;
   padding: 16px;
 
-  &__code {
+  &__imports {
+    color: #eaeef3;
+    font-size: 13px;
+    margin: 0;
+  }
+
+  &__import {
+    color: #999999;
+
+    &-from {
+      color: #999999;
+    }
+
+    &-path {
+      color: #a6e22e;
+    }
+  }
+
+  &__separator {
+    margin: 25px 0;
+  }
+
+  &__components {
     color: #eaeef3;
     font-size: 13px;
   }
