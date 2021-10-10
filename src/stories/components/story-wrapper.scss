@@ -1,0 +1,44 @@
+.StoryWrapper {
+  font-family: PlusJakartaSans-Bold, -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol';
+  margin: 0 auto;
+  max-width: 1000px;
+  padding: 64px 20px;
+  width: 100%;
+
+  &__title {
+    color: #eaeef3;
+    font-size: 30px;
+    margin: 40px 0 10px;
+  }
+
+  &__description {
+    color: #aab4be;
+    font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+      Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji',
+      'Segoe UI Emoji', 'Segoe UI Symbol';
+    font-size: 16px;
+
+    & > code {
+      background-color: #66b2ff26;
+      border-radius: 5px;
+      color: #ffffff;
+      font-family: Consolas, Menlo, Monaco, 'Andale Mono', 'Ubuntu Mono',
+        monospace;
+      font-size: 13px;
+      font-weight: 400;
+      padding: 0 5px;
+    }
+  }
+
+  &__content {
+    border: 1px solid #ffffff1f;
+    border-radius: 10px;
+    display: grid;
+    grid-column-gap: 25px;
+    grid-template-columns: repeat(3, auto);
+    justify-content: center;
+    padding: 24px;
+  }
+}
