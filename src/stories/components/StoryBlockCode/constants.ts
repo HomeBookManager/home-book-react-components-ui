@@ -7,4 +7,5 @@ export enum ClassNameContext {
   importItems = 'class="StoryBlockCode__import-items"',
   importFrom = 'class="StoryBlockCode__import-from"',
   importPath = 'class="StoryBlockCode__import-path"',
+  importSemicolon = 'class="StoryBlockCode__import-semicolon"',
 }

@@ -11,6 +11,7 @@ const getContextHTMLImport = ({ itemsToImports, path }: TImportContext) =>
     getSpanWithClosure(ClassNameContext.importItems, itemsToImports),
     getSpanWithClosure(ClassNameContext.importFrom, 'from'),
     getSpanWithClosure(ClassNameContext.importPath, `'${path}'`),
+    getSpanWithClosure(ClassNameContext.importSemicolon, ';'),
   ].join(' ');
 
 export default getContextHTMLImport;
