@@ -2,14 +2,14 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import capitalize from 'lodash/capitalize';
 
 // components
-import Button from './Button';
-import StoryComponent from '../../stories/components/StoryComponent/StoryComponent';
+import Button from '../Button';
+import StoryComponent from '../../../stories/components/StoryComponent/StoryComponent';
 
 // others
-import { BASIC_BUTTON } from '../../stories/constants';
-import { Color, Variant } from './constants';
-import { libraryName } from '../../constants';
-import { TBlockCode } from 'stories/components/StoryBlockCode/types';
+import { BASIC_BUTTON } from '../../../stories/constants';
+import { Color, Variant } from '../constants';
+import { libraryName } from '../../../constants';
+import { TBlockCode } from '../../../stories/components/StoryBlockCode/types';
 
 const description =
   'The <code>Button</code> comes with three variants: text (default), contained, and outlined.';
