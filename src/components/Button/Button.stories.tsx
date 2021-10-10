@@ -5,7 +5,7 @@ import Button from './Button';
 
 // others
 import { BASIC_BUTTON } from '../../stories/constants';
-import { Variant } from './constants';
+import { Color, Variant } from './constants';
 
 export default {
   component: Button,
@@ -23,6 +23,47 @@ const Template: ComponentStory<typeof Button> = () => (
     <Button variant={Variant.default}>Button</Button>
     <Button variant={Variant.contained}>Button</Button>
     <Button variant={Variant.outlined}>Button</Button>
+    <br />
+    <Button color={Color.secondary} variant={Variant.default}>
+      Button
+    </Button>
+    <Button color={Color.secondary} variant={Variant.contained}>
+      Button
+    </Button>
+    <Button color={Color.secondary} variant={Variant.outlined}>
+      Button
+    </Button>
+    <br />
+    <Button color={Color.succes} variant={Variant.default}>
+      Button
+    </Button>
+    <Button color={Color.succes} variant={Variant.contained}>
+      Button
+    </Button>
+    <Button color={Color.succes} variant={Variant.outlined}>
+      Button
+    </Button>
+    <br />
+
+    <Button color={Color.warning} variant={Variant.default}>
+      Button
+    </Button>
+    <Button color={Color.warning} variant={Variant.contained}>
+      Button
+    </Button>
+    <Button color={Color.warning} variant={Variant.outlined}>
+      Button
+    </Button>
+    <br />
+    <Button color={Color.error} variant={Variant.default}>
+      Button
+    </Button>
+    <Button color={Color.error} variant={Variant.contained}>
+      Button
+    </Button>
+    <Button color={Color.error} variant={Variant.outlined}>
+      Button
+    </Button>
   </>
 );
 

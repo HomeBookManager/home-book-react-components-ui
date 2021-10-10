@@ -18,6 +18,10 @@
       $--hb-background-color-map,
       $variant + '-' + $color + '-hover'
     );
+
+    @if $variant == 'contained' {
+      box-shadow: 0 1px 2px 0 #58585875, 0 1px 3px 1px #58585875;
+    }
   } @else {
     border-color: map-get($--hb-border-map, $variant + '-' + $color + '-hover');
   }
@@ -77,6 +81,22 @@
   &--primary {
     @include color-styles($variant);
   }
+
+  &--secondary {
+    @include color-styles($variant, 'secondary');
+  }
+
+  &--success {
+    @include color-styles($variant, 'success');
+  }
+
+  &--warning {
+    @include color-styles($variant, 'warning');
+  }
+
+  &--error {
+    @include color-styles($variant, 'error');
+  }
 }
 
 @mixin button-variant-styles {
@@ -86,7 +106,6 @@
   }
 
   &__contained {
-    box-shadow: 0 1px 2px 0 #969696;
     @include variant-styles('contained');
   }
 

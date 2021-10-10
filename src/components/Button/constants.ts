@@ -5,7 +5,7 @@ export enum Color {
   secondary = 'secondary',
   succes = 'success',
   warning = 'warning',
-  error = 'warning',
+  error = 'error',
 }
 
 export enum Variant {
