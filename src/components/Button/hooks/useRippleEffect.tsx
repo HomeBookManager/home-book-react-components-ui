@@ -1,6 +1,5 @@
 import { MouseEvent, useEffect, useState } from 'react';
 
-const initialCoords = { x: -1, y: -1 };
 export const className = 'ripple';
 
 export const useRippleEffect = (
@@ -9,7 +8,7 @@ export const useRippleEffect = (
   clickHandler: (event: MouseEvent<HTMLButtonElement>) => void;
   component: (() => JSX.Element) | null;
 } => {
-  const [coords, setCoords] = useState(initialCoords);
+  const [coords, setCoords] = useState({ x: -1, y: -1 });
   const [isRippling, setIsRippling] = useState(false);
   const component = isRippling
     ? (): JSX.Element => (
@@ -37,16 +36,8 @@ export const useRippleEffect = (
     if (coords.x !== -1 && coords.y !== -1) {
       setIsRippling(true);
       setTimeout(() => setIsRippling(false), 300);
-    } else {
-      setIsRippling(false);
     }
   }, [coords]);
-
-  useEffect(() => {
-    if (!isRippling) {
-      setCoords(initialCoords);
-    }
-  }, [isRippling]);
 
   return { clickHandler, component };
 };
