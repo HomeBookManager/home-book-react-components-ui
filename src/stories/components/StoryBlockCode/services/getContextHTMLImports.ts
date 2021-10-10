@@ -1,11 +1,11 @@
 // others
-import { TImportContext } from './../types';
+import { TImport } from './../types';
 import { ClassNameContext } from '../constants';
 
 // services
 import { getSpanWithClosure } from './common';
 
-const getContextHTMLImport = ({ itemsToImports, path }: TImportContext) =>
+const getContextHTMLImport = ({ items: itemsToImports, path }: TImport) =>
   [
     getSpanWithClosure(ClassNameContext.import, 'import'),
     getSpanWithClosure(ClassNameContext.importItems, itemsToImports),

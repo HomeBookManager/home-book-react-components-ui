@@ -16,9 +16,8 @@ const description =
 
 const blockCodeData: TBlockCode = {
   componentName: 'Button',
-  data: [
+  components: [
     {
-      attributes: [{ name: 'variant' }],
       children: Variant.default,
     },
     {
@@ -30,9 +29,9 @@ const blockCodeData: TBlockCode = {
       children: Variant.outlined,
     },
   ],
-  importsContext: [
+  imports: [
     {
-      itemsToImports: '{ Button, Variant }',
+      items: '{ Button, Variant }',
       path: libraryName,
     },
   ],

@@ -1,5 +1,5 @@
 // others
-import { TBlockCodeAttributes, TBlockCodeData } from '../types';
+import { TComponentAttributes, TComponent } from '../types';
 import { ClassNameContext } from '../constants';
 
 // services
@@ -12,16 +12,16 @@ const getContextAttributeValue = (value: any) =>
   getSpanWithClosure(ClassNameContext.attributeValue, value);
 
 const getContextAttribute = (
-  attributes: Array<TBlockCodeAttributes>
+  attributes: Array<TComponentAttributes>
 ): string => {
   const context = attributes
     .map(
       ({ name, value }) =>
-        `${getContextAttributeName(name)}${
+        ` ${getContextAttributeName(name)}${
           value ? `="${getContextAttributeValue(value)}"` : ''
         }`
     )
-    .join(' ');
+    .join('');
 
   return getSpanWithClosure(ClassNameContext.attribute, context);
 };
@@ -32,23 +32,23 @@ const getBeginingOfContextComponent = (
 ): string =>
   `<${getSpanWithClosure(
     ClassNameContext.componentName,
-    `${componentName} ${mappedAttributes}`
+    `${componentName}${mappedAttributes}`
   )}`;
 
 const getContextHTMLComponents = (
-  { attributes = [], children }: TBlockCodeData,
+  { attributes = [], children }: TComponent,
   componentName: string
 ): string => {
-  const parsedAttributes = getContextAttribute(attributes);
+  const mappedAttributes = getContextAttribute(attributes);
 
   return !!children
     ? `${getBeginingOfContextComponent(
         componentName,
-        parsedAttributes
+        mappedAttributes
       )}>${children}<&#47;<span ${
         ClassNameContext.componentName
       }>${componentName}</span>>`
-    : `${getBeginingOfContextComponent(componentName, parsedAttributes)} />`;
+    : `${getBeginingOfContextComponent(componentName, mappedAttributes)} />`;
 };
 
 export default getContextHTMLComponents;

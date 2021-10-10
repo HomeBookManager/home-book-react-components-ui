@@ -1,19 +1,19 @@
 import { ReactNode } from 'react';
 
-export type TBlockCodeAttributes = { name: string; value?: string };
+export type TComponentAttributes = { name: string; value?: string };
 
-export type TBlockCodeData = {
-  attributes?: Array<TBlockCodeAttributes>;
+export type TComponent = {
+  attributes?: Array<TComponentAttributes>;
   children?: ReactNode | string;
 };
 
-export type TImportContext = {
-  itemsToImports: string;
+export type TImport = {
+  items: string;
   path: string;
 };
 
 export type TBlockCode = {
-  data: Array<TBlockCodeData>;
+  components: Array<TComponent>;
   componentName: string;
-  importsContext: Array<TImportContext>;
+  imports: Array<TImport>;
 };
