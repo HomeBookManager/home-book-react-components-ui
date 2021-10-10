@@ -32,6 +32,7 @@
     "no-else-return": 1,
     "no-empty-function": 0,
     "no-extra-bind": 1,
+    "no-extra-boolean-cast": 0,
     "no-floating-decimal": 1,
     "no-multi-spaces": 1,
     "react/display-name": 0,

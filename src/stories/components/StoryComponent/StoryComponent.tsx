@@ -1,15 +1,25 @@
 import { FC, ReactNode } from 'react';
 
+// components
+import StoryBlockCode, {
+  TProps as TStoryBlockCodeProps,
+} from '../StoryBlockCode/StoryBlockCode';
+
 // styles
 import './story-wrapper.scss';
 
-type TProps = {
+type TProps = TStoryBlockCodeProps & {
   children: ReactNode;
   description: string;
   title: string;
 };
 
-const StoryComponent: FC<TProps> = ({ children, description, title }) => (
+const StoryComponent: FC<TProps> = ({
+  children,
+  description,
+  title,
+  ...restProps
+}) => (
   <main className="StoryWrapper">
     <h2 className="StoryWrapper__title">{title}</h2>
     <p
@@ -17,6 +27,7 @@ const StoryComponent: FC<TProps> = ({ children, description, title }) => (
       dangerouslySetInnerHTML={{ __html: description }}
     />
     <section className="StoryWrapper__content">{children}</section>
+    <StoryBlockCode {...restProps} />
   </main>
 );
 

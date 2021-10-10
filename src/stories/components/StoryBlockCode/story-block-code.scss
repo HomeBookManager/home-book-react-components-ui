@@ -1,0 +1,28 @@
+.StoryBlockCode {
+  background-color: #444444;
+  border: 1px solid #ffffff1f;
+  border-radius: 10px;
+  margin-top: 50px;
+  padding: 16px;
+
+  &__code {
+    color: #eaeef3;
+    font-size: 13px;
+  }
+
+  &__component-name {
+    color: #2a88ff;
+  }
+
+  &__attribute {
+    color: #eaeef3;
+
+    &--name {
+      color: #e6db74;
+    }
+
+    &--value {
+      color: #a6e22e;
+    }
+  }
+}

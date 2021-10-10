@@ -3,11 +3,11 @@ import capitalize from 'lodash/capitalize';
 
 // components
 import Button from './Button';
-import StoryComponent from '../../stories/components/StoryComponent';
+import StoryComponent from '../../stories/components/StoryComponent/StoryComponent';
 
 // others
 import { BASIC_BUTTON } from '../../stories/constants';
-import { Color, Variant } from './constants';
+import { blockCodeData, Color, description, Variant } from './constants';
 
 export default {
   component: Button,
@@ -20,11 +20,12 @@ export default {
   title: BASIC_BUTTON,
 } as ComponentMeta<typeof Button>;
 
-const description =
-  'The <code>Button</code> comes with three variants: text (default), contained, and outlined.';
-
 const Template: ComponentStory<typeof Button> = (args) => (
-  <StoryComponent description={description} title="Basic button">
+  <StoryComponent
+    blockCodeData={blockCodeData}
+    description={description}
+    title="Basic button"
+  >
     {Object.keys(Variant).map((variant, key) => (
       // @ts-ignore
       <Button key={key} variant={Variant[variant]} {...args}>
