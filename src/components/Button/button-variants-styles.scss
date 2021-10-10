@@ -61,6 +61,7 @@
   color: map-get($--hb-text-map, $variant + '-' + $color);
   @include idle-styles($variant, $color);
 
+  &-forced-hover,
   &:hover:enabled {
     color: map-get($--hb-text-map, $variant + '-' + $color + '-hover');
     @include hover-styles($variant, $color);

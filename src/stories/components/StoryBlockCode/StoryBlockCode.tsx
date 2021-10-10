@@ -1,7 +1,7 @@
 import { FC } from 'react';
 
 // others
-import { TBlockCode } from './types';
+import { TStoryBlockCode } from './types';
 
 // services
 import getContextHTMLComponents from './services/getContextHTMLComponents';
@@ -11,7 +11,7 @@ import getContextHTMLImport from './services/getContextHTMLImports';
 import './story-block-code.scss';
 
 export type TProps = {
-  blockCodeData: TBlockCode;
+  blockCodeData: TStoryBlockCode;
 };
 
 const StoryBlockCode: FC<TProps> = ({ blockCodeData }) => {

@@ -12,7 +12,7 @@ export type TImport = {
   path: string;
 };
 
-export type TBlockCode = {
+export type TStoryBlockCode = {
   components: Array<TComponent>;
   componentName: string;
   imports: Array<TImport>;
