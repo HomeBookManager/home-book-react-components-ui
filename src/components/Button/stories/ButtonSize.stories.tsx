@@ -70,7 +70,7 @@ const blockCodeData: TStoryBlockCode = {
   ],
   imports: [
     {
-      items: '{ Button, Variant }',
+      items: '{ Button, Size, Variant }',
       path: libraryName,
     },
   ],
