@@ -9,8 +9,8 @@ import StoryBlockCode, {
 import './story-wrapper.scss';
 
 type TProps = TStoryBlockCodeProps & {
-  children: ReactNode;
-  description: Array<string>;
+  children?: ReactNode;
+  description?: Array<string>;
   title: string;
 };
 
@@ -29,7 +29,9 @@ const StoryComponent: FC<TProps> = ({
         key={key}
       />
     ))}
-    <section className="StoryWrapper__content">{children}</section>
+    {children && (
+      <section className="StoryWrapper__content">{children}</section>
+    )}
     <StoryBlockCode {...restProps} />
   </main>
 );
