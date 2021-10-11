@@ -14,51 +14,69 @@ import './button.scss';
 
 export type TProps = {
   children?: ReactNode | string;
+  classes?: string;
   color?: Color;
   disabled?: boolean;
+  disableRippleEffect?: boolean;
   endIcon?: string;
   forcedHover?: boolean;
+  fullWidth?: boolean;
+  href?: string;
   onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
   size?: Size;
   startIcon?: string;
+  style?: { [key: string]: number | string };
   variant?: Variant;
 };
 
 export const Button: FC<TProps> = ({
   children,
+  classes = '',
   color = Color.primary,
   disabled = false,
+  disableRippleEffect = false,
   endIcon,
   forcedHover = false,
+  fullWidth = false,
   onClick,
   size = Size.medium,
   startIcon,
+  style = {},
   variant = Variant.default,
 }) => {
-  const styleClassNames = [
-    className,
-    `${className}__${size}`,
-    `${className}__${variant}`,
-    `${className}__${variant}--${color}`,
-    `${className}__${variant}--${color}${forcedHover ? '-forced-hover' : ''}`,
-  ];
   const iconStyleClassNames = `${className}__icon ${className}__icon--${size}`;
   const { clickHandler: clickHandlerRipple, component: Component } =
     useRippleEffect(`${className}__${variant}--${color}__${rippleClassName}`);
 
   const onClickHandler = (event: MouseEvent<HTMLButtonElement>): void => {
-    clickHandlerRipple(event);
+    if (!disableRippleEffect) {
+      clickHandlerRipple(event);
+    }
 
     if (onClick) {
       onClick(event);
     }
   };
 
+  const getStyleClassNames = (): string =>
+    [
+      className,
+      classes,
+      `${fullWidth ? `${className}__full-width` : ''}`,
+      `${className}__${size}`,
+      `${className}__${variant}`,
+      `${className}__${variant}--${color}`,
+      `${className}__${variant}--${color}${forcedHover ? '-forced-hover' : ''}`,
+    ]
+      .filter((className) => className)
+      .join(' ');
+
   return (
     <button
-      className={styleClassNames.join(' ')}
+      className={getStyleClassNames()}
       disabled={disabled}
       onClick={onClickHandler}
+      style={style}
     >
       {startIcon && (
         <img
