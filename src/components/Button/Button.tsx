@@ -7,7 +7,7 @@ import {
 } from './hooks/useRippleEffect';
 
 // others
-import { className, Color, Variant } from './constants';
+import { className, Color, Size, Variant } from './constants';
 
 // styles
 import './button.scss';
@@ -18,6 +18,7 @@ export type TProps = {
   disabled?: boolean;
   forcedHover?: boolean;
   onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
+  size?: Size;
   variant?: Variant;
 };
 
@@ -27,10 +28,12 @@ export const Button: FC<TProps> = ({
   disabled = false,
   forcedHover = false,
   onClick,
+  size = Size.medium,
   variant = Variant.default,
 }) => {
   const styleClassNames = [
     className,
+    `${className}__${size}`,
     `${className}__${variant}`,
     `${className}__${variant}--${color}`,
     `${className}__${variant}--${color}${forcedHover ? '-forced-hover' : ''}`,

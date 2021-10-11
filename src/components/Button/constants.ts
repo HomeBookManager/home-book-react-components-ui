@@ -10,6 +10,12 @@ export enum Color {
   error = 'error',
 }
 
+export enum Size {
+  small = 'small',
+  medium = 'medium',
+  large = 'large',
+}
+
 export enum Variant {
   default = 'default',
   contained = 'contained',

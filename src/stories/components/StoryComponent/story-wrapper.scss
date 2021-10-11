@@ -33,12 +33,23 @@
   }
 
   &__content {
+    align-items: center;
     border: 1px solid #ffffff1f;
     border-radius: 10px;
     display: grid;
-    grid-auto-flow: column;
     grid-column-gap: 25px;
     justify-content: center;
     padding: 24px;
+
+    &--flow {
+      &-column {
+        grid-auto-flow: column;
+      }
+
+      &-max-three-columns {
+        grid-row-gap: 15px;
+        grid-template-columns: repeat(3, auto);
+      }
+    }
   }
 }

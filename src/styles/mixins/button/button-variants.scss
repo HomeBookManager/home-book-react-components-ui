@@ -1,5 +1,5 @@
-@import '../../styles/colors/button/button-map.scss';
-@import '../../styles/mixins/ripple-element.scss';
+@import '../../colors/button/button-map.scss';
+@import '../ripple-element.scss';
 
 @mixin idle-styles($variant, $color) {
   @if $variant == 'contained' {
@@ -100,7 +100,9 @@
   }
 }
 
-@mixin button-variant-styles {
+@mixin button-variant {
+  border: none;
+
   &__default {
     background: unset;
     @include variant-styles;

@@ -8,14 +8,21 @@ import StoryBlockCode, {
 // styles
 import './story-wrapper.scss';
 
+export enum ContentGridFlow {
+  column = 'flow-column',
+  maxThreeColumns = 'flow-max-three-columns',
+}
+
 type TProps = TStoryBlockCodeProps & {
   children?: ReactNode;
+  contentGridFlow?: ContentGridFlow;
   description?: Array<string>;
   title: string;
 };
 
 const StoryComponent: FC<TProps> = ({
   children,
+  contentGridFlow = ContentGridFlow.column,
   description = [],
   title,
   ...restProps
@@ -30,7 +37,11 @@ const StoryComponent: FC<TProps> = ({
       />
     ))}
     {children && (
-      <section className="StoryWrapper__content">{children}</section>
+      <section
+        className={`StoryWrapper__content StoryWrapper__content--${contentGridFlow}`}
+      >
+        {children}
+      </section>
     )}
     <StoryBlockCode {...restProps} />
   </main>
