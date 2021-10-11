@@ -42,10 +42,7 @@ export const Button: FC<TProps> = ({
     `${className}__${variant}--${color}`,
     `${className}__${variant}--${color}${forcedHover ? '-forced-hover' : ''}`,
   ];
-  const iconStyleClassNames = [
-    `${className}__icon`,
-    `${className}__icon--${size}`,
-  ];
+  const iconStyleClassNames = `${className}__icon ${className}__icon--${size}`;
   const { clickHandler: clickHandlerRipple, component: Component } =
     useRippleEffect(`${className}__${variant}--${color}__${rippleClassName}`);
 
@@ -66,9 +63,7 @@ export const Button: FC<TProps> = ({
       {startIcon && (
         <img
           alt="icon"
-          className={`${iconStyleClassNames.join(
-            ' '
-          )} ${className}__icon--start`}
+          className={`${iconStyleClassNames} ${className}__icon--start`}
           src={startIcon}
         />
       )}
@@ -76,7 +71,7 @@ export const Button: FC<TProps> = ({
       {endIcon && (
         <img
           alt="icon"
-          className={`${iconStyleClassNames.join(' ')} ${className}__icon--end`}
+          className={`${iconStyleClassNames} ${className}__icon--end`}
           src={endIcon}
         />
       )}
