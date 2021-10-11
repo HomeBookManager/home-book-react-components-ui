@@ -15,11 +15,7 @@ export type TProps = {
 };
 
 const StoryBlockCode: FC<TProps> = ({ blockCodeData }) => {
-  const {
-    componentName,
-    components: data,
-    imports: importsContext,
-  } = blockCodeData;
+  const { componentName, props: data, imports: importsContext } = blockCodeData;
 
   return (
     <div className="StoryBlockCode">

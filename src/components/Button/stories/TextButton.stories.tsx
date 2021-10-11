@@ -15,7 +15,7 @@ const description =
 
 const blockCodeData: TStoryBlockCode = {
   componentName: 'Button',
-  components: [
+  props: [
     {
       children: 'Text',
     },

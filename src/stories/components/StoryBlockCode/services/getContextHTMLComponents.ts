@@ -1,5 +1,5 @@
 // others
-import { TComponentAttributes, TComponent } from '../types';
+import { TComponentAttributes, TProps } from '../types';
 import { ClassNameContext } from '../constants';
 
 // services
@@ -36,7 +36,7 @@ const getBeginingOfContextComponent = (
   )}`;
 
 const getContextHTMLComponents = (
-  { attributes = [], children }: TComponent,
+  { attributes = [], children }: TProps,
   componentName: string
 ): string => {
   const mappedAttributes = getContextAttribute(attributes);

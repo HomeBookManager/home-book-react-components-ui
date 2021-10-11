@@ -9,14 +9,14 @@ import StoryComponent from '../../../stories/components/StoryComponent/StoryComp
 import { BASIC_BUTTON } from '../../../stories/constants';
 import { Color, Variant } from '../constants';
 import { libraryName } from '../../../constants';
-import { TBlockCode } from '../../../stories/components/StoryBlockCode/types';
+import { TStoryBlockCode } from '../../../stories/components/StoryBlockCode/types';
 
 const description =
   'The <code>Button</code> comes with three variants: text (default), contained, and outlined.';
 
-const blockCodeData: TBlockCode = {
+const blockCodeData: TStoryBlockCode = {
   componentName: 'Button',
-  components: [
+  props: [
     {
       children: Variant.default,
     },

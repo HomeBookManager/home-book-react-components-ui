@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 
 export type TComponentAttributes = { name: string; value?: string };
 
-export type TComponent = {
+export type TProps = {
   attributes?: Array<TComponentAttributes>;
   children?: ReactNode | string;
 };
@@ -13,7 +13,7 @@ export type TImport = {
 };
 
 export type TStoryBlockCode = {
-  components: Array<TComponent>;
+  props: Array<TProps>;
   componentName: string;
   imports: Array<TImport>;
 };
