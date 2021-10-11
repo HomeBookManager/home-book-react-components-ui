@@ -1,11 +1,13 @@
 /**
  * PATH COMPONENTS
  */
-export const PREFIX = 'Components';
+export const prefix = 'Components';
 
 /**
  * BUTTONS
  */
-export const BUTTON_PREFIX = `${PREFIX}/Button`;
-export const BASIC_BUTTON = `${BUTTON_PREFIX}/Basic Button`;
-export const TEXT_BUTTON = `${BUTTON_PREFIX}/Text Button`;
+export const buttonPrefix = `${prefix}/Button`;
+export const basicButton = `${buttonPrefix}/Basic Button`;
+export const textButton = `${buttonPrefix}/Text Button`;
+export const containedButton = `${buttonPrefix}/Contained Button`;
+export const outlinedButton = `${buttonPrefix}/Outlined Button`;

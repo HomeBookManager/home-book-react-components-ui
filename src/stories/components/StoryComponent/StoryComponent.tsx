@@ -10,22 +10,25 @@ import './story-wrapper.scss';
 
 type TProps = TStoryBlockCodeProps & {
   children: ReactNode;
-  description: string;
+  description: Array<string>;
   title: string;
 };
 
 const StoryComponent: FC<TProps> = ({
   children,
-  description,
+  description = [],
   title,
   ...restProps
 }) => (
   <main className="StoryWrapper">
     <h2 className="StoryWrapper__title">{title}</h2>
-    <p
-      className="StoryWrapper__description"
-      dangerouslySetInnerHTML={{ __html: description }}
-    />
+    {description.map((description, key) => (
+      <p
+        className="StoryWrapper__description"
+        dangerouslySetInnerHTML={{ __html: description }}
+        key={key}
+      />
+    ))}
     <section className="StoryWrapper__content">{children}</section>
     <StoryBlockCode {...restProps} />
   </main>

@@ -1,33 +1,39 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import capitalize from 'lodash/capitalize';
 
 // components
 import Button from '../Button';
 import StoryComponent from '../../../stories/components/StoryComponent/StoryComponent';
 
 // others
-import { basicButton } from '../../../stories/constants';
 import { Color, Variant } from '../constants';
+import { containedButton } from '../../../stories/constants';
 import { libraryName } from '../../../constants';
 import { TStoryBlockCode } from '../../../stories/components/StoryBlockCode/types';
 
 const description = [
-  'The <code>Button</code> comes with three variants: text (default), contained, and outlined.',
+  '<code>Contained buttons</code> are high-emphasis, distinguished by their use of elevation and fill. They contain actions that are primary to your app.',
 ];
 
 const blockCodeData: TStoryBlockCode = {
   componentName: 'Button',
   props: [
     {
-      children: Variant.default,
-    },
-    {
       attributes: [{ name: 'variant', value: 'Variant.contained' }],
-      children: Variant.contained,
+      children: 'Contained',
     },
     {
-      attributes: [{ name: 'variant', value: 'Variant.outlined' }],
-      children: Variant.outlined,
+      attributes: [
+        { name: 'forcedHover', value: '' },
+        { name: 'variant', value: 'Variant.contained' },
+      ],
+      children: 'Hover',
+    },
+    {
+      attributes: [
+        { name: 'disabled', value: '' },
+        { name: 'variant', value: 'Variant.contained' },
+      ],
+      children: 'Disabled',
     },
   ],
   imports: [
@@ -46,27 +52,28 @@ export default {
       url: 'https://www.figma.com/file/yhTZ31Wn16kIrEeoHHV176/Components-UI?node-id=4%3A2',
     },
   },
-  title: basicButton,
+  title: containedButton,
 } as ComponentMeta<typeof Button>;
 
 const Template: ComponentStory<typeof Button> = (args) => (
   <StoryComponent
     blockCodeData={blockCodeData}
     description={description}
-    title="Basic button"
+    title="Contained button"
   >
-    {Object.keys(Variant).map((variant, key) => (
-      // @ts-ignore
-      <Button key={key} variant={Variant[variant]} {...args}>
-        {capitalize(variant)}
-      </Button>
-    ))}
+    <Button {...args}>Contained</Button>
+    <Button forcedHover {...args}>
+      Hover
+    </Button>
+    <Button disabled {...args}>
+      Disabled
+    </Button>
   </StoryComponent>
 );
 
-export const BasicButton = Template.bind({});
+export const ContainedButton = Template.bind({});
 
-BasicButton.argTypes = {
+ContainedButton.argTypes = {
   variant: {
     table: {
       disable: true,
@@ -74,6 +81,7 @@ BasicButton.argTypes = {
   },
 };
 
-BasicButton.args = {
+ContainedButton.args = {
   color: Color.primary,
+  variant: Variant.contained,
 };

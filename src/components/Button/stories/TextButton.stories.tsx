@@ -5,13 +5,14 @@ import Button from '../Button';
 import StoryComponent from '../../../stories/components/StoryComponent/StoryComponent';
 
 // others
-import { TEXT_BUTTON } from '../../../stories/constants';
-import { Color, Variant } from '../constants';
+import { Color } from '../constants';
 import { libraryName } from '../../../constants';
+import { textButton } from '../../../stories/constants';
 import { TStoryBlockCode } from '../../../stories/components/StoryBlockCode/types';
 
-const description =
-  '<code>Text buttons</code> are typically used for less-pronounced actions, including those located: in dialogs, in cards. In cards, text buttons help maintain an emphasis on card content.';
+const description = [
+  '<code>Text buttons</code> are typically used for less-pronounced actions, including those located: in dialogs, in cards. In cards, text buttons help maintain an emphasis on card content.',
+];
 
 const blockCodeData: TStoryBlockCode = {
   componentName: 'Button',
@@ -21,16 +22,16 @@ const blockCodeData: TStoryBlockCode = {
     },
     {
       attributes: [{ name: 'forcedHover', value: '' }],
-      children: 'Disabled',
+      children: 'Hover',
     },
     {
       attributes: [{ name: 'disabled', value: '' }],
-      children: Variant.outlined,
+      children: 'Disabled',
     },
   ],
   imports: [
     {
-      items: '{ Button, Variant }',
+      items: '{ Button }',
       path: libraryName,
     },
   ],
@@ -44,7 +45,7 @@ export default {
       url: 'https://www.figma.com/file/yhTZ31Wn16kIrEeoHHV176/Components-UI?node-id=4%3A2',
     },
   },
-  title: TEXT_BUTTON,
+  title: textButton,
 } as ComponentMeta<typeof Button>;
 
 const Template: ComponentStory<typeof Button> = (args) => (
