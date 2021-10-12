@@ -8,16 +8,10 @@ import {
 } from './hooks/useRippleEffect';
 
 // others
-import { className, Color, Size, Variant } from './constants';
+import { className, Color, error, Size, Variant } from './constants';
 
 // styles
 import './button.scss';
-
-const error = `
-  You have to pass history hook from react-router-dom
-  const history = useHistory();
-  <Button history={history}></Button>
-`;
 
 export type TProps = {
   children?: ReactNode | string;
