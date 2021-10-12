@@ -13,7 +13,7 @@ export type TImport = {
 };
 
 export type TStoryBlockCode = {
-  props: Array<TProps>;
+  props?: Array<TProps>;
   componentName: string;
   imports: Array<TImport>;
 };

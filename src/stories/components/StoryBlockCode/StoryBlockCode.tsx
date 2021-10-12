@@ -12,15 +12,16 @@ import './story-block-code.scss';
 
 export type TProps = {
   blockCodeData: TStoryBlockCode;
+  className?: string;
 };
 
-const StoryBlockCode: FC<TProps> = ({ blockCodeData }) => {
-  const { componentName, props: data, imports: importsContext } = blockCodeData;
+const StoryBlockCode: FC<TProps> = ({ blockCodeData, className = '' }) => {
+  const { componentName, props = [], imports } = blockCodeData;
 
   return (
-    <div className="StoryBlockCode">
+    <div className={`StoryBlockCode ${className}`}>
       {/* IMPORTS */}
-      {importsContext.map((props, key) => (
+      {imports.map((props, key) => (
         <p
           className="StoryBlockCode__imports"
           dangerouslySetInnerHTML={{
@@ -29,9 +30,9 @@ const StoryBlockCode: FC<TProps> = ({ blockCodeData }) => {
           key={key}
         />
       ))}
-      <div className="StoryBlockCode__separator" />
+      {props.length > 0 && <div className="StoryBlockCode__separator" />}
       {/* COMPONENTS */}
-      {data.map((props, key) => (
+      {props.map((props, key) => (
         <p
           className="StoryBlockCode__components"
           dangerouslySetInnerHTML={{

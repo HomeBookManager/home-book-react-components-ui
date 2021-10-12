@@ -6,7 +6,7 @@ import StoryBlockCode, {
 } from '../StoryBlockCode/StoryBlockCode';
 
 // styles
-import './story-wrapper.scss';
+import './story-component.scss';
 
 export enum ContentGridFlow {
   column = 'flow-column',
@@ -15,6 +15,7 @@ export enum ContentGridFlow {
 
 type TProps = TStoryBlockCodeProps & {
   children?: ReactNode;
+  className?: string;
   contentGridFlow?: ContentGridFlow;
   description?: Array<string>;
   title: string;
@@ -22,12 +23,13 @@ type TProps = TStoryBlockCodeProps & {
 
 const StoryComponent: FC<TProps> = ({
   children,
+  className = '',
   contentGridFlow = ContentGridFlow.column,
   description = [],
   title,
   ...restProps
 }) => (
-  <main className="StoryWrapper">
+  <main className={`StoryWrapper ${className}`}>
     <h2 className="StoryWrapper__title">{title}</h2>
     {description.map((description, key) => (
       <p
@@ -43,7 +45,10 @@ const StoryComponent: FC<TProps> = ({
         {children}
       </section>
     )}
-    <StoryBlockCode {...restProps} />
+    <StoryBlockCode
+      className={`StoryWrapper__story-block-code ${className}__story-block-code`}
+      {...restProps}
+    />
   </main>
 );
 
