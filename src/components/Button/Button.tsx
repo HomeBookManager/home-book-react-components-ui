@@ -1,4 +1,5 @@
 import { FC, MouseEvent, ReactNode } from 'react';
+import { History } from 'history';
 
 // hooks
 import {
@@ -12,6 +13,12 @@ import { className, Color, Size, Variant } from './constants';
 // styles
 import './button.scss';
 
+const error = `
+  You have to pass history hook from react-router-dom
+  const history = useHistory();
+  <Button history={history}></Button>
+`;
+
 export type TProps = {
   children?: ReactNode | string;
   classes?: string;
@@ -21,6 +28,7 @@ export type TProps = {
   endIcon?: string;
   forcedHover?: boolean;
   fullWidth?: boolean;
+  history?: History;
   href?: string;
   onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
   size?: Size;
@@ -38,6 +46,8 @@ export const Button: FC<TProps> = ({
   endIcon,
   forcedHover = false,
   fullWidth = false,
+  history,
+  href = '',
   onClick,
   size = Size.medium,
   startIcon,
@@ -55,6 +65,13 @@ export const Button: FC<TProps> = ({
 
     if (onClick) {
       onClick(event);
+    }
+
+    if (href) {
+      if (!history) {
+        throw error;
+      }
+      history.push(href);
     }
   };
 
