@@ -8,14 +8,20 @@ import {
 } from './hooks/useRippleEffect';
 
 // others
-import { className, Color, error, Size, Variant } from './constants';
+import {
+  className as buttonClassName,
+  Color,
+  error,
+  Size,
+  Variant,
+} from './constants';
 
 // styles
 import './button.scss';
 
 export type TProps = {
   children?: ReactNode | string;
-  classes?: string;
+  className?: string;
   color?: Color;
   disabled?: boolean;
   disableRippleEffect?: boolean;
@@ -33,7 +39,7 @@ export type TProps = {
 
 export const Button: FC<TProps> = ({
   children,
-  classes = '',
+  className = '',
   color = Color.primary,
   disabled = false,
   disableRippleEffect = false,
@@ -48,9 +54,11 @@ export const Button: FC<TProps> = ({
   style = {},
   variant = Variant.default,
 }) => {
-  const iconStyleClassNames = `${className}__icon ${className}__icon--${size}`;
+  const iconStyleClassNames = `${buttonClassName}__icon ${buttonClassName}__icon--${size}`;
   const { clickHandler: clickHandlerRipple, component: Component } =
-    useRippleEffect(`${className}__${variant}--${color}__${rippleClassName}`);
+    useRippleEffect(
+      `${buttonClassName}__${variant}--${color}__${rippleClassName}`
+    );
 
   const onClickHandler = (event: MouseEvent<HTMLButtonElement>): void => {
     if (!disableRippleEffect) {
@@ -71,13 +79,15 @@ export const Button: FC<TProps> = ({
 
   const getStyleClassNames = (): string =>
     [
+      buttonClassName,
       className,
-      classes,
-      `${fullWidth ? `${className}__full-width` : ''}`,
-      `${className}__${size}`,
-      `${className}__${variant}`,
-      `${className}__${variant}--${color}`,
-      `${className}__${variant}--${color}${forcedHover ? '-forced-hover' : ''}`,
+      `${fullWidth ? `${buttonClassName}__full-width` : ''}`,
+      `${buttonClassName}__${size}`,
+      `${buttonClassName}__${variant}`,
+      `${buttonClassName}__${variant}--${color}`,
+      `${buttonClassName}__${variant}--${color}${
+        forcedHover ? '-forced-hover' : ''
+      }`,
     ]
       .filter((className) => className)
       .join(' ');
@@ -92,7 +102,7 @@ export const Button: FC<TProps> = ({
       {startIcon && (
         <img
           alt="icon"
-          className={`${iconStyleClassNames} ${className}__icon--start`}
+          className={`${iconStyleClassNames} ${buttonClassName}__icon--start`}
           src={startIcon}
         />
       )}
@@ -100,7 +110,7 @@ export const Button: FC<TProps> = ({
       {endIcon && (
         <img
           alt="icon"
-          className={`${iconStyleClassNames} ${className}__icon--end`}
+          className={`${iconStyleClassNames} ${buttonClassName}__icon--end`}
           src={endIcon}
         />
       )}

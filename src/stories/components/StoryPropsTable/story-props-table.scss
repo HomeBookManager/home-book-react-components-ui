@@ -27,6 +27,18 @@
     &-body {
       color: #ffffff;
       font-size: 13px;
+      line-height: 1.5;
+
+      & code {
+        background-color: #66b2ff26;
+        border-radius: 5px;
+        color: #ffffff;
+        font-family: Consolas, Menlo, Monaco, 'Andale Mono', 'Ubuntu Mono',
+          monospace;
+        font-size: 13px;
+        font-weight: 400;
+        padding: 0 5px;
+      }
 
       & > td {
         border-bottom: 1px solid #ffffff1f;
@@ -44,7 +56,6 @@
         color: #a6e22e;
         font-family: Consolas, Menlo, Monaco, 'Andale Mono', 'Ubuntu Mono',
           monospace;
-        line-height: 1.5;
       }
 
       &__default-value {
@@ -54,6 +65,7 @@
 
       &__description {
         font-size: 14px;
+        max-width: 150px;
       }
     }
   }

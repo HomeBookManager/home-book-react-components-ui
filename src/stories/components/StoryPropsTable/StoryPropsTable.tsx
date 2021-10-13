@@ -40,9 +40,12 @@ const StoryPropsTable: FC<TProps> = ({ tableBodyData }) => (
               <td className="StoryPropsTable__table-body__default-value">
                 {defaultValue}
               </td>
-              <td className="StoryPropsTable__table-body__description">
-                {description}
-              </td>
+              <td
+                className="StoryPropsTable__table-body__description"
+                dangerouslySetInnerHTML={{
+                  __html: description,
+                }}
+              />
             </tr>
           )
         )}
