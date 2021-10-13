@@ -1,0 +1,60 @@
+.StoryPropsTable {
+  font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol';
+
+  &__title {
+    color: #eaeef3;
+    font-size: 30px;
+    margin: 40px 0 10px;
+  }
+
+  &__table {
+    margin: 20px 0;
+    width: 100%;
+
+    &-header {
+      color: #ffffff;
+      font-size: 16px;
+
+      & > th {
+        border-bottom: 1px solid #ffffff1f;
+        padding: 20px;
+        text-align: left;
+      }
+    }
+
+    &-body {
+      color: #ffffff;
+      font-size: 13px;
+
+      & > td {
+        border-bottom: 1px solid #ffffff1f;
+        padding: 20px;
+        text-align: left;
+      }
+
+      &__name {
+        font-family: Consolas, Menlo, Monaco, 'Andale Mono', 'Ubuntu Mono',
+          monospace;
+        -webkit-font-smoothing: subpixel-antialiased;
+      }
+
+      &__type {
+        color: #a6e22e;
+        font-family: Consolas, Menlo, Monaco, 'Andale Mono', 'Ubuntu Mono',
+          monospace;
+        line-height: 1.5;
+      }
+
+      &__default-value {
+        font-family: Consolas, Menlo, Monaco, 'Andale Mono', 'Ubuntu Mono',
+          monospace;
+      }
+
+      &__description {
+        font-size: 14px;
+      }
+    }
+  }
+}

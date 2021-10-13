@@ -29,7 +29,7 @@ const StoryComponent: FC<TProps> = ({
   title,
   ...restProps
 }) => (
-  <main className={`StoryWrapper ${className}`}>
+  <section className={`StoryWrapper ${className}`}>
     <h2 className="StoryWrapper__title">{title}</h2>
     {description.map((description, key) => (
       <p
@@ -49,7 +49,7 @@ const StoryComponent: FC<TProps> = ({
       className={`StoryWrapper__story-block-code ${className}__story-block-code`}
       {...restProps}
     />
-  </main>
+  </section>
 );
 
 export default StoryComponent;

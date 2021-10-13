@@ -14,6 +14,6 @@ export type TImport = {
 
 export type TStoryBlockCode = {
   props?: Array<TProps>;
-  componentName: string;
+  componentName?: string;
   imports: Array<TImport>;
 };
