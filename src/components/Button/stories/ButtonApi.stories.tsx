@@ -11,7 +11,7 @@ import { TStoryBlockCode } from '../../../stories/components/StoryBlockCode/type
 import { TTableBody } from '../../../stories/components/StoryPropsTable/StoryPropsTable';
 
 const description = [
-  'API documentation for the React Button component. Learn about the available props and the CSS API.',
+  'API documentation for the React Button component. Learn about the available props.',
 ];
 
 const tableBodyData: Array<TTableBody> = [
