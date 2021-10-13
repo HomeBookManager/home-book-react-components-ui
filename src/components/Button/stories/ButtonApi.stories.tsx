@@ -98,8 +98,8 @@ const tableBodyData: Array<TTableBody> = [
   },
   {
     name: 'variant',
-    type: `default'<br/>|&nbsp;'default'<br/>|&nbsp;'contained'<br/>|&nbsp;'outlined'<br/>|&nbsp;'string'`,
-    defaultValue: 'default',
+    type: `text'<br/>|&nbsp;'text'<br/>|&nbsp;'contained'<br/>|&nbsp;'outlined'<br/>|&nbsp;'string'`,
+    defaultValue: 'text',
     description: 'The variant to use.',
   },
 ];

@@ -42,7 +42,7 @@
 }
 
 @mixin ripple-styles($variant, $color) {
-  @if $variant == 'default' {
+  @if $variant == 'text' {
     @include ripple(
       map-get($--hb-text-map, $variant + '-' + $color + '-hover')
     );
@@ -78,7 +78,7 @@
   }
 }
 
-@mixin variant-styles($variant: 'default') {
+@mixin variant-styles($variant: 'text') {
   &--primary {
     @include color-styles($variant);
   }
@@ -103,7 +103,7 @@
 @mixin button-variant {
   border: none;
 
-  &__default {
+  &__text {
     background: unset;
     @include variant-styles;
   }

@@ -17,7 +17,7 @@ export enum Size {
 }
 
 export enum Variant {
-  default = 'default',
+  text = 'text',
   contained = 'contained',
   outlined = 'outlined',
 }

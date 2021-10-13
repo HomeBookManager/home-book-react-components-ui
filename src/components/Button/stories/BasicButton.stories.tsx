@@ -12,17 +12,17 @@ import { libraryName } from '../../../constants';
 import { TStoryBlockCode } from '../../../stories/components/StoryBlockCode/types';
 
 const description = [
-  'The <code>Button</code> comes with three variants: text (default), contained, and outlined.',
+  'The <code>Button</code> comes with three variants: text, contained, and outlined.',
 ];
 
 const blockCodeData: TStoryBlockCode = {
   componentName: 'Button',
   props: [
     {
-      children: Variant.default,
+      attributes: [{ name: 'variant', value: 'Variant.text' }],
+      children: Variant.text,
     },
     {
-      attributes: [{ name: 'variant', value: 'Variant.contained' }],
       children: Variant.contained,
     },
     {

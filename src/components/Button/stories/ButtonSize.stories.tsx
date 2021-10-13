@@ -21,6 +21,24 @@ const blockCodeData: TStoryBlockCode = {
   componentName: 'Button',
   props: [
     {
+      attributes: [
+        { name: 'size', value: 'Size.small' },
+        { name: 'variant', value: 'Variant.text' },
+      ],
+      children: Size.small,
+    },
+    {
+      attributes: [{ name: 'variant', value: 'Variant.text' }],
+      children: Size.medium,
+    },
+    {
+      attributes: [
+        { name: 'size', value: 'Size.large' },
+        { name: 'variant', value: 'Variant.text' },
+      ],
+      children: Size.large,
+    },
+    {
       attributes: [{ name: 'size', value: 'Size.small' }],
       children: Size.small,
     },
@@ -29,24 +47,6 @@ const blockCodeData: TStoryBlockCode = {
     },
     {
       attributes: [{ name: 'size', value: 'Size.large' }],
-      children: Size.large,
-    },
-    {
-      attributes: [
-        { name: 'size', value: 'Size.small' },
-        { name: 'variant', value: 'Variant.Contained' },
-      ],
-      children: Size.small,
-    },
-    {
-      attributes: [{ name: 'variant', value: 'Variant.Contained' }],
-      children: Size.medium,
-    },
-    {
-      attributes: [
-        { name: 'size', value: 'Size.large' },
-        { name: 'variant', value: 'Variant.Contained' },
-      ],
       children: Size.large,
     },
     {

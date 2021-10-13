@@ -81,5 +81,5 @@ ButtonColor.argTypes = {
 };
 
 ButtonColor.args = {
-  variant: Variant.default,
+  variant: Variant.text,
 };

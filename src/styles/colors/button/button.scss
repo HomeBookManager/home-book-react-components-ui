@@ -1,108 +1,108 @@
 // PRIMARY
-$--hb-btn-default-primary-text: #1b73e8;
+$--hb-btn-text-primary-text: #1b73e8;
 $--hb-btn-contained-primary-background: #1b73e8;
 $--hb-btn-contained-primary-text: #ffffff;
 $--hb-btn-outlined-primary-border: #1b73e8;
 $--hb-btn-outlined-primary-text: #1b73e8;
 
 // PRIMARY - HOVER
-$--hb-btn-default-primary-background-hover: #f7fafe;
-$--hb-btn-default-primary-text-hover: #315fc6;
+$--hb-btn-text-primary-background-hover: #f7fafe;
+$--hb-btn-text-primary-text-hover: #315fc6;
 $--hb-btn-contained-primary-background-hover: #315fc6;
 $--hb-btn-contained-primary-text-hover: #ffffff;
 $--hb-btn-outlined-primary-border-hover: #315fc6;
 $--hb-btn-outlined-primary-text-hover: #315fc6;
 
 // PRIMARY - DISABLED
-$--hb-btn-default-primary-text-disabled: #5e9bed;
+$--hb-btn-text-primary-text-disabled: #5e9bed;
 $--hb-btn-contained-primary-background-disabled: #5e9bed;
 $--hb-btn-contained-primary-text-disabled: #fdfdfd;
 $--hb-btn-outlined-primary-border-disabled: #5e9bed;
 $--hb-btn-outlined-primary-text-disabled: #5e9bed;
 
 // SECONDARY
-$--hb-btn-default-secondary-text: #6c757d;
+$--hb-btn-text-secondary-text: #6c757d;
 $--hb-btn-contained-secondary-background: #6c757d;
 $--hb-btn-contained-secondary-text: #ffffff;
 $--hb-btn-outlined-secondary-border: #6c757d;
 $--hb-btn-outlined-secondary-text: #6c757d;
 
 // SECONDARY - HOVER
-$--hb-btn-default-secondary-background-hover: #f0f1f2;
-$--hb-btn-default-secondary-text-hover: #6c757d;
+$--hb-btn-text-secondary-background-hover: #f0f1f2;
+$--hb-btn-text-secondary-text-hover: #6c757d;
 $--hb-btn-contained-secondary-background-hover: #4f5962;
 $--hb-btn-contained-secondary-text-hover: #ffffff;
 $--hb-btn-outlined-secondary-border-hover: #4f5962;
 $--hb-btn-outlined-secondary-text-hover: #4f5962;
 
 // SECONDARY - DISABLED
-$--hb-btn-default-secondary-text-disabled: #989ea4;
+$--hb-btn-text-secondary-text-disabled: #989ea4;
 $--hb-btn-contained-secondary-background-disabled: #989ea4;
 $--hb-btn-contained-secondary-text-disabled: #fdfdfd;
 $--hb-btn-outlined-secondary-border-disabled: #989ea4;
 $--hb-btn-outlined-secondary-text-disabled: #989ea4;
 
 // SUCCESS
-$--hb-btn-default-success-text: #28a745;
+$--hb-btn-text-success-text: #28a745;
 $--hb-btn-contained-success-background: #28a745;
 $--hb-btn-contained-success-text: #ffffff;
 $--hb-btn-outlined-success-border: #28a745;
 $--hb-btn-outlined-success-text: #28a745;
 
 // SUCCESS - HOVER
-$--hb-btn-default-success-background-hover: #eaf4ec;
-$--hb-btn-default-success-text-hover: #2e9445;
+$--hb-btn-text-success-background-hover: #eaf4ec;
+$--hb-btn-text-success-text-hover: #2e9445;
 $--hb-btn-contained-success-background-hover: #2e9445;
 $--hb-btn-contained-success-text-hover: #ffffff;
 $--hb-btn-outlined-success-border-hover: #2e9445;
 $--hb-btn-outlined-success-text-hover: #2e9445;
 
 // SUCCESS - DISABLED
-$--hb-btn-default-success-text-disabled: #69c17d;
+$--hb-btn-text-success-text-disabled: #69c17d;
 $--hb-btn-contained-success-background-disabled: #69c17d;
 $--hb-btn-contained-success-text-disabled: #fdfdfd;
 $--hb-btn-outlined-success-border-disabled: #69c17d;
 $--hb-btn-outlined-success-text-disabled: #69c17d;
 
 // WARNING
-$--hb-btn-default-warning-text: #ffc107;
+$--hb-btn-text-warning-text: #ffc107;
 $--hb-btn-contained-warning-background: #ffc107;
 $--hb-btn-contained-warning-text: #000000;
 $--hb-btn-outlined-warning-border: #ffc107;
 $--hb-btn-outlined-warning-text: #ffc107;
 
 // WARNING - HOVER
-$--hb-btn-default-warning-background-hover: #f2cd5c;
-$--hb-btn-default-warning-text-hover: #99823c;
+$--hb-btn-text-warning-background-hover: #f2cd5c;
+$--hb-btn-text-warning-text-hover: #99823c;
 $--hb-btn-contained-warning-background-hover: #edb716;
 $--hb-btn-contained-warning-text-hover: #000000;
 $--hb-btn-outlined-warning-border-hover: #edb716;
 $--hb-btn-outlined-warning-text-hover: #edb716;
 
 // WARNING - DISABLED
-$--hb-btn-default-warning-text-disabled: #ffd451;
+$--hb-btn-text-warning-text-disabled: #ffd451;
 $--hb-btn-contained-warning-background-disabled: #ffd451;
 $--hb-btn-contained-warning-text-disabled: #000000;
 $--hb-btn-outlined-warning-border-disabled: #ffd451;
 $--hb-btn-outlined-warning-text-disabled: #ffd451;
 
 // ERROR
-$--hb-btn-default-error-text: #dc3545;
+$--hb-btn-text-error-text: #dc3545;
 $--hb-btn-contained-error-background: #dc3545;
 $--hb-btn-contained-error-text: #ffffff;
 $--hb-btn-outlined-error-border: #dc3545;
 $--hb-btn-outlined-error-text: #dc3545;
 
 // ERROR - HOVER
-$--hb-btn-default-error-background-hover: #df7680;
-$--hb-btn-default-error-text-hover: #9f3c45;
+$--hb-btn-text-error-background-hover: #df7680;
+$--hb-btn-text-error-text-hover: #9f3c45;
 $--hb-btn-contained-error-background-hover: #b83945;
 $--hb-btn-contained-error-text-hover: #ffffff;
 $--hb-btn-outlined-error-border-hover: #b83945;
 $--hb-btn-outlined-error-text-hover: #b83945;
 
 // ERROR - DISABLED
-$--hb-btn-default-error-text-disabled: #e7727d;
+$--hb-btn-text-error-text-disabled: #e7727d;
 $--hb-btn-contained-error-background-disabled: #e7727d;
 $--hb-btn-contained-error-text-disabled: #fdfdfd;
 $--hb-btn-outlined-error-border-disabled: #e7727d;

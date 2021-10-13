@@ -52,7 +52,7 @@ export const Button: FC<TProps> = ({
   size = Size.medium,
   startIcon,
   style = {},
-  variant = Variant.default,
+  variant = Variant.contained,
 }) => {
   const iconStyleClassNames = `${buttonClassName}__icon ${buttonClassName}__icon--${size}`;
   const { clickHandler: clickHandlerRipple, component: Component } =

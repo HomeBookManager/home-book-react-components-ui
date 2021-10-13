@@ -18,21 +18,14 @@ const blockCodeData: TStoryBlockCode = {
   componentName: 'Button',
   props: [
     {
-      attributes: [{ name: 'variant', value: 'Variant.contained' }],
       children: 'Contained',
     },
     {
-      attributes: [
-        { name: 'forcedHover', value: '' },
-        { name: 'variant', value: 'Variant.contained' },
-      ],
+      attributes: [{ name: 'forcedHover', value: '' }],
       children: 'Hover',
     },
     {
-      attributes: [
-        { name: 'disabled', value: '' },
-        { name: 'variant', value: 'Variant.contained' },
-      ],
+      attributes: [{ name: 'disabled', value: '' }],
       children: 'Disabled',
     },
   ],
