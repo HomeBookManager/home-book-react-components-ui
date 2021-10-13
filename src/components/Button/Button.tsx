@@ -85,8 +85,10 @@ export const Button: FC<TProps> = ({
       `${buttonClassName}__${size}`,
       `${buttonClassName}__${variant}`,
       `${buttonClassName}__${variant}--${color}`,
-      `${buttonClassName}__${variant}--${color}${
-        forcedHover ? '-forced-hover' : ''
+      `${
+        forcedHover
+          ? `${buttonClassName}__${variant}--${color}-forced-hover`
+          : ''
       }`,
     ]
       .filter((className) => className)
