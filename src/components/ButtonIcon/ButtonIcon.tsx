@@ -1,8 +1,11 @@
-import { FC, MouseEvent, ReactNode, useEffect, useState } from 'react';
+import { FC, MouseEvent, ReactNode, useEffect, useState, useRef } from 'react';
 import { History } from 'history';
 
 // others
 import { className as buttonClassName, error, Size } from './constants';
+
+// services
+import getRandomKey from '../../services/getRandomKey';
 
 // styles
 import './button-icon.scss';
@@ -20,6 +23,41 @@ export type TProps = {
   style?: { [key: string]: number | string };
 };
 
+function timer(callback, delay) {
+  let id,
+    started,
+    remaining = delay,
+    running;
+
+  this.start = function () {
+    running = true;
+    started = new Date();
+    id = setTimeout(callback, remaining);
+  };
+
+  this.pause = function () {
+    running = false;
+    clearTimeout(id);
+    // @ts-ignore
+    remaining -= new Date() - started;
+  };
+
+  this.getTimeLeft = function () {
+    if (running) {
+      this.pause();
+      this.start();
+    }
+
+    return remaining;
+  };
+
+  this.getStateRunning = function () {
+    return running;
+  };
+
+  this.start();
+}
+
 export const ButtonIcon: FC<TProps> = ({
   children,
   className = '',
@@ -32,10 +70,9 @@ export const ButtonIcon: FC<TProps> = ({
   style = {},
 }) => {
   const [pulseElements, setPulseElements] = useState([]);
-  const PulseElement = () => <span className={`${buttonClassName}__pulse`} />;
 
   const onClickHandler = (event: MouseEvent<HTMLButtonElement>): void => {
-    setPulseElements([...pulseElements, PulseElement]);
+    setPulseElements([...pulseElements, getRandomKey(pulseElements)]);
 
     if (onClick) {
       onClick(event);
@@ -57,18 +94,6 @@ export const ButtonIcon: FC<TProps> = ({
       .filter((className) => className)
       .join(' ');
 
-  useEffect(() => {
-    if (pulseElements.length) {
-      const timer = setTimeout(() => {
-        setPulseElements([]);
-      }, 1000);
-
-      return () => {
-        clearTimeout(timer);
-      };
-    }
-  }, [pulseElements]);
-
   if (href && !history) {
     throw error;
   }
@@ -81,11 +106,36 @@ export const ButtonIcon: FC<TProps> = ({
       style={style}
     >
       <div className={`${buttonClassName}__children`}>{children}</div>
-      {pulseElements.map((PulseElement, key) => (
-        <PulseElement key={key} />
+      {pulseElements.map((key) => (
+        <PulseElement
+          pulseElements={pulseElements}
+          setPulseElements={setPulseElements}
+          key={key}
+        />
       ))}
     </button>
   );
+};
+
+const PulseElement = ({ pulseElements, setPulseElements }) => {
+  const timerRef = useRef(null);
+
+  useEffect(() => {
+    timerRef.current = new timer(function () {}, 1000);
+  }, []);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setPulseElements(pulseElements.slice(1));
+      // @ts-ignore
+    }, [timerRef.current.getTimeLeft()]);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [pulseElements]);
+
+  return <span className={`${buttonClassName}__pulse`} />;
 };
 
 export default ButtonIcon;

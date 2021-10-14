@@ -1,28 +1,34 @@
-@mixin getWidth($isIcon, $width: 30px) {
-  @if $isIcon {
-    width: $width;
-  }
-}
-
 @mixin button-size($isIcon: false) {
   &__small {
-    @include getWidth($isIcon);
     font-size: 12px;
     height: 30px;
     padding: 4px 8px;
+
+    @if $isIcon {
+      padding: 8px;
+      width: 30px;
+    }
   }
 
   &__medium {
-    @include getWidth($isIcon, 36px);
     font-size: 14px;
     height: 36px;
     padding: 6px 16px;
+
+    @if $isIcon {
+      padding: 16px;
+      width: 36px;
+    }
   }
 
   &__large {
-    @include getWidth($isIcon, 42px);
     font-size: 16px;
     height: 42px;
     padding: 10px 28px;
+
+    @if $isIcon {
+      padding: 28px;
+      width: 42px;
+    }
   }
 }
