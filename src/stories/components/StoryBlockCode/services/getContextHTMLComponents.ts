@@ -11,7 +11,7 @@ const getContextAttributeName = (name: string) =>
 const getContextAttributeValue = (value: any) =>
   getSpanWithClosure(ClassNameContext.attributeValue, value);
 
-const getContextAttribute = (
+const getContextAttributes = (
   attributes: Array<TComponentAttributes>
 ): string => {
   const context = attributes
@@ -39,7 +39,7 @@ const getContextHTMLComponents = (
   { attributes = [], children }: TProps,
   componentName: string
 ): string => {
-  const mappedAttributes = getContextAttribute(attributes);
+  const mappedAttributes = getContextAttributes(attributes);
 
   return !!children
     ? `${getBeginingOfContextComponent(
