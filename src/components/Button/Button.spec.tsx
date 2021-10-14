@@ -1,14 +1,17 @@
-import React from 'react';
 import { fireEvent, render, waitFor } from '@testing-library/react';
 
 // components
 import Button from './Button';
 
 // others
-import { Color, Size, Variant } from './constants';
+import { Color, error, Size, Variant } from './constants';
+
+// services
+import hideConsole, { Console } from '../../services/console/hideConsole';
 
 describe('Button', () => {
   const mockCallBack = jest.fn();
+  hideConsole(Console.error);
 
   it('should render child', () => {
     const { getByText } = render(<Button onClick={mockCallBack}>Click</Button>);
@@ -123,6 +126,29 @@ describe('Button', () => {
     );
 
     expect(container.firstChild).toHaveClass('Button__full-width');
+  });
+
+  it('should return error if hsitory is not forwarded', () => {
+    expect(() =>
+      render(
+        <Button href="/" onClick={mockCallBack}>
+          Click
+        </Button>
+      )
+    ).toThrow(error);
+  });
+
+  it('should call push if hsitory & href are forwarded', () => {
+    const { getByText } = render(
+      // @ts-ignore
+      <Button history={{ push: mockCallBack }} href="/">
+        Click
+      </Button>
+    );
+    const button = getByText('Click');
+
+    fireEvent.click(button);
+    expect(mockCallBack.mock.calls.length).toBe(1);
   });
 
   it('should fire onclick event', () => {

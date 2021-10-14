@@ -70,9 +70,7 @@ export const Button: FC<TProps> = ({
     }
 
     if (href) {
-      if (!history) {
-        throw error;
-      }
+      // @ts-ignore
       history.push(href);
     }
   };
@@ -93,6 +91,10 @@ export const Button: FC<TProps> = ({
     ]
       .filter((className) => className)
       .join(' ');
+
+  if (href && !history) {
+    throw error;
+  }
 
   return (
     <button
