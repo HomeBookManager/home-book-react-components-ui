@@ -4,7 +4,7 @@
 export const prefix = 'Components';
 
 /**
- * BUTTONS
+ * BUTTON
  */
 export const buttonPrefix = `${prefix}/Button`;
 export const buttonExamplePrefix = `${buttonPrefix}/Example`;
@@ -17,3 +17,11 @@ export const buttonHandlingClicks = `${buttonExamplePrefix}/Button Handling Clic
 export const buttonColor = `${buttonExamplePrefix}/Button Color`;
 export const buttonSize = `${buttonExamplePrefix}/Button Size`;
 export const buttonWithIcon = `${buttonExamplePrefix}/Button With Icon`;
+
+/**
+ * BUTTON ICON
+ */
+export const buttonIconPrefix = `${prefix}/Button Icon`;
+export const buttonIconExamplePrefix = `${buttonIconPrefix}/Example`;
+export const buttonIconApi = `${buttonPrefix}/Button Icon API`;
+export const basicButtonIcon = `${buttonIconExamplePrefix}/Basic Button Icon`;

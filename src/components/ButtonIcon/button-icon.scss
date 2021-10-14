@@ -1,0 +1,43 @@
+@import '../../styles/mixins/button/button.scss';
+@import '../../styles/mixins/button/button-sizes.scss';
+@import '../../styles/mixins/ripple-element.scss';
+
+.ButtonIcon {
+  @include button-size(true);
+  @include button;
+  background-color: unset;
+  border-radius: 50%;
+
+  // &:hover {
+  //   background-color: rgba(255, 255, 255, 0.3);
+  // }
+
+  &__children {
+    z-index: 1;
+  }
+
+  &__pulse {
+    animation: animation-pulse 1s forwards;
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    background-color: #ffffff;
+    border-radius: 50%;
+    height: 100%;
+    opacity: 0.7;
+    position: absolute;
+    transform: scale(0);
+    width: 100%;
+    z-index: 0;
+  }
+}
+
+@keyframes animation-pulse {
+  70% {
+    opacity: 0;
+    transform: scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}

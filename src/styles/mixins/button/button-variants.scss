@@ -101,8 +101,6 @@
 }
 
 @mixin button-variant {
-  border: none;
-
   &__text {
     background: unset;
     @include variant-styles;

@@ -1,21 +1,12 @@
+@import '../../styles/mixins/button/button.scss';
 @import '../../styles/mixins/button/button-sizes.scss';
 @import '../../styles/mixins/button/button-variants.scss';
 
 .Button {
   @include button-variant;
   @include button-size;
-  align-items: center;
+  @include button;
   border-radius: 4px;
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  outline: none;
-  overflow: hidden;
-  position: relative;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
-    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
-    border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
-    color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
 
   &__full-width {
     width: 100%;
