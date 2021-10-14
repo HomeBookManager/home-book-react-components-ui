@@ -1,0 +1,19 @@
+@mixin button-size {
+  &__small {
+    font-size: 12px;
+    height: 30px;
+    padding: 4px 8px;
+  }
+
+  &__medium {
+    font-size: 14px;
+    height: 36px;
+    padding: 6px 16px;
+  }
+
+  &__large {
+    font-size: 16px;
+    height: 42px;
+    padding: 10px 28px;
+  }
+}

@@ -1,0 +1,51 @@
+.StoryBlockCode {
+  background-color: #444444;
+  border: 1px solid #ffffff1f;
+  border-radius: 10px;
+  margin-top: 50px;
+  padding: 16px;
+
+  &__imports {
+    color: #eaeef3;
+    font-size: 13px;
+    margin: 0;
+  }
+
+  &__import {
+    color: #999999;
+
+    &-from,
+    &-semicolon {
+      color: #999999;
+    }
+
+    &-path {
+      color: #a6e22e;
+    }
+  }
+
+  &__separator {
+    margin: 25px 0;
+  }
+
+  &__components {
+    color: #eaeef3;
+    font-size: 13px;
+  }
+
+  &__component-name {
+    color: #1ea6fb;
+  }
+
+  &__attribute {
+    color: #eaeef3;
+
+    &--name {
+      color: #999999;
+    }
+
+    &--value {
+      color: #a6e22e;
+    }
+  }
+}

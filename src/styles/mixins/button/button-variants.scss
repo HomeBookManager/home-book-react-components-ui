@@ -1,0 +1,120 @@
+@import '../../colors/button/button-map.scss';
+@import '../ripple-element.scss';
+
+@mixin idle-styles($variant, $color) {
+  @if $variant == 'contained' {
+    background-color: map-get(
+      $--hb-background-color-map,
+      $variant + '-' + $color
+    );
+  } @else if $variant == 'outlined' {
+    border-color: map-get($--hb-border-map, $variant + '-' + $color);
+  }
+}
+
+@mixin hover-styles($variant, $color) {
+  @if $variant != 'outlined' {
+    background-color: map-get(
+      $--hb-background-color-map,
+      $variant + '-' + $color + '-hover'
+    );
+
+    @if $variant == 'contained' {
+      box-shadow: 0 1px 2px 0 #58585875, 0 1px 3px 1px #58585875;
+    }
+  } @else {
+    border-color: map-get($--hb-border-map, $variant + '-' + $color + '-hover');
+  }
+}
+
+@mixin disabled-styles($variant, $color) {
+  @if $variant == 'contained' {
+    background-color: map-get(
+      $--hb-background-color-map,
+      $variant + '-' + $color + '-disabled'
+    );
+  } @else if $variant == 'outlined' {
+    border-color: map-get(
+      $--hb-border-map,
+      $variant + '-' + $color + '-disabled'
+    );
+  }
+}
+
+@mixin ripple-styles($variant, $color) {
+  @if $variant == 'text' {
+    @include ripple(
+      map-get($--hb-text-map, $variant + '-' + $color + '-hover')
+    );
+  } @else if $variant == 'contained' {
+    @include ripple(
+      map-get($--hb-background-color-map, $variant + '-' + $color + '-hover')
+    );
+  } @else {
+    @include ripple(
+      map-get($--hb-border-map, $variant + '-' + $color + '-hover')
+    );
+  }
+}
+
+@mixin color-styles($variant, $color: 'primary') {
+  color: map-get($--hb-text-map, $variant + '-' + $color);
+  @include idle-styles($variant, $color);
+
+  &-forced-hover,
+  &:hover:enabled {
+    color: map-get($--hb-text-map, $variant + '-' + $color + '-hover');
+    @include hover-styles($variant, $color);
+  }
+
+  &:disabled {
+    color: map-get($--hb-text-map, $variant + '-' + $color + '-disabled');
+    cursor: not-allowed;
+    @include disabled-styles($variant, $color);
+  }
+
+  &__ripple {
+    @include ripple-styles($variant, $color);
+  }
+}
+
+@mixin variant-styles($variant: 'text') {
+  &--primary {
+    @include color-styles($variant);
+  }
+
+  &--secondary {
+    @include color-styles($variant, 'secondary');
+  }
+
+  &--success {
+    @include color-styles($variant, 'success');
+  }
+
+  &--warning {
+    @include color-styles($variant, 'warning');
+  }
+
+  &--error {
+    @include color-styles($variant, 'error');
+  }
+}
+
+@mixin button-variant {
+  border: none;
+
+  &__text {
+    background: unset;
+    @include variant-styles;
+  }
+
+  &__contained {
+    @include variant-styles('contained');
+  }
+
+  &__outlined {
+    background: unset;
+    border: 1px solid;
+    @include variant-styles('outlined');
+  }
+}
