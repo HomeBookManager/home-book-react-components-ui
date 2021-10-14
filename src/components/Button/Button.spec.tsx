@@ -1,5 +1,5 @@
 import React from 'react';
-import { fireEvent, render } from '@testing-library/react';
+import { fireEvent, render, waitFor } from '@testing-library/react';
 
 // components
 import Button from './Button';
@@ -67,14 +67,30 @@ describe('Button', () => {
     expect(container.firstChild).toHaveAttribute('disabled');
   });
 
-  it('should have disabled attribute', () => {
-    const { container } = render(
-      <Button disabled onClick={mockCallBack}>
-        Click
-      </Button>
-    );
+  it('should render rippleEffect after click', async () => {
+    const { getByText } = render(<Button>Click</Button>);
 
-    expect(container.firstChild).toHaveAttribute('disabled');
+    fireEvent.click(getByText('Click'));
+    await waitFor(
+      () => {
+        expect(getByText('Click').lastChild).toHaveClass(
+          'Button__contained--primary__ripple'
+        );
+      },
+      { timeout: 100 }
+    );
+  });
+
+  it('should not render rippleEffect after click', async () => {
+    const { getByText } = render(<Button disableRippleEffect>Click</Button>);
+
+    fireEvent.click(getByText('Click'));
+    await waitFor(
+      () => {
+        expect(getByText('Click').lastChild).toHaveTextContent('Click');
+      },
+      { timeout: 100 }
+    );
   });
 
   it('should have image after children', () => {
