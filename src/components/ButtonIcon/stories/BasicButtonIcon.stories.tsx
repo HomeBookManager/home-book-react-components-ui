@@ -5,6 +5,7 @@ import ButtonIcon from '../ButtonIcon';
 import StoryComponent from '../../../stories/components/StoryComponent/StoryComponent';
 
 // others
+// @ts-ignore
 import Trash from '../../../stories/assets/icons/trash.svg';
 import { basicButtonIcon } from '../../../stories/constants';
 import { libraryName } from '../../../constants';
