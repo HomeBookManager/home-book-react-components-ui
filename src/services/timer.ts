@@ -1,4 +1,3 @@
-// @ts-nocheck
 function timer(delay: number, callback: () => void = () => {}): void {
   let remaining = delay;
   let running;
@@ -13,13 +12,13 @@ function timer(delay: number, callback: () => void = () => {}): void {
 
   this.pause = function (): void {
     running = false;
+    remaining -= new Date().getTime() - started;
+
     clearTimeout(timeoutHandler);
-    // @ts-ignore
-    remaining -= new Date() - started;
   };
 
   this.getTimeLeft = function (): number {
-    return (remaining -= new Date() - started);
+    return (remaining -= new Date().getTime() - started);
   };
 
   this.getStateRunning = function (): boolean {

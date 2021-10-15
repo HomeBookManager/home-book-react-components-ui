@@ -4,6 +4,7 @@ export enum ClassNameContext {
   attributeValue = 'class="StoryBlockCode__attribute--value"',
   componentName = 'class="StoryBlockCode__component-name"',
   import = 'class="StoryBlockCode__import"',
+  importAs = 'class="StoryBlockCode__import-as"',
   importItems = 'class="StoryBlockCode__import-items"',
   importFrom = 'class="StoryBlockCode__import-from"',
   importPath = 'class="StoryBlockCode__import-path"',

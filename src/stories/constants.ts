@@ -26,3 +26,4 @@ export const buttonIconPrefix = `${inputs}/Button Icon`;
 export const buttonIconExamplePrefix = `${buttonIconPrefix}/Example`;
 export const buttonIconApi = `${buttonPrefix}/Button Icon API`;
 export const basicButtonIcon = `${buttonIconExamplePrefix}/Basic Button Icon`;
+export const buttonIconSize = `${buttonIconExamplePrefix}/Button Icon Size`;

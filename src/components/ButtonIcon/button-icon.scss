@@ -28,8 +28,8 @@ $--hb-padding: 0;
 
     &--small {
       $--hb-padding: map-get($--hb-padding-left-right-map, 'small-size');
-      height: calc(100% + $--hb-padding);
-      width: calc(100% + $--hb-padding);
+      height: calc(100% + #{$--hb-padding});
+      width: calc(100% + #{$--hb-padding});
     }
 
     &--medium {
@@ -40,8 +40,8 @@ $--hb-padding: 0;
 
     &--large {
       $--hb-padding: map-get($--hb-padding-left-right-map, 'large-size');
-      height: calc(100% + $--hb-padding);
-      width: calc(100% + $--hb-padding);
+      height: calc(100% + #{$--hb-padding});
+      width: calc(100% + #{$--hb-padding});
     }
   }
 }

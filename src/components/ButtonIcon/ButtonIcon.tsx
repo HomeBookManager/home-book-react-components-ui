@@ -30,6 +30,7 @@ export const ButtonIcon: FC<TProps> = ({
   children,
   className = '',
   disabled = false,
+  disablePulseEffect = false,
   forcedHover = false,
   history,
   href = '',
@@ -40,7 +41,9 @@ export const ButtonIcon: FC<TProps> = ({
   const [pulseElements, setPulseElements] = useState([]);
 
   const onClickHandler = (event: MouseEvent<HTMLButtonElement>): void => {
-    setPulseElements([...pulseElements, getRandomKey(pulseElements)]);
+    if (!disablePulseEffect) {
+      setPulseElements([...pulseElements, getRandomKey(pulseElements)]);
+    }
 
     if (onClick) {
       onClick(event);
@@ -73,7 +76,7 @@ export const ButtonIcon: FC<TProps> = ({
       onClick={onClickHandler}
       style={style}
     >
-      <div className={`${buttonIconClassName}__children`}>{children}</div>
+      <div>{children}</div>
       {pulseElements.map((key) => (
         <CirclePulse
           animationDuration={1000}
