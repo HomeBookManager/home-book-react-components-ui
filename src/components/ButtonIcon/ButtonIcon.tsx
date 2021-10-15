@@ -76,7 +76,7 @@ export const ButtonIcon: FC<TProps> = ({
       onClick={onClickHandler}
       style={style}
     >
-      <div>{children}</div>
+      {children}
       {pulseElements.map((key) => (
         <CirclePulse
           animationDuration={1000}
