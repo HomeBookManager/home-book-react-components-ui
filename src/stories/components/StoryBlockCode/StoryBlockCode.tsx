@@ -21,11 +21,11 @@ const StoryBlockCode: FC<TProps> = ({ blockCodeData, className = '' }) => {
   return (
     <div className={`StoryBlockCode ${className}`}>
       {/* IMPORTS */}
-      {imports.map((props, key) => (
+      {imports.map((importObj, key) => (
         <p
           className="StoryBlockCode__imports"
           dangerouslySetInnerHTML={{
-            __html: getContextHTMLImport(props),
+            __html: getContextHTMLImport(importObj),
           }}
           key={key}
         />

@@ -1,19 +1,55 @@
-@mixin button-size {
+$--hb-size-map: (
+  small-size: 30px,
+  medium-size: 36px,
+  large-size: 42px,
+);
+
+$--hb-padding-top-bottom-map: (
+  small-size: 4px,
+  medium-size: 6px,
+  large-size: 10px,
+);
+
+$--hb-padding-left-right-map: (
+  small-size: 8px,
+  medium-size: 16px,
+  large-size: 28px,
+);
+
+@mixin button-size($isProportional: false) {
   &__small {
     font-size: 12px;
-    height: 30px;
-    padding: 4px 8px;
+    height: map-get($--hb-size-map, 'small-size');
+    padding: map-get($--hb-padding-top-bottom-map, 'small-size')
+      map-get($--hb-padding-left-right-map, 'small-size');
+
+    @if $isProportional {
+      padding: map-get($--hb-padding-left-right-map, 'small-size');
+      width: map-get($--hb-size-map, 'small-size');
+    }
   }
 
   &__medium {
     font-size: 14px;
-    height: 36px;
-    padding: 6px 16px;
+    height: map-get($--hb-size-map, 'medium-size');
+    padding: map-get($--hb-padding-top-bottom-map, 'medium-size')
+      map-get($--hb-padding-left-right-map, 'medium-size');
+
+    @if $isProportional {
+      padding: map-get($--hb-padding-left-right-map, 'medium-size');
+      width: map-get($--hb-size-map, 'medium-size');
+    }
   }
 
   &__large {
     font-size: 16px;
-    height: 42px;
-    padding: 10px 28px;
+    height: map-get($--hb-size-map, 'large-size');
+    padding: map-get($--hb-padding-top-bottom-map, 'large-size')
+      map-get($--hb-padding-left-right-map, 'large-size');
+
+    @if $isProportional {
+      padding: map-get($--hb-padding-left-right-map, 'large-size');
+      width: map-get($--hb-size-map, 'large-size');
+    }
   }
 }
