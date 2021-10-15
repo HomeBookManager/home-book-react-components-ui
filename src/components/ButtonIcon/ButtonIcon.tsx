@@ -38,7 +38,7 @@ export const ButtonIcon: FC<TProps> = ({
   size = Size.medium,
   style = {},
 }) => {
-  const [pulseElements, setPulseElements] = useState([]);
+  const [pulseElements, setPulseElements] = useState<Array<string>>([]);
 
   const onClickHandler = (event: MouseEvent<HTMLButtonElement>): void => {
     if (!disablePulseEffect) {
