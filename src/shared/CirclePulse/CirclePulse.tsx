@@ -1,8 +1,5 @@
 import { FC, useEffect, useRef } from 'react';
 
-// services
-import timer from '../../services/timer';
-
 // styles
 import './circle-pulse.scss';
 
@@ -19,18 +16,14 @@ const CirclePulse: FC<TProps> = ({
   pulseElements,
   setPulseElements,
 }) => {
-  const timerRef = useRef(null);
+  const startedRef = useRef(new Date().getTime());
 
   useEffect(() => {
-    timerRef.current = new timer(animationDuration);
-    timerRef.current.start();
-  }, []);
-
-  useEffect(() => {
+    const remainingTime =
+      animationDuration - (new Date().getTime() - startedRef.current);
     const timer = setTimeout(() => {
       setPulseElements(pulseElements.slice(1));
-      // @ts-ignore
-    }, [timerRef.current.getTimeLeft()]);
+    }, remainingTime);
 
     return () => {
       clearTimeout(timer);
