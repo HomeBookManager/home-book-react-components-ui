@@ -61,13 +61,13 @@ const Template: ComponentStory<typeof ButtonIcon> = (args) => (
     title="Button icon size"
   >
     <ButtonIcon size={Size.small} {...args}>
-      <Trash height="12" width="16" />
+      <Trash height="10" width="15" />
     </ButtonIcon>
     <ButtonIcon {...args}>
       <Trash height="18" width="21" />
     </ButtonIcon>
     <ButtonIcon size={Size.large} {...args}>
-      <Trash height="23" width="28" />
+      <Trash height="28" width="35" />
     </ButtonIcon>
   </StoryComponent>
 );
