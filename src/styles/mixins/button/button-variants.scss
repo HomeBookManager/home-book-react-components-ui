@@ -1,5 +1,5 @@
 @import '../../colors/button/button-map.scss';
-@import '../ripple-element.scss';
+@import '../ripple-styles.scss';
 
 @mixin idle-styles($variant, $color) {
   @if $variant == 'contained' {

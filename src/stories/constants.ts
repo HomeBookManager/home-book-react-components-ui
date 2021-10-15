@@ -2,11 +2,12 @@
  * PATH COMPONENTS
  */
 export const prefix = 'Components';
+export const inputs = `$${prefix}/Inputs`;
 
 /**
  * BUTTON
  */
-export const buttonPrefix = `${prefix}/Button`;
+export const buttonPrefix = `${inputs}/Button`;
 export const buttonExamplePrefix = `${buttonPrefix}/Example`;
 export const buttonApi = `${buttonPrefix}/Button API`;
 export const basicButton = `${buttonExamplePrefix}/Basic Button`;
@@ -21,7 +22,7 @@ export const buttonWithIcon = `${buttonExamplePrefix}/Button With Icon`;
 /**
  * BUTTON ICON
  */
-export const buttonIconPrefix = `${prefix}/Button Icon`;
+export const buttonIconPrefix = `${inputs}/Button Icon`;
 export const buttonIconExamplePrefix = `${buttonIconPrefix}/Example`;
 export const buttonIconApi = `${buttonPrefix}/Button Icon API`;
 export const basicButtonIcon = `${buttonIconExamplePrefix}/Basic Button Icon`;

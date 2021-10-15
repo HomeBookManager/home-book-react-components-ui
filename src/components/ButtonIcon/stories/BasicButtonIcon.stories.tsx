@@ -11,20 +11,22 @@ import { libraryName } from '../../../constants';
 import { TStoryBlockCode } from '../../../stories/components/StoryBlockCode/types';
 
 const description = [
-  'The <code>Button</code> comes with three variants: text, contained, and outlined.',
+  'Icon buttons are commonly found in app bars and toolbars.',
+  'Icons are also appropriate for toggle buttons that allow a single choice to be selected or deselected, such as adding or removing a star to an item.',
 ];
 
 const blockCodeData: TStoryBlockCode = {
   componentName: 'Button',
   props: [
     {
-      children: 's',
+      children: '&lt;img alt="icon" src={Trash}&gt',
     },
     {
-      children: 's',
+      attributes: [{ name: 'forcedHover' }],
+      children: '&lt;img alt="icon" src={Trash}&gt',
     },
     {
-      children: 's',
+      children: '&lt;img alt="icon" src={Trash}&gt',
     },
   ],
   imports: [
@@ -53,6 +55,12 @@ const Template: ComponentStory<typeof ButtonIcon> = (args) => (
     title="Basic button icon"
   >
     <ButtonIcon {...args}>
+      <img alt="icon" src={Trash} />
+    </ButtonIcon>
+    <ButtonIcon forcedHover {...args}>
+      <img alt="icon" src={Trash} />
+    </ButtonIcon>
+    <ButtonIcon disabled {...args}>
       <img alt="icon" src={Trash} />
     </ButtonIcon>
   </StoryComponent>

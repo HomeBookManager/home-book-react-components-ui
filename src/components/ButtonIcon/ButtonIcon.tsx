@@ -1,8 +1,11 @@
-import { FC, MouseEvent, ReactNode, useEffect, useState, useRef } from 'react';
+import { FC, MouseEvent, ReactNode, useState } from 'react';
 import { History } from 'history';
 
+// components
+import CirclePulse from '../../shared/CirclePulse/CirclePulse';
+
 // others
-import { className as buttonClassName, error, Size } from './constants';
+import { className as buttonIconClassName, error, Size } from './constants';
 
 // services
 import getRandomKey from '../../services/getRandomKey';
@@ -22,41 +25,6 @@ export type TProps = {
   size?: Size;
   style?: { [key: string]: number | string };
 };
-
-function timer(callback, delay) {
-  let id,
-    started,
-    remaining = delay,
-    running;
-
-  this.start = function () {
-    running = true;
-    started = new Date();
-    id = setTimeout(callback, remaining);
-  };
-
-  this.pause = function () {
-    running = false;
-    clearTimeout(id);
-    // @ts-ignore
-    remaining -= new Date() - started;
-  };
-
-  this.getTimeLeft = function () {
-    if (running) {
-      this.pause();
-      this.start();
-    }
-
-    return remaining;
-  };
-
-  this.getStateRunning = function () {
-    return running;
-  };
-
-  this.start();
-}
 
 export const ButtonIcon: FC<TProps> = ({
   children,
@@ -86,10 +54,10 @@ export const ButtonIcon: FC<TProps> = ({
 
   const getStyleClassNames = (): string =>
     [
-      buttonClassName,
+      buttonIconClassName,
       className,
-      `${buttonClassName}__${size}`,
-      `${forcedHover ? `${buttonClassName}__forced-hover` : ''}`,
+      `${buttonIconClassName}__${size}`,
+      `${forcedHover ? `${buttonIconClassName}__forced-hover` : ''}`,
     ]
       .filter((className) => className)
       .join(' ');
@@ -105,9 +73,11 @@ export const ButtonIcon: FC<TProps> = ({
       onClick={onClickHandler}
       style={style}
     >
-      <div className={`${buttonClassName}__children`}>{children}</div>
+      <div className={`${buttonIconClassName}__children`}>{children}</div>
       {pulseElements.map((key) => (
-        <PulseElement
+        <CirclePulse
+          animationDuration={1000}
+          className={`${buttonIconClassName}__circle-pulse ${buttonIconClassName}__circle-pulse--${size}`}
           pulseElements={pulseElements}
           setPulseElements={setPulseElements}
           key={key}
@@ -115,27 +85,6 @@ export const ButtonIcon: FC<TProps> = ({
       ))}
     </button>
   );
-};
-
-const PulseElement = ({ pulseElements, setPulseElements }) => {
-  const timerRef = useRef(null);
-
-  useEffect(() => {
-    timerRef.current = new timer(function () {}, 1000);
-  }, []);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setPulseElements(pulseElements.slice(1));
-      // @ts-ignore
-    }, [timerRef.current.getTimeLeft()]);
-
-    return () => {
-      clearTimeout(timer);
-    };
-  }, [pulseElements]);
-
-  return <span className={`${buttonClassName}__pulse`} />;
 };
 
 export default ButtonIcon;
