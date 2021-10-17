@@ -19,7 +19,7 @@ npm install or npm i
 ## Launch
 
 ```
-npm run storybook
+npm start
 ```
 
 ## Public NPM
