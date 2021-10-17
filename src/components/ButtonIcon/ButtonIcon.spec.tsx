@@ -29,7 +29,7 @@ describe('ButtonIcon', () => {
       </ButtonIcon>
     );
 
-    expect(container.firstChild.classList.contains('text'));
+    expect(container.firstChild).toHaveClass('test');
   });
 
   it('should not have disabled attribute', () => {

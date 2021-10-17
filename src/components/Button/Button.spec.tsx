@@ -27,7 +27,7 @@ describe('Button', () => {
       </Button>
     );
 
-    expect(container.firstChild.classList.contains('text'));
+    expect(container.firstChild).toHaveClass('test');
   });
 
   it('should be primary color', () => {
@@ -37,9 +37,7 @@ describe('Button', () => {
       </Button>
     );
 
-    expect(
-      container.firstChild.classList.contains('Button__contained--primary')
-    ).toBeTruthy();
+    expect(container.firstChild).toHaveClass('Button__contained--primary');
   });
 
   it('should be secondary color', () => {
@@ -49,9 +47,7 @@ describe('Button', () => {
       </Button>
     );
 
-    expect(
-      container.firstChild.classList.contains('Button__contained--secondary')
-    ).toBeTruthy();
+    expect(container.firstChild).toHaveClass('Button__contained--secondary');
   });
 
   it('should not have disabled attribute', () => {
