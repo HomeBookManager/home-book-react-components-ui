@@ -87,14 +87,14 @@ describe('ButtonIcon', () => {
   it('should navigate to page if href is forwarded', () => {
     const { getByText } = render(<ButtonIcon href="/">Click</ButtonIcon>);
     const button = getByText('Click');
-    const hrefSpy = getWindowLocationHrefSpy();
+    const windowLocationHrefSpy = getWindowLocationHrefSpy();
 
     fireEvent.click(button);
-    expect(hrefSpy).toHaveBeenCalled();
+    expect(windowLocationHrefSpy).toHaveBeenCalled();
   });
 
   it('should navigate to page in new window if href & externalLink are forwarded', () => {
-    const mockCallBack = getWindowOpenSpy();
+    const windowOpenSpy = getWindowOpenSpy();
     const { getByText } = render(
       <ButtonIcon externalLink href="/">
         Click
@@ -103,7 +103,7 @@ describe('ButtonIcon', () => {
     const button = getByText('Click');
 
     fireEvent.click(button);
-    expect(mockCallBack.mock.calls.length).toBe(1);
+    expect(windowOpenSpy.mock.calls.length).toBe(1);
   });
 
   it('should call push if history & href are forwarded', () => {

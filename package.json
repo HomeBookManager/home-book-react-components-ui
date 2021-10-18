@@ -147,5 +147,8 @@
     "msgPrefixSuggestion": "Instead of \"%s\" try \"%s\".",
     "msgseparatorRequired": "Branch \"%s\" must contain a separator \"%s\".",
     "msgDoesNotMatchRegex": "Branch \"%s\" does not match the allowed pattern: \"%s\""
+  },
+  "dependencies": {
+    "history": "^5.0.1"
   }
 }
