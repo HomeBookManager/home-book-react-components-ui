@@ -57,7 +57,7 @@ const Template: ComponentStory<typeof Button> = (args) => (
   >
     {Object.keys(Variant).map((variant, key) => (
       // @ts-ignore
-      <Button key={key} variant={Variant[variant]} {...args}>
+      <Button key={key} href="/adsas" variant={Variant[variant]} {...args}>
         {capitalize(variant)}
       </Button>
     ))}

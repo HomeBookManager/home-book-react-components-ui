@@ -21,9 +21,3 @@ export enum Variant {
   contained = 'contained',
   outlined = 'outlined',
 }
-
-export const error = `
-  You have to pass history hook from react-router-dom
-  const history = useHistory();
-  <Button history={history}></Button>
-`;

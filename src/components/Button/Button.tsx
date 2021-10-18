@@ -11,13 +11,13 @@ import {
 import {
   className as buttonClassName,
   Color,
-  error,
   Size,
   Variant,
 } from './constants';
 
 // services
 import getStyleClassNames from '../../services/getStyleClassNames';
+import handleNavigation from '../../services/navigation/handleNavigation';
 
 // styles
 import './button.scss';
@@ -29,6 +29,7 @@ export type TProps = {
   disabled?: boolean;
   disableRippleEffect?: boolean;
   endIcon?: string;
+  externalLink?: boolean;
   forcedHover?: boolean;
   fullWidth?: boolean;
   history?: History;
@@ -47,6 +48,7 @@ export const Button: FC<TProps> = ({
   disabled = false,
   disableRippleEffect = false,
   endIcon,
+  externalLink = false,
   forcedHover = false,
   fullWidth = false,
   history,
@@ -84,14 +86,9 @@ export const Button: FC<TProps> = ({
     }
 
     if (href) {
-      // @ts-ignore
-      history.push(href);
+      handleNavigation(href, externalLink, history);
     }
   };
-
-  if (href && !history) {
-    throw error;
-  }
 
   return (
     <button

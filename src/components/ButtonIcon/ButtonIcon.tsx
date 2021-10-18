@@ -10,6 +10,7 @@ import { className as buttonIconClassName, Size } from './constants';
 // services
 import getStyleClassNames from '../../services/getStyleClassNames';
 import getRandomKey from '../../services/getRandomKey';
+import handleNavigation from '../../services/navigation/handleNavigation';
 
 // styles
 import './button-icon.scss';
@@ -19,6 +20,7 @@ export type TProps = {
   className?: string;
   disabled?: boolean;
   disablePulseEffect?: boolean;
+  externalLink?: boolean;
   forcedHover?: boolean;
   history?: History;
   href?: string;
@@ -32,6 +34,7 @@ export const ButtonIcon: FC<TProps> = ({
   className = '',
   disabled = false,
   disablePulseEffect = false,
+  externalLink = false,
   forcedHover = false,
   history,
   href = '',
@@ -57,8 +60,7 @@ export const ButtonIcon: FC<TProps> = ({
     }
 
     if (href) {
-      // @ts-ignore
-      history.push(href);
+      handleNavigation(href, externalLink, history);
     }
   };
 
