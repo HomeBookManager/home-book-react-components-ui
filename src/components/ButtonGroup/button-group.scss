@@ -1,0 +1,22 @@
+@import '../../styles/mixins/button/button-variants.scss';
+
+.ButtonGroup {
+  display: flex;
+  justify-content: center;
+
+  &__Button {
+    &__horizontal {
+      @include button-variant(true);
+
+      &:not(:first-of-type) {
+        border-bottom-left-radius: 0;
+        border-top-left-radius: 0;
+      }
+
+      &:not(:last-of-type) {
+        border-bottom-right-radius: 0;
+        border-top-right-radius: 0;
+      }
+    }
+  }
+}

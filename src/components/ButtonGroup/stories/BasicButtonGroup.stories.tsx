@@ -1,7 +1,7 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 // components
-import Buttona from '../../Button/Button';
+import Button, { TProps as TButtonProps } from '../../Button/Button';
 import ButtonGroup from '../ButtonGroup';
 import StoryComponent from '../../../stories/components/StoryComponent/StoryComponent';
 
@@ -47,16 +47,18 @@ export default {
   title: basicButtonGroup,
 } as ComponentMeta<typeof ButtonGroup>;
 
-const Template: ComponentStory<typeof ButtonGroup> = (args) => (
+const Template: ComponentStory<
+  typeof ButtonGroup & Pick<TButtonProps, 'color'>
+> = (args) => (
   <StoryComponent
     blockCodeData={blockCodeData}
     description={description}
     title="Basic button group"
   >
     <ButtonGroup {...args}>
-      <Buttona>One</Buttona>
-      <Buttona>Two</Buttona>
-      <Buttona>Three</Buttona>
+      <Button>One</Button>
+      <Button>Two</Button>
+      <Button>Three</Button>
     </ButtonGroup>
   </StoryComponent>
 );

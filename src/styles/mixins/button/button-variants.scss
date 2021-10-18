@@ -1,12 +1,20 @@
 @import '../../colors/button/button-map.scss';
 @import '../ripple-styles.scss';
 
-@mixin idle-styles($variant, $color) {
+@mixin idle-styles($isGrouped, $variant, $color) {
   @if $variant == 'contained' {
     background-color: map-get(
       $--hb-background-color-map,
       $variant + '-' + $color
     );
+
+    @if $isGrouped {
+      &:not(:last-of-type) {
+        border-right: 1px
+          solid
+          map-get($--hb-border-map, 'outlined' + '-' + $color + '-hover');
+      }
+    }
   } @else if $variant == 'outlined' {
     border-color: map-get($--hb-border-map, $variant + '-' + $color);
   }
@@ -57,9 +65,9 @@
   }
 }
 
-@mixin color-styles($variant, $color: 'primary') {
+@mixin color-styles($isGrouped, $variant, $color: 'primary') {
   color: map-get($--hb-text-map, $variant + '-' + $color);
-  @include idle-styles($variant, $color);
+  @include idle-styles($isGrouped, $variant, $color);
 
   &-forced-hover,
   &:hover:enabled {
@@ -78,41 +86,41 @@
   }
 }
 
-@mixin variant-styles($variant: 'text') {
+@mixin variant-styles($isGrouped, $variant: 'text') {
   &--primary {
-    @include color-styles($variant);
+    @include color-styles($isGrouped, $variant);
   }
 
   &--secondary {
-    @include color-styles($variant, 'secondary');
+    @include color-styles($isGrouped, $variant, 'secondary');
   }
 
   &--success {
-    @include color-styles($variant, 'success');
+    @include color-styles($isGrouped, $variant, 'success');
   }
 
   &--warning {
-    @include color-styles($variant, 'warning');
+    @include color-styles($isGrouped, $variant, 'warning');
   }
 
   &--error {
-    @include color-styles($variant, 'error');
+    @include color-styles($isGrouped, $variant, 'error');
   }
 }
 
-@mixin button-variant {
+@mixin button-variant($isGrouped: false) {
   &__text {
     background: unset;
-    @include variant-styles;
+    @include variant-styles($isGrouped);
   }
 
   &__contained {
-    @include variant-styles('contained');
+    @include variant-styles($isGrouped, 'contained');
   }
 
   &__outlined {
     background: unset;
     border: 1px solid;
-    @include variant-styles('outlined');
+    @include variant-styles($isGrouped, 'outlined');
   }
 }
