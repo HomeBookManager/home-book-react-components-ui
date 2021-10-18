@@ -1,4 +1,4 @@
-
+// @ts-nocheck
 const getWindowLocationHrefSpy = (): jest.Mock => {
     const getHrefSpy = jest.fn();
     delete window.location;
