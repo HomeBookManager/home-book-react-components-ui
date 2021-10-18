@@ -1,14 +1,14 @@
 // @ts-nocheck
 const getWindowLocationHrefSpy = (): jest.Mock => {
-    const getHrefSpy = jest.fn();
+    const mockCallBack = jest.fn();
     delete window.location;
     window.location = {};
     
     Object.defineProperty(window.location, 'href', {
-      set: getHrefSpy,
+      set: mockCallBack,
     });
 
-    return getHrefSpy;
+    return mockCallBack;
 };
 
 export default getWindowLocationHrefSpy;
