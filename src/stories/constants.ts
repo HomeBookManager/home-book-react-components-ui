@@ -27,3 +27,11 @@ export const buttonIconExamplePrefix = `${buttonIconPrefix}/Example`;
 export const buttonIconApi = `${buttonIconPrefix}/Button Icon API`;
 export const basicButtonIcon = `${buttonIconExamplePrefix}/Basic Button Icon`;
 export const buttonIconSize = `${buttonIconExamplePrefix}/Button Icon Size`;
+
+/**
+ * BUTTON GROUP
+ */
+export const buttonGroupPrefix = `${inputs}/Button Group`;
+export const buttonGroupExamplePrefix = `${buttonGroupPrefix}/Example`;
+export const buttonGroupApi = `${buttonGroupPrefix}/Button Group API`;
+export const basicButtonGroup = `${buttonGroupExamplePrefix}/Basic Button Group`;

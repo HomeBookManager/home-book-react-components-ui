@@ -1,5 +1,4 @@
 // others
-
 export const className = 'Button';
 
 export enum Color {
