@@ -4,14 +4,12 @@ import { fireEvent, render, waitFor } from '@testing-library/react';
 import ButtonIcon from './ButtonIcon';
 
 // others
-import { error, Size } from './constants';
-
-// services
-import hideConsole, { Console } from '../../services/console/hideConsole';
+import { Size } from './constants';
+import getWindowLocationHrefSpy from '../../tests/getWindowLocationHrefSpy';
+import getWindowOpenSpy from '../../tests/getWindowOpenSpy';
 
 describe('ButtonIcon', () => {
   const mockCallBack = jest.fn();
-  hideConsole(Console.error);
 
   it('should render child', () => {
     const { getByText } = render(
@@ -86,17 +84,29 @@ describe('ButtonIcon', () => {
     expect(container.firstChild).toHaveClass('ButtonIcon__forced-hover');
   });
 
-  it('should return error if hsitory is not forwarded', () => {
-    expect(() =>
-      render(
-        <ButtonIcon href="/" onClick={mockCallBack}>
-          Click
-        </ButtonIcon>
-      )
-    ).toThrow(error);
+  it('should navigate to page if href is forwarded', () => {
+    const { getByText } = render(<ButtonIcon href="/">Click</ButtonIcon>);
+    const button = getByText('Click');
+    const hrefSpy = getWindowLocationHrefSpy();
+
+    fireEvent.click(button);
+    expect(hrefSpy).toHaveBeenCalled();
   });
 
-  it('should call push if hsitory & href are forwarded', () => {
+  it('should navigate to page in new window if href & externalLink are forwarded', () => {
+    const mockCallBack = getWindowOpenSpy();
+    const { getByText } = render(
+      <ButtonIcon externalLink href="/">
+        Click
+      </ButtonIcon>
+    );
+    const button = getByText('Click');
+
+    fireEvent.click(button);
+    expect(mockCallBack.mock.calls.length).toBe(1);
+  });
+
+  it('should call push if history & href are forwarded', () => {
     const { getByText } = render(
       // @ts-ignore
       <ButtonIcon history={{ push: mockCallBack }} href="/">
