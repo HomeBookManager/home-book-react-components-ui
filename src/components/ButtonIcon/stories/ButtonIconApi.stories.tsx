@@ -38,23 +38,29 @@ const tableBodyData: Array<TTableBody> = [
     description: 'If <code>true</code>, the pulse effect is disabled.',
   },
   {
+    name: 'externalLink',
+    type: 'boolean',
+    defaultValue: 'false',
+    description: 'If forwareded then user will be redirect on page in new tab.',
+  },
+  {
     name: 'forcedHover',
     type: 'boolean',
     defaultValue: 'false',
     description:
-      'If <code>true</code>, the hover will be active without user friction',
+      'If <code>true</code>, the hover will be active without user friction.',
   },
   {
     name: 'history',
     type: 'History',
     description:
-      'History has to be pass from <code>react-router-dom</code> library to works as a link',
+      'History has to be pass from <code>react-router-dom</code> library to call push.',
   },
   {
     name: 'href',
     type: 'string',
     description:
-      'The URL to link to when the button is clicked. If defined, <code>history.push(href)</code> will be call from <code>react-router-dom</code>.',
+      'The URL to link to when the button is clicked. If passed History, <code>history.push(href)</code> will be call from <code>react-router-dom</code>.',
   },
   {
     name: 'onClick',
@@ -71,7 +77,7 @@ const tableBodyData: Array<TTableBody> = [
   {
     name: 'style',
     type: 'object',
-    description: 'Override styles by object of styles',
+    description: 'Override styles by object of styles.',
   },
 ];
 

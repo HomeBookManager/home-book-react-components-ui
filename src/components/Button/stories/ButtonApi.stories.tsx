@@ -49,11 +49,17 @@ const tableBodyData: Array<TTableBody> = [
     description: 'Element placed after the children.',
   },
   {
+    name: 'externalLink',
+    type: 'boolean',
+    defaultValue: 'false',
+    description: 'If forwareded then user will be redirect on page in new tab.',
+  },
+  {
     name: 'forcedHover',
     type: 'boolean',
     defaultValue: 'false',
     description:
-      'If <code>true</code>, the hover will be active without user friction',
+      'If <code>true</code>, the hover will be active without user friction.',
   },
   {
     name: 'fullWidth',
@@ -66,13 +72,13 @@ const tableBodyData: Array<TTableBody> = [
     name: 'history',
     type: 'History',
     description:
-      'History has to be pass from <code>react-router-dom</code> library to works as a link',
+      'History has to be pass from <code>react-router-dom</code> library to call push.',
   },
   {
     name: 'href',
     type: 'string',
     description:
-      'The URL to link to when the button is clicked. If defined, <code>history.push(href)</code> will be call from <code>react-router-dom</code>.',
+      'The URL to link to when the button is clicked. If passed History, <code>history.push(href)</code> will be call from <code>react-router-dom</code>.',
   },
   {
     name: 'onClick',
@@ -94,7 +100,7 @@ const tableBodyData: Array<TTableBody> = [
   {
     name: 'style',
     type: 'object',
-    description: 'Override styles by object of styles',
+    description: 'Override styles by object of styles.',
   },
   {
     name: 'variant',
