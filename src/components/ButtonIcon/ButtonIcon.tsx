@@ -5,9 +5,10 @@ import { History } from 'history';
 import CirclePulse from '../../shared/CirclePulse/CirclePulse';
 
 // others
-import { className as buttonIconClassName, error, Size } from './constants';
+import { className as buttonIconClassName, Size } from './constants';
 
 // services
+import getStyleClassNames from '../../services/getStyleClassNames';
 import getRandomKey from '../../services/getRandomKey';
 
 // styles
@@ -39,6 +40,12 @@ export const ButtonIcon: FC<TProps> = ({
   style = {},
 }) => {
   const [pulseElements, setPulseElements] = useState<Array<string>>([]);
+  const classNames = [
+    buttonIconClassName,
+    className,
+    `${buttonIconClassName}__${size}`,
+    `${forcedHover ? `${buttonIconClassName}__forced-hover` : ''}`,
+  ];
 
   const onClickHandler = (event: MouseEvent<HTMLButtonElement>): void => {
     if (!disablePulseEffect) {
@@ -55,23 +62,9 @@ export const ButtonIcon: FC<TProps> = ({
     }
   };
 
-  const getStyleClassNames = (): string =>
-    [
-      buttonIconClassName,
-      className,
-      `${buttonIconClassName}__${size}`,
-      `${forcedHover ? `${buttonIconClassName}__forced-hover` : ''}`,
-    ]
-      .filter((className) => className)
-      .join(' ');
-
-  if (href && !history) {
-    throw error;
-  }
-
   return (
     <button
-      className={getStyleClassNames()}
+      className={getStyleClassNames(classNames)}
       disabled={disabled}
       onClick={onClickHandler}
       style={style}

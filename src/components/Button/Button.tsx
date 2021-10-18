@@ -16,6 +16,9 @@ import {
   Variant,
 } from './constants';
 
+// services
+import getStyleClassNames from '../../services/getStyleClassNames';
+
 // styles
 import './button.scss';
 
@@ -59,6 +62,17 @@ export const Button: FC<TProps> = ({
     useRippleEffect(
       `${buttonClassName}__${variant}--${color}__${rippleClassName}`
     );
+  const classNames = [
+    buttonClassName,
+    className,
+    `${fullWidth ? `${buttonClassName}__full-width` : ''}`,
+    `${buttonClassName}__${size}`,
+    `${buttonClassName}__${variant}`,
+    `${buttonClassName}__${variant}--${color}`,
+    `${
+      forcedHover ? `${buttonClassName}__${variant}--${color}-forced-hover` : ''
+    }`,
+  ];
 
   const onClickHandler = (event: MouseEvent<HTMLButtonElement>): void => {
     if (!disableRippleEffect) {
@@ -75,30 +89,13 @@ export const Button: FC<TProps> = ({
     }
   };
 
-  const getStyleClassNames = (): string =>
-    [
-      buttonClassName,
-      className,
-      `${fullWidth ? `${buttonClassName}__full-width` : ''}`,
-      `${buttonClassName}__${size}`,
-      `${buttonClassName}__${variant}`,
-      `${buttonClassName}__${variant}--${color}`,
-      `${
-        forcedHover
-          ? `${buttonClassName}__${variant}--${color}-forced-hover`
-          : ''
-      }`,
-    ]
-      .filter((className) => className)
-      .join(' ');
-
   if (href && !history) {
     throw error;
   }
 
   return (
     <button
-      className={getStyleClassNames()}
+      className={getStyleClassNames(classNames)}
       disabled={disabled}
       onClick={onClickHandler}
       style={style}
