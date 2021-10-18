@@ -1,2 +1,2 @@
 export { Button } from './Button/Button';
-export { Color, Size, Variant, className } from './Button/constants';
+export { ButtonIcon } from './ButtonIcon/ButtonIcon';
