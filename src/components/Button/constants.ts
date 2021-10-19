@@ -3,7 +3,7 @@ export const className = 'Button';
 export enum Color {
   primary = 'primary',
   secondary = 'secondary',
-  succes = 'success',
+  success = 'success',
   warning = 'warning',
   error = 'error',
 }
