@@ -10,6 +10,7 @@ import StoryComponent, {
 // others
 import { buttonGroupSize } from '../../../stories/constants';
 import { libraryName } from '../../../constants';
+import { NumberName } from '../../../stories/components/StoryBlockCode/constants';
 import { Size } from '../../Button/constants';
 import { TStoryBlockCode } from '../../../stories/components/StoryBlockCode/types';
 
@@ -22,14 +23,23 @@ const blockCodeData: TStoryBlockCode = {
   props: [
     {
       attributes: [{ name: 'size', value: 'Size.small' }],
-      children: Array.from(Array(3), () => '&lt;Button&gtOne&lt;/Button&gt'),
+      children: Array.from(
+        Array(3),
+        (_, i) => `&lt;Button&gt${NumberName[i]}&lt;/Button&gt`
+      ),
     },
     {
-      children: Array.from(Array(3), () => '&lt;Button&gtOne&lt;/Button&gt'),
+      children: Array.from(
+        Array(3),
+        (_, i) => `&lt;Button&gt${NumberName[i]}&lt;/Button&gt`
+      ),
     },
     {
       attributes: [{ name: 'size', value: 'Size.large' }],
-      children: Array.from(Array(3), () => '&lt;Button&gtOne&lt;/Button&gt'),
+      children: Array.from(
+        Array(3),
+        (_, i) => `&lt;Button&gt${NumberName[i]}&lt;/Button&gt`
+      ),
     },
   ],
   imports: [

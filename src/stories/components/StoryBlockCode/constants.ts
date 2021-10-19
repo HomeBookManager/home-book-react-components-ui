@@ -11,3 +11,5 @@ export enum ClassNameContext {
   importPath = 'class="StoryBlockCode__import-path"',
   importSemicolon = 'class="StoryBlockCode__import-semicolon"',
 }
+
+export const NumberName = ['One', 'Two', 'Three'];

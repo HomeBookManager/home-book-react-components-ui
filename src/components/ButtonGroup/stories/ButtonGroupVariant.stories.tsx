@@ -10,6 +10,7 @@ import StoryComponent, {
 // others
 import { buttonGroupVariants } from '../../../stories/constants';
 import { libraryName } from '../../../constants';
+import { NumberName } from '../../../stories/components/StoryBlockCode/constants';
 import { TStoryBlockCode } from '../../../stories/components/StoryBlockCode/types';
 import { Variant } from '../../Button/constants';
 
@@ -20,14 +21,23 @@ const blockCodeData: TStoryBlockCode = {
   props: [
     {
       attributes: [{ name: 'variant', value: 'Variant.text' }],
-      children: Array.from(Array(3), () => '&lt;Button&gtOne&lt;/Button&gt'),
+      children: Array.from(
+        Array(3),
+        (_, i) => `&lt;Button&gt${NumberName[i]}&lt;/Button&gt`
+      ),
     },
     {
-      children: Array.from(Array(3), () => '&lt;Button&gtOne&lt;/Button&gt'),
+      children: Array.from(
+        Array(3),
+        (_, i) => `&lt;Button&gt${NumberName[i]}&lt;/Button&gt`
+      ),
     },
     {
       attributes: [{ name: 'variant', value: 'Variant.outlined' }],
-      children: Array.from(Array(3), () => '&lt;Button&gtOne&lt;/Button&gt'),
+      children: Array.from(
+        Array(3),
+        (_, i) => `&lt;Button&gt${NumberName[i]}&lt;/Button&gt`
+      ),
     },
   ],
   imports: [
