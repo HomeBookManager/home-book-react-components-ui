@@ -3,17 +3,17 @@
 
 @mixin idle-styles($isGrouped, $variant, $color) {
   @if $variant == 'contained' {
-    background-color: map-get(
-      $--hb-background-color-map,
-      $variant + '-' + $color
-    );
-
     @if $isGrouped {
       &:not(:last-of-type) {
         border-right: 1px
           solid
           map-get($--hb-border-map, 'outlined' + '-' + $color + '-hover');
       }
+    } @else {
+      background-color: map-get(
+        $--hb-background-color-map,
+        $variant + '-' + $color
+      );
     }
   } @else if $variant == 'outlined' {
     border-color: map-get($--hb-border-map, $variant + '-' + $color);

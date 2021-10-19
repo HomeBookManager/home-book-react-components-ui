@@ -2,11 +2,7 @@ import { FC, ReactElement, useMemo } from 'react';
 
 // others
 import { className as buttonGroupClassName, Orientation } from './constants';
-import {
-  className as buttonClassName,
-  Color,
-  Variant,
-} from '../Button/constants';
+import { Color, Variant } from '../Button/constants';
 import { TProps as TButtonProps } from '../Button/Button';
 
 // services
@@ -34,7 +30,7 @@ export const ButtonGroup: FC<TProps> = ({
     className,
     `${buttonGroupClassName}__${orientation}`,
   ];
-  const buttonGroupWithOrientationClassName = `${buttonGroupClassName}__${buttonClassName}__${orientation}`;
+  const buttonGroupWithOrientationClassName = `${buttonGroupClassName}__button__${orientation}`;
   const buttonClassNames = [
     buttonGroupWithOrientationClassName,
     `${buttonGroupWithOrientationClassName}__${variant}`,

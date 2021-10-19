@@ -4,7 +4,7 @@
   display: flex;
   justify-content: center;
 
-  &__Button {
+  &__button {
     &__horizontal {
       @include button-variant(true);
 
