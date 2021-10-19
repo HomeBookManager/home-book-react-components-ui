@@ -2,22 +2,30 @@
 
 @mixin orientation-styles($orientation, $variant, $color: 'primary') {
   @if $variant == 'text' {
+    $--hb-border-color: map-get($--hb-border-map, 'outlined' + '-' + $color);
+
     @if $orientation == 'horizontal' {
       &:not(:last-of-type) {
-        border-right: 1px
-          solid
-          map-get($--hb-border-map, 'outlined' + '-' + $color);
+        border-right: 1px solid $--hb-border-color;
+      }
+    } @else {
+      &:not(:last-of-type) {
+        border-bottom: 1px solid $--hb-border-color;
       }
     }
   } @else if $variant == 'contained' {
+    $--hb-border-color: map-get(
+      $--hb-background-color-map,
+      $variant + '-' + $color + '-hover'
+    );
+
     @if $orientation == 'horizontal' {
       &:not(:last-of-type) {
-        border-right: 1px
-          solid
-          map-get(
-            $--hb-background-color-map,
-            $variant + '-' + $color + '-hover'
-          );
+        border-right: 1px solid $--hb-border-color;
+      }
+    } @else {
+      &:not(:last-of-type) {
+        border-bottom: 1px solid $--hb-border-color;
       }
     }
 
@@ -32,6 +40,14 @@
 
       &:not(:first-of-type) {
         margin-left: -1px;
+      }
+    } @else {
+      &:not(:last-of-type) {
+        border-bottom-color: transparent;
+      }
+
+      &:not(:first-of-type) {
+        margin-top: -1px;
       }
     }
   }

@@ -38,3 +38,4 @@ export const basicButtonGroup = `${buttonGroupExamplePrefix}/Basic Button Group`
 export const buttonGroupVariants = `${buttonGroupExamplePrefix}/Button Group Variants`;
 export const buttonGroupColor = `${buttonGroupExamplePrefix}/Button Group Color`;
 export const buttonGroupSize = `${buttonGroupExamplePrefix}/Button Group Size`;
+export const buttonGroupVertical = `${buttonGroupExamplePrefix}/Button Group Vertical`;

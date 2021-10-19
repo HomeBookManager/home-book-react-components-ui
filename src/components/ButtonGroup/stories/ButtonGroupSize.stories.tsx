@@ -15,7 +15,7 @@ import { Size } from '../../Button/constants';
 import { TStoryBlockCode } from '../../../stories/components/StoryBlockCode/types';
 
 const description = [
-  'The <code>color</code> prop can be used to control the appearance of the button group.',
+  'The <code>size</code> prop can be used to control the appearance of the button group.',
 ];
 
 const blockCodeData: TStoryBlockCode = {
