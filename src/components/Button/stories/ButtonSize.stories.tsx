@@ -92,7 +92,7 @@ const Template: ComponentStory<typeof Button> = (args) => (
     blockCodeData={blockCodeData}
     contentGridFlow={ContentGridFlow.maxThreeColumns}
     description={description}
-    title="Button size"
+    title="Button sizes"
   >
     {Object.keys(Variant).map((variant, variantKey) =>
       Object.keys(Size).map((size, sizeKey) => (

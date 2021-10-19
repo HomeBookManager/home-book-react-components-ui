@@ -8,9 +8,9 @@ import StoryComponent, {
 } from '../../../stories/components/StoryComponent/StoryComponent';
 
 // others
-import { buttonGroupColors } from '../../../stories/constants';
-import { Color } from '../../Button/constants';
+import { buttonGroupSize } from '../../../stories/constants';
 import { libraryName } from '../../../constants';
+import { Size } from '../../Button/constants';
 import { TStoryBlockCode } from '../../../stories/components/StoryBlockCode/types';
 
 const description = [
@@ -21,22 +21,14 @@ const blockCodeData: TStoryBlockCode = {
   componentName: 'ButtonGroup',
   props: [
     {
+      attributes: [{ name: 'size', value: 'Size.small' }],
       children: Array.from(Array(3), () => '&lt;Button&gtOne&lt;/Button&gt'),
     },
     {
-      attributes: [{ name: 'color', value: 'Color.secondary' }],
       children: Array.from(Array(3), () => '&lt;Button&gtOne&lt;/Button&gt'),
     },
     {
-      attributes: [{ name: 'color', value: 'Color.success' }],
-      children: Array.from(Array(3), () => '&lt;Button&gtOne&lt;/Button&gt'),
-    },
-    {
-      attributes: [{ name: 'color', value: 'Color.warning' }],
-      children: Array.from(Array(3), () => '&lt;Button&gtOne&lt;/Button&gt'),
-    },
-    {
-      attributes: [{ name: 'color', value: 'Color.error' }],
+      attributes: [{ name: 'size', value: 'Size.large' }],
       children: Array.from(Array(3), () => '&lt;Button&gtOne&lt;/Button&gt'),
     },
   ],
@@ -56,7 +48,7 @@ export default {
       url: 'https://www.figma.com/file/yhTZ31Wn16kIrEeoHHV176/Components-UI?node-id=152%3A2',
     },
   },
-  title: buttonGroupColors,
+  title: buttonGroupSize,
 } as ComponentMeta<typeof ButtonGroup>;
 
 const Template: ComponentStory<typeof ButtonGroup> = (args) => (
@@ -64,11 +56,11 @@ const Template: ComponentStory<typeof ButtonGroup> = (args) => (
     blockCodeData={blockCodeData}
     contentGridFlow={ContentGridFlow.row}
     description={description}
-    title="Button group colors"
+    title="Button group sizes"
   >
-    {Object.keys(Color).map((color, key) => (
+    {Object.keys(Size).map((size, key) => (
       // @ts-ignore
-      <ButtonGroup color={color} key={key} {...args}>
+      <ButtonGroup size={size} key={key} {...args}>
         <Button>One</Button>
         <Button>Two</Button>
         <Button>Three</Button>
@@ -77,8 +69,14 @@ const Template: ComponentStory<typeof ButtonGroup> = (args) => (
   </StoryComponent>
 );
 
-export const ButtonGroupColors = Template.bind({});
+export const ButtonGroupSize = Template.bind({});
 
-ButtonGroupColors.argTypes = {};
+ButtonGroupSize.argTypes = {
+  size: {
+    table: {
+      disable: true,
+    },
+  },
+};
 
-ButtonGroupColors.args = {};
+ButtonGroupSize.args = {};

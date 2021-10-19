@@ -12,7 +12,7 @@ import getStyleClassNames from '../../services/getStyleClassNames';
 // styles
 import './button-group.scss';
 
-export type TProps = Pick<TButtonProps, 'color' | 'variant'> & {
+export type TProps = Pick<TButtonProps, 'color' | 'size' | 'variant'> & {
   children: ReactElement | Array<ReactElement>;
   className?: string;
   orientation?: Orientation;
@@ -24,6 +24,7 @@ export const ButtonGroup: FC<TProps> = ({
   color = Color.primary,
   orientation = Orientation.horizontal,
   variant = Variant.contained,
+  ...restProps
 }) => {
   const classNames = [
     buttonGroupClassName,
@@ -40,6 +41,7 @@ export const ButtonGroup: FC<TProps> = ({
     className: getStyleClassNames(buttonClassNames),
     color,
     variant,
+    ...restProps,
   };
   const content = useMemo(
     () => getChildrenWithForwardedProps(children, buttonProps, 'Button'),

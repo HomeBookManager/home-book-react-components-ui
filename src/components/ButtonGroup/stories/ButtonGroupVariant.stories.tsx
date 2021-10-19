@@ -69,6 +69,12 @@ const Template: ComponentStory<typeof ButtonGroup> = (args) => (
 
 export const ButtonGroupVariants = Template.bind({});
 
-ButtonGroupVariants.argTypes = {};
+ButtonGroupVariants.argTypes = {
+  variant: {
+    table: {
+      disable: true,
+    },
+  },
+};
 
 ButtonGroupVariants.args = {};

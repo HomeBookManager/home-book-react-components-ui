@@ -36,4 +36,5 @@ export const buttonGroupExamplePrefix = `${buttonGroupPrefix}/Example`;
 export const buttonGroupApi = `${buttonGroupPrefix}/Button Group API`;
 export const basicButtonGroup = `${buttonGroupExamplePrefix}/Basic Button Group`;
 export const buttonGroupVariants = `${buttonGroupExamplePrefix}/Button Group Variants`;
-export const buttonGroupColors = `${buttonGroupExamplePrefix}/Button Group Colors`;
+export const buttonGroupColor = `${buttonGroupExamplePrefix}/Button Group Color`;
+export const buttonGroupSize = `${buttonGroupExamplePrefix}/Button Group Size`;
