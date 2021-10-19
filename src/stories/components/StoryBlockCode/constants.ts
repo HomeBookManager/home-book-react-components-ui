@@ -2,6 +2,7 @@ export enum ClassNameContext {
   attribute = 'class="StoryBlockCode__attribute"',
   attributeName = 'class="StoryBlockCode__attribute--name"',
   attributeValue = 'class="StoryBlockCode__attribute--value"',
+  children = 'class="StoryBlockCode__children"',
   componentName = 'class="StoryBlockCode__component-name"',
   import = 'class="StoryBlockCode__import"',
   importAs = 'class="StoryBlockCode__import-as"',

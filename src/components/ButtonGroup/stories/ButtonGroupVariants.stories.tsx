@@ -20,15 +20,14 @@ const blockCodeData: TStoryBlockCode = {
   props: [
     {
       attributes: [{ name: 'variant', value: 'Variant.text' }],
-      children: '&lt;Button&gtOne&lt;/Button&gt',
+      children: Array.from(Array(3), () => '&lt;Button&gtOne&lt;/Button&gt'),
     },
     {
-      attributes: [{ name: 'variant', value: 'Variant.text' }],
-      children: '&lt;Button&gtTwo&lt;/Button&gt',
+      children: Array.from(Array(3), () => '&lt;Button&gtOne&lt;/Button&gt'),
     },
     {
-      attributes: [{ name: 'variant', value: 'Variant.text' }],
-      children: '&lt;Button&gtThree&lt;/Button&gt',
+      attributes: [{ name: 'variant', value: 'Variant.outlined' }],
+      children: Array.from(Array(3), () => '&lt;Button&gtOne&lt;/Button&gt'),
     },
   ],
   imports: [

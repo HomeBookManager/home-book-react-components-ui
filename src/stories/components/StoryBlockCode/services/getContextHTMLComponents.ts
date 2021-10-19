@@ -1,3 +1,5 @@
+import isArray from 'lodash/isArray';
+
 // others
 import { TComponentAttributes, TProps } from '../types';
 import { ClassNameContext } from '../constants';
@@ -26,6 +28,15 @@ const getContextAttributes = (
   return getSpanWithClosure(ClassNameContext.attribute, context);
 };
 
+const getContextHTMLChildren = (children: string | Array<string>): string => {
+  if (isArray(children)) {
+    return `<br/>${children
+      .map((child) => getSpanWithClosure(ClassNameContext.children, child))
+      .join('<br/>')}<br/>`;
+  }
+  return children;
+};
+
 const getBeginingOfContextComponent = (
   componentName: string,
   mappedAttributes: string
@@ -45,7 +56,7 @@ const getContextHTMLComponents = (
     ? `${getBeginingOfContextComponent(
         componentName,
         mappedAttributes
-      )}>${children}<&#47;<span ${
+      )}>${getContextHTMLChildren(children)}<&#47;<span ${
         ClassNameContext.componentName
       }>${componentName}</span>>`
     : `${getBeginingOfContextComponent(componentName, mappedAttributes)} />`;
