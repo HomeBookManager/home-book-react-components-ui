@@ -3,7 +3,9 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 // components
 import Button from '../../Button/Button';
 import ButtonGroup from '../ButtonGroup';
-import StoryComponent from '../../../stories/components/StoryComponent/StoryComponent';
+import StoryComponent, {
+  ContentGridFlow,
+} from '../../../stories/components/StoryComponent/StoryComponent';
 
 // others
 import { basicButtonGroup } from '../../../stories/constants';
@@ -43,6 +45,7 @@ export default {
 const Template: ComponentStory<typeof ButtonGroup> = (args) => (
   <StoryComponent
     blockCodeData={blockCodeData}
+    contentGridFlow={ContentGridFlow.row}
     description={description}
     title="Basic button group"
   >

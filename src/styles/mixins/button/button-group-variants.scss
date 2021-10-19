@@ -14,8 +14,15 @@
       &:not(:last-of-type) {
         border-right: 1px
           solid
-          map-get($--hb-border-map, 'outlined' + '-' + $color + '-hover');
+          map-get(
+            $--hb-background-color-map,
+            $variant + '-' + $color + '-hover'
+          );
       }
+    }
+
+    &:hover {
+      box-shadow: unset;
     }
   } @else {
     @if $orientation == 'horizontal' {
