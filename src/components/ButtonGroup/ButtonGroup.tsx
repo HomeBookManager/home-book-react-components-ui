@@ -14,10 +14,16 @@ import './button-group.scss';
 
 export type TProps = Pick<
   TButtonProps,
-  'color' | 'disabled' | 'forcedHover' | 'size' | 'variant'
+  | 'className'
+  | 'color'
+  | 'disabled'
+  | 'disableRippleEffect'
+  | 'forcedHover'
+  | 'size'
+  | 'style'
+  | 'variant'
 > & {
   children: ReactElement | Array<ReactElement>;
-  className?: string;
   orientation?: Orientation;
 };
 
@@ -26,6 +32,7 @@ export const ButtonGroup: FC<TProps> = ({
   className = '',
   color = Color.primary,
   orientation = Orientation.horizontal,
+  style = {},
   variant = Variant.contained,
   ...restProps
 }) => {
@@ -51,7 +58,11 @@ export const ButtonGroup: FC<TProps> = ({
     [children]
   );
 
-  return <div className={getStyleClassNames(classNames)}>{content}</div>;
+  return (
+    <div className={getStyleClassNames(classNames)} style={style}>
+      {content}
+    </div>
+  );
 };
 
 export default ButtonGroup;

@@ -5,7 +5,7 @@ import Button from '../Button';
 import StoryApi from '../../../stories/components/StoryApi/StoryApi';
 
 // others
-import { buttonApi } from '../../../stories/constants';
+import { buttonAPI } from '../../../stories/constants';
 import { libraryName } from '../../../constants';
 import { TStoryBlockCode } from '../../../stories/components/StoryBlockCode/types';
 import { TTableBody } from '../../../stories/components/StoryPropsTable/StoryPropsTable';
@@ -121,7 +121,7 @@ const blockCodeData: TStoryBlockCode = {
 
 export default {
   component: Button,
-  title: buttonApi,
+  title: buttonAPI,
 } as ComponentMeta<typeof Button>;
 
 const Template: ComponentStory<typeof Button> = () => (
