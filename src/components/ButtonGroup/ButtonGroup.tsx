@@ -31,6 +31,7 @@ export const ButtonGroup: FC<TProps> = ({
   children,
   className = '',
   color = Color.primary,
+  forcedHover,
   orientation = Orientation.horizontal,
   style = {},
   variant = Variant.contained,
@@ -46,10 +47,16 @@ export const ButtonGroup: FC<TProps> = ({
     buttonGroupWithOrientationClassName,
     `${buttonGroupWithOrientationClassName}__${variant}`,
     `${buttonGroupWithOrientationClassName}__${variant}--${color}`,
+    `${
+      forcedHover
+        ? `${buttonGroupWithOrientationClassName}__${variant}--${color}-forced-hover`
+        : ''
+    }`,
   ];
   const buttonProps: TButtonProps = {
     className: getStyleClassNames(buttonClassNames),
     color,
+    forcedHover,
     variant,
     ...restProps,
   };

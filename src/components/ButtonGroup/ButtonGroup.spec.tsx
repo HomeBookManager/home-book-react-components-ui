@@ -153,7 +153,7 @@ describe('ButtonGroup', () => {
 
     for (let i = 0; i < 3; i++) {
       expect(container.firstChild.childNodes[i]).toHaveClass(
-        'Button__contained--primary-forced-hover'
+        'ButtonGroup__button__horizontal__contained--primary-forced-hover'
       );
     }
   });
