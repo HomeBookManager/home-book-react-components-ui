@@ -12,4 +12,4 @@ export enum ClassNameContext {
   importSemicolon = 'class="StoryBlockCode__import-semicolon"',
 }
 
-export const NumberName = ['One', 'Two', 'Three'];
+export const Numbers = ['One', 'Two', 'Three'];
