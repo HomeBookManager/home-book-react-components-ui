@@ -11,7 +11,7 @@ import StoryComponent, {
 import { buttonGroupColor } from '../../../stories/constants';
 import { Color } from '../../Button/constants';
 import { libraryName } from '../../../constants';
-import { NumberName } from '../../../stories/components/StoryBlockCode/constants';
+import { Numbers } from '../../../stories/components/StoryBlockCode/constants';
 import { TStoryBlockCode } from '../../../stories/components/StoryBlockCode/types';
 
 const description = [
@@ -24,35 +24,35 @@ const blockCodeData: TStoryBlockCode = {
     {
       children: Array.from(
         Array(3),
-        (_, i) => `&lt;Button&gt${NumberName[i]}&lt;/Button&gt`
+        (_, i) => `&lt;Button&gt${Numbers[i]}&lt;/Button&gt`
       ),
     },
     {
       attributes: [{ name: 'color', value: 'Color.secondary' }],
       children: Array.from(
         Array(3),
-        (_, i) => `&lt;Button&gt${NumberName[i]}&lt;/Button&gt`
+        (_, i) => `&lt;Button&gt${Numbers[i]}&lt;/Button&gt`
       ),
     },
     {
       attributes: [{ name: 'color', value: 'Color.success' }],
       children: Array.from(
         Array(3),
-        (_, i) => `&lt;Button&gt${NumberName[i]}&lt;/Button&gt`
+        (_, i) => `&lt;Button&gt${Numbers[i]}&lt;/Button&gt`
       ),
     },
     {
       attributes: [{ name: 'color', value: 'Color.warning' }],
       children: Array.from(
         Array(3),
-        (_, i) => `&lt;Button&gt${NumberName[i]}&lt;/Button&gt`
+        (_, i) => `&lt;Button&gt${Numbers[i]}&lt;/Button&gt`
       ),
     },
     {
       attributes: [{ name: 'color', value: 'Color.error' }],
       children: Array.from(
         Array(3),
-        (_, i) => `&lt;Button&gt${NumberName[i]}&lt;/Button&gt`
+        (_, i) => `&lt;Button&gt${Numbers[i]}&lt;/Button&gt`
       ),
     },
   ],
