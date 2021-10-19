@@ -46,6 +46,11 @@
         grid-auto-flow: column;
       }
 
+      &-row {
+        grid-auto-flow: row;
+        grid-row-gap: 15px;
+      }
+
       &-max-three-columns {
         grid-row-gap: 15px;
         grid-template-columns: repeat(3, auto);

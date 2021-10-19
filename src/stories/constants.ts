@@ -35,3 +35,4 @@ export const buttonGroupPrefix = `${inputs}/Button Group`;
 export const buttonGroupExamplePrefix = `${buttonGroupPrefix}/Example`;
 export const buttonGroupApi = `${buttonGroupPrefix}/Button Group API`;
 export const basicButtonGroup = `${buttonGroupExamplePrefix}/Basic Button Group`;
+export const buttonGroupVariants = `${buttonGroupExamplePrefix}/Button Group Variants`;
