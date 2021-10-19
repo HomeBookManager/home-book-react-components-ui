@@ -38,6 +38,8 @@ export const ButtonGroup: FC<TProps> = ({
   ];
   const buttonProps: TButtonProps = {
     className: getStyleClassNames(buttonClassNames),
+    color,
+    variant,
   };
   const content = useMemo(
     () => getChildrenWithForwardedProps(children, buttonProps, 'Button'),
