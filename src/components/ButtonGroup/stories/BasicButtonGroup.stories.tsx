@@ -1,7 +1,7 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 // components
-import Button, { TProps as TButtonProps } from '../../Button/Button';
+import Button from '../../Button/Button';
 import ButtonGroup from '../ButtonGroup';
 import StoryComponent from '../../../stories/components/StoryComponent/StoryComponent';
 
@@ -15,22 +15,21 @@ const description = [
 ];
 
 const blockCodeData: TStoryBlockCode = {
-  componentName: 'ButtonIcon',
+  componentName: 'ButtonGroup',
   props: [
     {
-      children: '&lt;Trash /&gt',
+      children: '&lt;Button&gtOne&lt;/Button&gt',
     },
     {
-      attributes: [{ name: 'forcedHover' }],
-      children: '&lt;Trash /&gt',
+      children: '&lt;Button&gtTwo&lt;/Button&gt',
     },
     {
-      children: '&lt;Trash /&gt',
+      children: '&lt;Button&gtThree&lt;/Button&gt',
     },
   ],
   imports: [
     {
-      items: '{ ButtonGroup }',
+      items: '{ Button, ButtonGroup }',
       path: libraryName,
     },
   ],
@@ -47,9 +46,7 @@ export default {
   title: basicButtonGroup,
 } as ComponentMeta<typeof ButtonGroup>;
 
-const Template: ComponentStory<
-  typeof ButtonGroup & Pick<TButtonProps, 'color'>
-> = (args) => (
+const Template: ComponentStory<typeof ButtonGroup> = (args) => (
   <StoryComponent
     blockCodeData={blockCodeData}
     description={description}
