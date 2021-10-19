@@ -3,7 +3,7 @@
 @import '../../styles/mixins/button/button-variants.scss';
 
 .Button {
-  @include button-variant;
+  @include button-variants;
   @include button-size;
   @include button;
   border-radius: 4px;

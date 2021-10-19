@@ -51,6 +51,17 @@ const Template: ComponentStory<typeof ButtonGroup> = (args) => (
       <Button>Two</Button>
       <Button>Three</Button>
     </ButtonGroup>
+    <ButtonGroup forcedHover {...args}>
+      <Button>One</Button>
+      <Button>Two</Button>
+      <Button>Three</Button>
+    </ButtonGroup>
+
+    <ButtonGroup disabled {...args}>
+      <Button>One</Button>
+      <Button>Two</Button>
+      <Button>Three</Button>
+    </ButtonGroup>
   </StoryComponent>
 );
 

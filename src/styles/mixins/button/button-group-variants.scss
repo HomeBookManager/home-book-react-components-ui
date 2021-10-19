@@ -1,0 +1,67 @@
+@import '../../colors/button/button-map.scss';
+
+@mixin orientation-styles($orientation, $variant, $color: 'primary') {
+  @if $variant == 'text' {
+    @if $orientation == 'horizontal' {
+      &:not(:last-of-type) {
+        border-right: 1px
+          solid
+          map-get($--hb-border-map, 'outlined' + '-' + $color);
+      }
+    }
+  } @else if $variant == 'contained' {
+    @if $orientation == 'horizontal' {
+      &:not(:last-of-type) {
+        border-right: 1px
+          solid
+          map-get($--hb-border-map, 'outlined' + '-' + $color + '-hover');
+      }
+    }
+  } @else {
+    @if $orientation == 'horizontal' {
+      &:not(:last-of-type) {
+        border-right-color: transparent;
+      }
+
+      &:not(:first-of-type) {
+        margin-left: -1px;
+      }
+    }
+  }
+}
+
+@mixin color-styles($orientation, $variant: 'text') {
+  &--primary {
+    @include orientation-styles($orientation, $variant);
+  }
+
+  &--secondary {
+    @include orientation-styles($orientation, $variant, 'secondary');
+  }
+
+  &--success {
+    @include orientation-styles($orientation, $variant, 'success');
+  }
+
+  &--warning {
+    @include orientation-styles($orientation, $variant, 'warning');
+  }
+
+  &--error {
+    @include orientation-styles($orientation, $variant, 'error');
+  }
+}
+
+@mixin button-group-variants($orientation: 'horizontal') {
+  &__text {
+    @include color-styles($orientation);
+  }
+
+  &__contained {
+    @include color-styles($orientation, 'contained');
+  }
+
+  &__outlined {
+    @include color-styles($orientation, 'outlined');
+  }
+}

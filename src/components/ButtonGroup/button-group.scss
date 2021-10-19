@@ -1,4 +1,4 @@
-@import '../../styles/mixins/button/button-variants.scss';
+@import '../../styles/mixins/button/button-group-variants.scss';
 
 .ButtonGroup {
   display: flex;
@@ -6,7 +6,7 @@
 
   &__button {
     &__horizontal {
-      @include button-variant(true);
+      @include button-group-variants;
 
       &:not(:first-of-type) {
         border-bottom-left-radius: 0;

@@ -1,57 +1,13 @@
 @import '../../colors/button/button-map.scss';
 @import '../ripple-styles.scss';
 
-@mixin orientation-styles($orientation, $variant, $color: '') {
-  @if $variant == 'text' {
-    @if $orientation == 'horizontal' {
-      &:not(:last-of-type) {
-        border-right: 1px solid $color;
-      }
-    }
-  } @else if $variant == 'contained' {
-    @if $orientation == 'horizontal' {
-      &:not(:last-of-type) {
-        border-right: 1px solid $color;
-      }
-    }
-  } @else {
-    @if $orientation == 'horizontal' {
-      &:not(:last-of-type) {
-        border-right-color: transparent;
-      }
-
-      &:not(:first-of-type) {
-        margin-left: -1px;
-      }
-    }
-  }
-}
-
-@mixin idle-styles($isGrouped, $orientation, $variant, $color) {
-  @if $variant == 'text' and $isGrouped {
-    @include orientation-styles(
-      $orientation,
-      $variant,
-      map-get($--hb-border-map, 'outlined' + '-' + $color)
-    );
-  }
+@mixin idle-styles($variant, $color) {
   @if $variant == 'contained' {
-    @if $isGrouped {
-      @include orientation-styles(
-        $orientation,
-        $variant,
-        map-get($--hb-border-map, 'outlined' + '-' + $color + '-hover')
-      );
-    }
-
     background-color: map-get(
       $--hb-background-color-map,
       $variant + '-' + $color
     );
   } @else if $variant == 'outlined' {
-    @if $isGrouped {
-      @include orientation-styles($orientation, $variant);
-    }
     border-color: map-get($--hb-border-map, $variant + '-' + $color);
   }
 }
@@ -101,9 +57,9 @@
   }
 }
 
-@mixin color-styles($isGrouped, $orientation, $variant, $color: 'primary') {
+@mixin common-styles($variant, $color: 'primary') {
   color: map-get($--hb-text-map, $variant + '-' + $color);
-  @include idle-styles($isGrouped, $orientation, $variant, $color);
+  @include idle-styles($variant, $color);
 
   &-forced-hover,
   &:hover:enabled {
@@ -122,41 +78,41 @@
   }
 }
 
-@mixin variant-styles($isGrouped, $orientation, $variant: 'text') {
+@mixin color-styles($variant: 'text') {
   &--primary {
-    @include color-styles($isGrouped, $orientation, $variant);
+    @include common-styles($variant);
   }
 
   &--secondary {
-    @include color-styles($isGrouped, $orientation, $variant, 'secondary');
+    @include common-styles($variant, 'secondary');
   }
 
   &--success {
-    @include color-styles($isGrouped, $orientation, $variant, 'success');
+    @include common-styles($variant, 'success');
   }
 
   &--warning {
-    @include color-styles($isGrouped, $orientation, $variant, 'warning');
+    @include common-styles($variant, 'warning');
   }
 
   &--error {
-    @include color-styles($isGrouped, $orientation, $variant, 'error');
+    @include common-styles($variant, 'error');
   }
 }
 
-@mixin button-variant($isGrouped: false, $orientation: 'horizontal') {
+@mixin button-variants {
   &__text {
     background: unset;
-    @include variant-styles($isGrouped, $orientation);
+    @include color-styles;
   }
 
   &__contained {
-    @include variant-styles($isGrouped, $orientation, 'contained');
+    @include color-styles('contained');
   }
 
   &__outlined {
     background: unset;
     border: 1px solid;
-    @include variant-styles($isGrouped, $orientation, 'outlined');
+    @include color-styles('outlined');
   }
 }

@@ -12,7 +12,10 @@ import getStyleClassNames from '../../services/getStyleClassNames';
 // styles
 import './button-group.scss';
 
-export type TProps = Pick<TButtonProps, 'color' | 'size' | 'variant'> & {
+export type TProps = Pick<
+  TButtonProps,
+  'color' | 'disabled' | 'forcedHover' | 'size' | 'variant'
+> & {
   children: ReactElement | Array<ReactElement>;
   className?: string;
   orientation?: Orientation;
