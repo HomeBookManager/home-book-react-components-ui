@@ -1,0 +1,47 @@
+@import '../../../styles/colors/button/button.scss';
+@import '../../../styles/mixins/button/button.scss';
+@import '../../../styles/mixins/button/button-sizes.scss';
+
+$--hb-padding: 0;
+
+.ButtonIcon {
+  @include button-size(true);
+  @include button;
+  background-color: unset;
+  border-radius: 50%;
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.3;
+  }
+
+  &:hover:enabled {
+    background-color: $--hb-btn-icon-background-hover;
+  }
+
+  &__forced-hover {
+    background-color: $--hb-btn-icon-background-hover;
+  }
+
+  &__circle-pulse {
+    background-color: $--hb-btn-icon-background-click;
+
+    &--small {
+      $--hb-padding: map-get($--hb-padding-left-right-map, 'small-size');
+      height: calc(100% + #{$--hb-padding});
+      width: calc(100% + #{$--hb-padding});
+    }
+
+    &--medium {
+      $--hb-padding: map-get($--hb-padding-left-right-map, 'medium-size');
+      height: calc(100% + #{$--hb-padding});
+      width: calc(100% + #{$--hb-padding});
+    }
+
+    &--large {
+      $--hb-padding: map-get($--hb-padding-left-right-map, 'large-size');
+      height: calc(100% + #{$--hb-padding});
+      width: calc(100% + #{$--hb-padding});
+    }
+  }
+}
