@@ -49,7 +49,7 @@ describe('ButtonGroup', () => {
 
     for (let i = 0; i < 3; i++) {
       expect(container.firstChild.childNodes[i]).toHaveClass(
-        'ButtonGroup__button__horizontal__contained--primary'
+        'ButtonGroup__horizontal__button__contained--primary'
       );
     }
   });
@@ -65,7 +65,7 @@ describe('ButtonGroup', () => {
 
     for (let i = 0; i < 3; i++) {
       expect(container.firstChild.childNodes[i]).toHaveClass(
-        'ButtonGroup__button__horizontal__contained--secondary'
+        'ButtonGroup__horizontal__button__contained--secondary'
       );
     }
   });
@@ -153,7 +153,7 @@ describe('ButtonGroup', () => {
 
     for (let i = 0; i < 3; i++) {
       expect(container.firstChild.childNodes[i]).toHaveClass(
-        'ButtonGroup__button__horizontal__contained--primary-forced-hover'
+        'ButtonGroup__horizontal__button__contained--primary-forced-hover'
       );
     }
   });
