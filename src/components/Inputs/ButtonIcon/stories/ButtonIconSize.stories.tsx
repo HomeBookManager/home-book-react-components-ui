@@ -69,8 +69,12 @@ const blockCodeData: TStoryBlockCode = {
   ],
   imports: [
     {
-      items: '{ ButtonIcon, Size }',
+      items: '{ ButtonIcon }',
       path: libraryName,
+    },
+    {
+      items: '{ Size }',
+      path: `${libraryName}/dist/components/ButtonIcon/constants`,
     },
     {
       items: '{ ReactComponent as Trash }',

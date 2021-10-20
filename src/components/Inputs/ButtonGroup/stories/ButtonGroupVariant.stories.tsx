@@ -45,6 +45,10 @@ const blockCodeData: TStoryBlockCode = {
       items: '{ Button, ButtonGroup }',
       path: libraryName,
     },
+    {
+      items: '{ Variant }',
+      path: `${libraryName}/dist/components/Button/constants`,
+    },
   ],
 };
 

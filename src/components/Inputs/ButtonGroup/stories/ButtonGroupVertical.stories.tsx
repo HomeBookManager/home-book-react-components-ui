@@ -53,6 +53,10 @@ const blockCodeData: TStoryBlockCode = {
       items: '{ Button, ButtonGroup, Orientation }',
       path: libraryName,
     },
+    {
+      items: '{ Orientation }',
+      path: `${libraryName}/dist/components/ButtonGroup/constants`,
+    },
   ],
 };
 
