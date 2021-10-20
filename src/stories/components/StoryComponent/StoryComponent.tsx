@@ -10,6 +10,7 @@ import './story-component.scss';
 
 export enum ContentGridFlow {
   column = 'flow-column',
+  row = 'flow-row',
   maxThreeColumns = 'flow-max-three-columns',
 }
 

@@ -70,9 +70,9 @@
     "prepare": "husky install",
     "prettier:check": "npx prettier --check .",
     "prettier:write": "npx prettier --write .",
+    "start": "start-storybook -p 6006 -s public",
     "test": "react-scripts test --watchAll",
-    "test:check": "react-scripts test --watchAll=false --silent --passWithNoTests",
-    "storybook": "start-storybook -p 6006 -s public"
+    "test:check": "react-scripts test --watchAll=false --silent --passWithNoTests"
   },
   "eslintConfig": {
     "extends": [
@@ -147,5 +147,8 @@
     "msgPrefixSuggestion": "Instead of \"%s\" try \"%s\".",
     "msgseparatorRequired": "Branch \"%s\" must contain a separator \"%s\".",
     "msgDoesNotMatchRegex": "Branch \"%s\" does not match the allowed pattern: \"%s\""
+  },
+  "dependencies": {
+    "history": "^5.0.1"
   }
 }

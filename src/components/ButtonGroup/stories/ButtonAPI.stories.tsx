@@ -1,23 +1,23 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 // components
-import ButtonIcon from '../ButtonIcon';
+import ButtonGroup from '../ButtonGroup';
 import StoryApi from '../../../stories/components/StoryApi/StoryApi';
 
 // others
-import { buttonIconAPI } from '../../../stories/constants';
+import { buttonGroupAPI } from '../../../stories/constants';
 import { libraryName } from '../../../constants';
 import { TStoryBlockCode } from '../../../stories/components/StoryBlockCode/types';
 import { TTableBody } from '../../../stories/components/StoryPropsTable/StoryPropsTable';
 
 const description = [
-  'API documentation for the React Button Icon component. Learn about the available props.',
+  'API documentation for the React Button Group component. Learn about the available props.',
 ];
 
 const tableBodyData: Array<TTableBody> = [
   {
     name: 'children',
-    type: 'node',
+    type: 'ReactElement | Array<ReactElement>',
     description: 'The content of the component.',
   },
   {
@@ -26,22 +26,22 @@ const tableBodyData: Array<TTableBody> = [
     description: 'Override or extend the styles applied to the component.',
   },
   {
+    name: 'color',
+    type: `'primary'<br/>|&nbsp;'primary'<br/>|&nbsp;'secondary'<br/>|&nbsp;'success'<br/>|&nbsp;'warning'<br/>|&nbsp;'error'<br/>|&nbsp;'string'`,
+    defaultValue: `'primary'`,
+    description: `The color of the component. It doesn't supports those theme colors that make sense for this component.`,
+  },
+  {
     name: 'disabled',
     type: 'boolean',
     defaultValue: 'false',
     description: 'If <code>true</code>, the component is disabled.',
   },
   {
-    name: 'disablePulseEffect',
+    name: 'disableRippleEffect',
     type: 'boolean',
     defaultValue: 'false',
-    description: 'If <code>true</code>, the pulse effect is disabled.',
-  },
-  {
-    name: 'externalLink',
-    type: 'boolean',
-    defaultValue: 'false',
-    description: 'If forwareded then user will be redirect on page in new tab.',
+    description: 'If <code>true</code>, the ripple effect is disabled.',
   },
   {
     name: 'forcedHover',
@@ -51,21 +51,10 @@ const tableBodyData: Array<TTableBody> = [
       'If <code>true</code>, the hover will be active without user friction.',
   },
   {
-    name: 'history',
-    type: 'History',
-    description:
-      'History has to be pass from <code>react-router-dom</code> library to call push.',
-  },
-  {
-    name: 'href',
-    type: 'string',
-    description:
-      'The URL to link to when the button is clicked. If passed History, <code>history.push(href)</code> will be call from <code>react-router-dom</code>.',
-  },
-  {
-    name: 'onClick',
-    type: '(event: MouseEvent<HTMLButtonElement>) => void',
-    description: '<code>Function</code> to call action after the click button.',
+    name: 'orientation',
+    type: `'horizontal'<br/>|&nbsp;'vertical'`,
+    defaultValue: `'horizontal'`,
+    description: 'The component orientation (layout flow direction).',
   },
   {
     name: 'size',
@@ -79,29 +68,35 @@ const tableBodyData: Array<TTableBody> = [
     type: 'object',
     description: 'Override styles by object of styles.',
   },
+  {
+    name: 'variant',
+    type: `text'<br/>|&nbsp;'text'<br/>|&nbsp;'contained'<br/>|&nbsp;'outlined'<br/>|&nbsp;'string'`,
+    defaultValue: 'text',
+    description: 'The variant to use.',
+  },
 ];
 
 const blockCodeData: TStoryBlockCode = {
   imports: [
     {
-      items: '{ ButtonIcon }',
+      items: '{ Button }',
       path: libraryName,
     },
   ],
 };
 
 export default {
-  component: ButtonIcon,
-  title: buttonIconAPI,
-} as ComponentMeta<typeof ButtonIcon>;
+  component: ButtonGroup,
+  title: buttonGroupAPI,
+} as ComponentMeta<typeof ButtonGroup>;
 
-const Template: ComponentStory<typeof ButtonIcon> = () => (
+const Template: ComponentStory<typeof ButtonGroup> = () => (
   <StoryApi
     blockCodeData={blockCodeData}
     description={description}
     tableBodyData={tableBodyData}
-    title="Button Icon API"
+    title="Button Group API"
   />
 );
 
-export const ButtonIconAPI = Template.bind({});
+export const ButtonGroupAPI = Template.bind({});

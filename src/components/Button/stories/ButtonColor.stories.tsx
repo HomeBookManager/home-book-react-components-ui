@@ -53,7 +53,7 @@ export default {
 } as ComponentMeta<typeof Button>;
 
 const Template: ComponentStory<typeof Button> = (args) => (
-  <StoryComponent blockCodeData={blockCodeData} title="Button color">
+  <StoryComponent blockCodeData={blockCodeData} title="Button colors">
     <Button {...args}>Primary</Button>
     <Button color={Color.secondary} {...args}>
       Secondary

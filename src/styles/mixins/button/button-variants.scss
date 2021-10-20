@@ -57,7 +57,7 @@
   }
 }
 
-@mixin color-styles($variant, $color: 'primary') {
+@mixin common-styles($variant, $color: 'primary') {
   color: map-get($--hb-text-map, $variant + '-' + $color);
   @include idle-styles($variant, $color);
 
@@ -78,41 +78,41 @@
   }
 }
 
-@mixin variant-styles($variant: 'text') {
+@mixin color-styles($variant: 'text') {
   &--primary {
-    @include color-styles($variant);
+    @include common-styles($variant);
   }
 
   &--secondary {
-    @include color-styles($variant, 'secondary');
+    @include common-styles($variant, 'secondary');
   }
 
   &--success {
-    @include color-styles($variant, 'success');
+    @include common-styles($variant, 'success');
   }
 
   &--warning {
-    @include color-styles($variant, 'warning');
+    @include common-styles($variant, 'warning');
   }
 
   &--error {
-    @include color-styles($variant, 'error');
+    @include common-styles($variant, 'error');
   }
 }
 
-@mixin button-variant {
+@mixin button-variants {
   &__text {
     background: unset;
-    @include variant-styles;
+    @include color-styles;
   }
 
   &__contained {
-    @include variant-styles('contained');
+    @include color-styles('contained');
   }
 
   &__outlined {
     background: unset;
     border: 1px solid;
-    @include variant-styles('outlined');
+    @include color-styles('outlined');
   }
 }

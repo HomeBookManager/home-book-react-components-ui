@@ -1,0 +1,40 @@
+@import '../../styles/mixins/button/button-group-variants.scss';
+
+.ButtonGroup {
+  display: flex;
+  justify-content: center;
+
+  &__vertical {
+    flex-direction: column;
+  }
+
+  &__button {
+    &__horizontal {
+      @include button-group-variants;
+
+      &:not(:first-of-type) {
+        border-bottom-left-radius: 0;
+        border-top-left-radius: 0;
+      }
+
+      &:not(:last-of-type) {
+        border-bottom-right-radius: 0;
+        border-top-right-radius: 0;
+      }
+    }
+
+    &__vertical {
+      @include button-group-variants('vertical');
+
+      &:not(:first-of-type) {
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+      }
+
+      &:not(:last-of-type) {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+    }
+  }
+}

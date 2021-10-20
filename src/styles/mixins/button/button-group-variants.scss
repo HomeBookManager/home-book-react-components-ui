@@ -1,0 +1,91 @@
+@import '../../colors/button/button-map.scss';
+
+@mixin orientation-styles($orientation, $variant, $color: 'primary') {
+  @if $variant == 'text' {
+    $--hb-border-color: map-get($--hb-border-map, 'outlined' + '-' + $color);
+
+    @if $orientation == 'horizontal' {
+      &:not(:last-of-type) {
+        border-right: 1px solid $--hb-border-color;
+      }
+    } @else {
+      &:not(:last-of-type) {
+        border-bottom: 1px solid $--hb-border-color;
+      }
+    }
+  } @else if $variant == 'contained' {
+    $--hb-border-color: map-get(
+      $--hb-background-color-map,
+      $variant + '-' + $color + '-hover'
+    );
+
+    @if $orientation == 'horizontal' {
+      &:not(:last-of-type) {
+        border-right: 1px solid $--hb-border-color;
+      }
+    } @else {
+      &:not(:last-of-type) {
+        border-bottom: 1px solid $--hb-border-color;
+      }
+    }
+
+    &-forced-hover,
+    &:hover {
+      box-shadow: unset;
+    }
+  } @else {
+    @if $orientation == 'horizontal' {
+      &:not(:last-of-type) {
+        border-right-color: transparent;
+      }
+
+      &:not(:first-of-type) {
+        margin-left: -1px;
+      }
+    } @else {
+      &:not(:last-of-type) {
+        border-bottom-color: transparent;
+      }
+
+      &:not(:first-of-type) {
+        margin-top: -1px;
+      }
+    }
+  }
+}
+
+@mixin color-styles($orientation, $variant: 'text') {
+  &--primary {
+    @include orientation-styles($orientation, $variant);
+  }
+
+  &--secondary {
+    @include orientation-styles($orientation, $variant, 'secondary');
+  }
+
+  &--success {
+    @include orientation-styles($orientation, $variant, 'success');
+  }
+
+  &--warning {
+    @include orientation-styles($orientation, $variant, 'warning');
+  }
+
+  &--error {
+    @include orientation-styles($orientation, $variant, 'error');
+  }
+}
+
+@mixin button-group-variants($orientation: 'horizontal') {
+  &__text {
+    @include color-styles($orientation);
+  }
+
+  &__contained {
+    @include color-styles($orientation, 'contained');
+  }
+
+  &__outlined {
+    @include color-styles($orientation, 'outlined');
+  }
+}

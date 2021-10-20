@@ -4,14 +4,12 @@ import { fireEvent, render, waitFor } from '@testing-library/react';
 import Button from './Button';
 
 // others
-import { Color, error, Size, Variant } from './constants';
-
-// services
-import hideConsole, { Console } from '../../services/console/hideConsole';
+import { Color, Size, Variant } from './constants';
+import getWindowLocationHrefSpy from '../../tests/getWindowLocationHrefSpy';
+import getWindowOpenSpy from '../../tests/getWindowOpenSpy';
 
 describe('Button', () => {
   const mockCallBack = jest.fn();
-  hideConsole(Console.error);
 
   it('should render child', () => {
     const { getByText } = render(<Button onClick={mockCallBack}>Click</Button>);
@@ -27,7 +25,7 @@ describe('Button', () => {
       </Button>
     );
 
-    expect(container.firstChild.classList.contains('text'));
+    expect(container.firstChild).toHaveClass('test');
   });
 
   it('should be primary color', () => {
@@ -37,9 +35,7 @@ describe('Button', () => {
       </Button>
     );
 
-    expect(
-      container.firstChild.classList.contains('Button__contained--primary')
-    ).toBeTruthy();
+    expect(container.firstChild).toHaveClass('Button__contained--primary');
   });
 
   it('should be secondary color', () => {
@@ -49,9 +45,7 @@ describe('Button', () => {
       </Button>
     );
 
-    expect(
-      container.firstChild.classList.contains('Button__contained--secondary')
-    ).toBeTruthy();
+    expect(container.firstChild).toHaveClass('Button__contained--secondary');
   });
 
   it('should not have disabled attribute', () => {
@@ -128,17 +122,29 @@ describe('Button', () => {
     expect(container.firstChild).toHaveClass('Button__full-width');
   });
 
-  it('should return error if hsitory is not forwarded', () => {
-    expect(() =>
-      render(
-        <Button href="/" onClick={mockCallBack}>
-          Click
-        </Button>
-      )
-    ).toThrow(error);
+  it('should navigate to page if href is forwarded', () => {
+    const { getByText } = render(<Button href="/">Click</Button>);
+    const button = getByText('Click');
+    const windowLocationHrefSpy = getWindowLocationHrefSpy();
+
+    fireEvent.click(button);
+    expect(windowLocationHrefSpy).toHaveBeenCalled();
   });
 
-  it('should call push if hsitory & href are forwarded', () => {
+  it('should navigate to page in new window if href & externalLink are forwarded', () => {
+    const windowOpenSpy = getWindowOpenSpy();
+    const { getByText } = render(
+      <Button externalLink href="/">
+        Click
+      </Button>
+    );
+    const button = getByText('Click');
+
+    fireEvent.click(button);
+    expect(windowOpenSpy.mock.calls.length).toBe(1);
+  });
+
+  it('should call push if history & href are forwarded', () => {
     const { getByText } = render(
       // @ts-ignore
       <Button history={{ push: mockCallBack }} href="/">

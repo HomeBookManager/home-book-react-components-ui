@@ -1,11 +1,9 @@
-// others
-
 export const className = 'Button';
 
 export enum Color {
   primary = 'primary',
   secondary = 'secondary',
-  succes = 'success',
+  success = 'success',
   warning = 'warning',
   error = 'error',
 }
@@ -21,9 +19,3 @@ export enum Variant {
   contained = 'contained',
   outlined = 'outlined',
 }
-
-export const error = `
-  You have to pass history hook from react-router-dom
-  const history = useHistory();
-  <Button history={history}></Button>
-`;

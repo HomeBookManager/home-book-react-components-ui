@@ -1,10 +1,8 @@
-import { ReactNode } from 'react';
-
 export type TComponentAttributes = { name: string; value?: string };
 
 export type TProps = {
   attributes?: Array<TComponentAttributes>;
-  children?: ReactNode | string;
+  children?: string | Array<string>;
 };
 
 export type TImport = {
