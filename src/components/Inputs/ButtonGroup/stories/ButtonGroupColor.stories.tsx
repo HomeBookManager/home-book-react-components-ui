@@ -22,38 +22,38 @@ const blockCodeData: TStoryBlockCode = {
   componentName: 'ButtonGroup',
   props: [
     {
-      children: Array.from(
-        Array(3),
-        (_, i) => `&lt;Button&gt${Numbers[i]}&lt;/Button&gt`
-      ),
+      children: Array.from(Array(3), (_, i) => ({
+        componentName: 'Button',
+        props: [{ children: Numbers[i] }],
+      })),
     },
     {
       attributes: [{ name: 'color', value: 'Color.secondary' }],
-      children: Array.from(
-        Array(3),
-        (_, i) => `&lt;Button&gt${Numbers[i]}&lt;/Button&gt`
-      ),
+      children: Array.from(Array(3), (_, i) => ({
+        componentName: 'Button',
+        props: [{ children: Numbers[i] }],
+      })),
     },
     {
       attributes: [{ name: 'color', value: 'Color.success' }],
-      children: Array.from(
-        Array(3),
-        (_, i) => `&lt;Button&gt${Numbers[i]}&lt;/Button&gt`
-      ),
+      children: Array.from(Array(3), (_, i) => ({
+        componentName: 'Button',
+        props: [{ children: Numbers[i] }],
+      })),
     },
     {
       attributes: [{ name: 'color', value: 'Color.warning' }],
-      children: Array.from(
-        Array(3),
-        (_, i) => `&lt;Button&gt${Numbers[i]}&lt;/Button&gt`
-      ),
+      children: Array.from(Array(3), (_, i) => ({
+        componentName: 'Button',
+        props: [{ children: Numbers[i] }],
+      })),
     },
     {
       attributes: [{ name: 'color', value: 'Color.error' }],
-      children: Array.from(
-        Array(3),
-        (_, i) => `&lt;Button&gt${Numbers[i]}&lt;/Button&gt`
-      ),
+      children: Array.from(Array(3), (_, i) => ({
+        componentName: 'Button',
+        props: [{ children: Numbers[i] }],
+      })),
     },
   ],
   imports: [

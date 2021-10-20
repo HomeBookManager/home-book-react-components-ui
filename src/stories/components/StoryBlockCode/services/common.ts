@@ -1,6 +1,7 @@
 import { ClassNameContext } from '../constants';
 
-export const getSpanWithClosure = (
+export const getHTMLEl = (
   className: ClassNameContext,
-  context?: string
-) => `<span ${className}>${context}</span>`;
+  context?: string,
+  htmlElement: 'span' | 'div' = 'span'
+) => `<${htmlElement} ${className}>${context}</${htmlElement}>`;

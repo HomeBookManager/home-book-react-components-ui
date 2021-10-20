@@ -21,14 +21,50 @@ const blockCodeData: TStoryBlockCode = {
   props: [
     {
       attributes: [{ name: 'size', value: 'Size.small' }],
-      children: '&lt;Trash height="12" width="16" /&gt',
+      children: [
+        {
+          componentName: 'Trash',
+          props: [
+            {
+              attributes: [
+                { name: 'height', value: '12' },
+                { name: 'width', value: '16' },
+              ],
+            },
+          ],
+        },
+      ],
     },
     {
-      children: '&lt;Trash height="18" width="21" /&gt',
+      children: [
+        {
+          componentName: 'Trash',
+          props: [
+            {
+              attributes: [
+                { name: 'height', value: '18' },
+                { name: 'width', value: '22' },
+              ],
+            },
+          ],
+        },
+      ],
     },
     {
       attributes: [{ name: 'size', value: 'Size.large' }],
-      children: '&lt;Trash height="23" width="28" /&gt',
+      children: [
+        {
+          componentName: 'Trash',
+          props: [
+            {
+              attributes: [
+                { name: 'height', value: '23' },
+                { name: 'width', value: '28' },
+              ],
+            },
+          ],
+        },
+      ],
     },
   ],
   imports: [

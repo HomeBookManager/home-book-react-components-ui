@@ -12,4 +12,9 @@ export enum ClassNameContext {
   importSemicolon = 'class="StoryBlockCode__import-semicolon"',
 }
 
+export enum HtmlCode {
+  '<' = '&lt;',
+  '>' = '&gt;',
+}
+
 export const Numbers = ['One', 'Two', 'Three'];

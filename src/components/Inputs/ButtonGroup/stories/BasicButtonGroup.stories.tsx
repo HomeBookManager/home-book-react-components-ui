@@ -20,7 +20,7 @@ const blockCodeData: TStoryBlockCode = {
   componentName: 'ButtonGroup',
   props: [
     {
-      children: Array.from(Array(3), () => '&lt;Button&gtOne&lt;/Button&gt'),
+      children: Array.from(Array(3), () => ({ componentName: 'Button' })),
     },
   ],
   imports: [

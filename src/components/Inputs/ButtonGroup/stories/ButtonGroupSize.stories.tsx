@@ -23,23 +23,23 @@ const blockCodeData: TStoryBlockCode = {
   props: [
     {
       attributes: [{ name: 'size', value: 'Size.small' }],
-      children: Array.from(
-        Array(3),
-        (_, i) => `&lt;Button&gt${Numbers[i]}&lt;/Button&gt`
-      ),
+      children: Array.from(Array(3), (_, i) => ({
+        componentName: 'Button',
+        props: [{ children: Numbers[i] }],
+      })),
     },
     {
-      children: Array.from(
-        Array(3),
-        (_, i) => `&lt;Button&gt${Numbers[i]}&lt;/Button&gt`
-      ),
+      children: Array.from(Array(3), (_, i) => ({
+        componentName: 'Button',
+        props: [{ children: Numbers[i] }],
+      })),
     },
     {
       attributes: [{ name: 'size', value: 'Size.large' }],
-      children: Array.from(
-        Array(3),
-        (_, i) => `&lt;Button&gt${Numbers[i]}&lt;/Button&gt`
-      ),
+      children: Array.from(Array(3), (_, i) => ({
+        componentName: 'Button',
+        props: [{ children: Numbers[i] }],
+      })),
     },
   ],
   imports: [
