@@ -13,7 +13,7 @@ const getItemWithHighlightAs = (itemsToImports: string): string =>
     )
     .join(' ');
 
-const parseImportsToHTMLContext = ({ items: itemsToImports, path }: TImport) =>
+const parseImportToHTMLContext = ({ items: itemsToImports, path }: TImport) =>
   [
     getHTMLEl(ClassNameContext.import, 'import'),
     getHTMLEl(
@@ -25,4 +25,4 @@ const parseImportsToHTMLContext = ({ items: itemsToImports, path }: TImport) =>
     getHTMLEl(ClassNameContext.importSemicolon, ';'),
   ].join(' ');
 
-export default parseImportsToHTMLContext;
+export default parseImportToHTMLContext;

@@ -5,7 +5,7 @@ import { TStoryBlockCode } from './types';
 
 // services
 import parseComponentToHTMLContext from './services/parseComponentToHTMLContext';
-import parseImportsToHTMLContext from './services/parseImportToHTMLContext';
+import parseImportToHTMLContext from './services/parseImportToHTMLContext';
 
 // styles
 import './story-block-code.scss';
@@ -25,7 +25,7 @@ const StoryBlockCode: FC<TProps> = ({ blockCodeData, className = '' }) => {
         <p
           className="StoryBlockCode__imports"
           dangerouslySetInnerHTML={{
-            __html: parseImportsToHTMLContext(importObj),
+            __html: parseImportToHTMLContext(importObj),
           }}
           key={key}
         />
