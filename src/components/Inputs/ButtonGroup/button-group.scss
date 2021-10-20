@@ -4,12 +4,8 @@
   display: flex;
   justify-content: center;
 
-  &__vertical {
-    flex-direction: column;
-  }
-
-  &__button {
-    &__horizontal {
+  &__horizontal {
+    &__button {
       @include button-group-variants;
 
       &:not(:first-of-type) {
@@ -22,8 +18,12 @@
         border-top-right-radius: 0;
       }
     }
+  }
 
-    &__vertical {
+  &__vertical {
+    flex-direction: column;
+
+    &__button {
       @include button-group-variants('vertical');
 
       &:not(:first-of-type) {

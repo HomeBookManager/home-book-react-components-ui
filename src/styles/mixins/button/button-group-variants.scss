@@ -1,4 +1,5 @@
 @import '../../colors/button/button-map.scss';
+@import '../../lists/button.scss';
 
 @mixin orientation-styles($orientation, $variant, $color: 'primary') {
   @if $variant == 'text' {
@@ -54,38 +55,14 @@
   }
 }
 
-@mixin color-styles($orientation, $variant: 'text') {
-  &--primary {
-    @include orientation-styles($orientation, $variant);
-  }
-
-  &--secondary {
-    @include orientation-styles($orientation, $variant, 'secondary');
-  }
-
-  &--success {
-    @include orientation-styles($orientation, $variant, 'success');
-  }
-
-  &--warning {
-    @include orientation-styles($orientation, $variant, 'warning');
-  }
-
-  &--error {
-    @include orientation-styles($orientation, $variant, 'error');
-  }
-}
-
 @mixin button-group-variants($orientation: 'horizontal') {
-  &__text {
-    @include color-styles($orientation);
-  }
-
-  &__contained {
-    @include color-styles($orientation, 'contained');
-  }
-
-  &__outlined {
-    @include color-styles($orientation, 'outlined');
+  @each $variant in $--hb-button-variants {
+    &__#{$variant} {
+      @each $color in $--hb-button-colors {
+        &--#{$color} {
+          @include orientation-styles($orientation, $variant, $color);
+        }
+      }
+    }
   }
 }

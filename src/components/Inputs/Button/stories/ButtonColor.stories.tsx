@@ -58,7 +58,7 @@ const Template: ComponentStory<typeof Button> = (args) => (
     <Button color={Color.secondary} {...args}>
       Secondary
     </Button>
-    <Button color={Color.succes} {...args}>
+    <Button color={Color.success} {...args}>
       Success
     </Button>
     <Button color={Color.warning} {...args}>

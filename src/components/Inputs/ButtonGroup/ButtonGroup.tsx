@@ -42,15 +42,13 @@ export const ButtonGroup: FC<TProps> = ({
     className,
     `${buttonGroupClassName}__${orientation}`,
   ];
-  const buttonGroupWithOrientationClassName = `${buttonGroupClassName}__button__${orientation}`;
+  const buttonClassName = `${buttonGroupClassName}__${orientation}__button`;
   const buttonClassNames = [
-    buttonGroupWithOrientationClassName,
-    `${buttonGroupWithOrientationClassName}__${variant}`,
-    `${buttonGroupWithOrientationClassName}__${variant}--${color}`,
+    buttonClassName,
+    `${buttonClassName}__${variant}`,
+    `${buttonClassName}__${variant}--${color}`,
     `${
-      forcedHover
-        ? `${buttonGroupWithOrientationClassName}__${variant}--${color}-forced-hover`
-        : ''
+      forcedHover ? `${buttonClassName}__${variant}--${color}-forced-hover` : ''
     }`,
   ];
   const buttonProps: TButtonProps = {

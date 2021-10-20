@@ -1,4 +1,5 @@
 @import '../../colors/button/button-map.scss';
+@import '../../lists/button.scss';
 @import '../ripple-styles.scss';
 
 @mixin idle-styles($variant, $color) {
@@ -57,7 +58,7 @@
   }
 }
 
-@mixin common-styles($variant, $color: 'primary') {
+@mixin state-styles($variant, $color: 'primary') {
   color: map-get($--hb-text-map, $variant + '-' + $color);
   @include idle-styles($variant, $color);
 
@@ -78,41 +79,22 @@
   }
 }
 
-@mixin color-styles($variant: 'text') {
-  &--primary {
-    @include common-styles($variant);
-  }
-
-  &--secondary {
-    @include common-styles($variant, 'secondary');
-  }
-
-  &--success {
-    @include common-styles($variant, 'success');
-  }
-
-  &--warning {
-    @include common-styles($variant, 'warning');
-  }
-
-  &--error {
-    @include common-styles($variant, 'error');
-  }
-}
-
 @mixin button-variants {
-  &__text {
-    background: unset;
-    @include color-styles;
-  }
+  @each $variant in $--hb-button-variants {
+    &__#{$variant} {
+      @if $variant == 'text' or $variant == 'outlined' {
+        background: unset;
 
-  &__contained {
-    @include color-styles('contained');
-  }
+        @if $variant == 'outlined' {
+          border: 1px solid;
+        }
+      }
 
-  &__outlined {
-    background: unset;
-    border: 1px solid;
-    @include color-styles('outlined');
+      @each $color in $--hb-button-colors {
+        &--#{$color} {
+          @include state-styles($variant, $color);
+        }
+      }
+    }
   }
 }
