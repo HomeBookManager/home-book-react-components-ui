@@ -70,8 +70,12 @@ const blockCodeData: TStoryBlockCode = {
   ],
   imports: [
     {
-      items: '{ Button, Size, Variant }',
+      items: '{ Button }',
       path: libraryName,
+    },
+    {
+      items: '{ Size, Variant }',
+      path: `${libraryName}/dist/components/Button/constants`,
     },
   ],
 };

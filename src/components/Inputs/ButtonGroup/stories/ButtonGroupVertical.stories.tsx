@@ -8,6 +8,7 @@ import StoryComponent from '../../../../stories/components/StoryComponent/StoryC
 // others
 import { buttonGroupVertical } from '../../../../stories/constants';
 import { libraryName } from '../../../../constants';
+import { Numbers } from 'stories/components/StoryBlockCode/constants';
 import { Orientation } from '../constants';
 import { TStoryBlockCode } from '../../../../stories/components/StoryBlockCode/types';
 import { Variant } from '../../Button/constants';
@@ -24,24 +25,37 @@ const blockCodeData: TStoryBlockCode = {
         { name: 'orientation', value: 'Orientation.vertical' },
         { name: 'variant', value: 'Variant.text' },
       ],
-      children: Array.from(Array(3), () => '&lt;Button&gtOne&lt;/Button&gt'),
+      children: Array.from(Array(3), (_, i) => ({
+        componentName: 'Button',
+        props: [{ children: Numbers[i] }],
+      })),
     },
     {
       attributes: [{ name: 'orientation', value: 'Orientation.vertical' }],
-      children: Array.from(Array(3), () => '&lt;Button&gtOne&lt;/Button&gt'),
+      children: Array.from(Array(3), (_, i) => ({
+        componentName: 'Button',
+        props: [{ children: Numbers[i] }],
+      })),
     },
     {
       attributes: [
         { name: 'orientation', value: 'Orientation.vertical' },
         { name: 'variant', value: 'Variant.outlined' },
       ],
-      children: Array.from(Array(3), () => '&lt;Button&gtOne&lt;/Button&gt'),
+      children: Array.from(Array(3), (_, i) => ({
+        componentName: 'Button',
+        props: [{ children: Numbers[i] }],
+      })),
     },
   ],
   imports: [
     {
       items: '{ Button, ButtonGroup, Orientation }',
       path: libraryName,
+    },
+    {
+      items: '{ Orientation }',
+      path: `${libraryName}/dist/components/ButtonGroup/constants`,
     },
   ],
 };

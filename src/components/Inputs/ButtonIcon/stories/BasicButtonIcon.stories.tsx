@@ -20,14 +20,15 @@ const blockCodeData: TStoryBlockCode = {
   componentName: 'ButtonIcon',
   props: [
     {
-      children: '&lt;Trash /&gt',
+      children: [{ componentName: 'Trash' }],
     },
     {
       attributes: [{ name: 'forcedHover' }],
-      children: '&lt;Trash /&gt',
+      children: [{ componentName: 'Trash' }],
     },
     {
-      children: '&lt;Trash /&gt',
+      attributes: [{ name: 'disabled' }],
+      children: [{ componentName: 'Trash' }],
     },
   ],
   imports: [

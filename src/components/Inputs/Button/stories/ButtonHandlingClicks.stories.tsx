@@ -17,9 +17,7 @@ const blockCodeData: TStoryBlockCode = {
   componentName: 'Button',
   props: [
     {
-      attributes: [
-        { name: 'onClick', value: `onClick={() => alert('clicked')}` },
-      ],
+      attributes: [{ name: 'onClick', value: `{() => alert('clicked')}` }],
       children: 'Click me',
     },
   ],

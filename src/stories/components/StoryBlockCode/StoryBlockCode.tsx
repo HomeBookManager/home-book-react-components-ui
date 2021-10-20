@@ -4,8 +4,8 @@ import { FC } from 'react';
 import { TStoryBlockCode } from './types';
 
 // services
-import getContextHTMLComponents from './services/getContextHTMLComponents';
-import getContextHTMLImport from './services/getContextHTMLImports';
+import parseComponentToHTMLContext from './services/parseComponentToHTMLContext';
+import parseImportToHTMLContext from './services/parseImportToHTMLContext';
 
 // styles
 import './story-block-code.scss';
@@ -25,7 +25,7 @@ const StoryBlockCode: FC<TProps> = ({ blockCodeData, className = '' }) => {
         <p
           className="StoryBlockCode__imports"
           dangerouslySetInnerHTML={{
-            __html: getContextHTMLImport(importObj),
+            __html: parseImportToHTMLContext(importObj),
           }}
           key={key}
         />
@@ -33,10 +33,10 @@ const StoryBlockCode: FC<TProps> = ({ blockCodeData, className = '' }) => {
       {props.length > 0 && <div className="StoryBlockCode__separator" />}
       {/* COMPONENTS */}
       {props.map((props, key) => (
-        <p
+        <div
           className="StoryBlockCode__components"
           dangerouslySetInnerHTML={{
-            __html: getContextHTMLComponents(props, componentName),
+            __html: parseComponentToHTMLContext(props, componentName),
           }}
           key={key}
         />

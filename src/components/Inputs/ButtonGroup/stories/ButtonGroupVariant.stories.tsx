@@ -21,29 +21,33 @@ const blockCodeData: TStoryBlockCode = {
   props: [
     {
       attributes: [{ name: 'variant', value: 'Variant.text' }],
-      children: Array.from(
-        Array(3),
-        (_, i) => `&lt;Button&gt${Numbers[i]}&lt;/Button&gt`
-      ),
+      children: Array.from(Array(3), (_, i) => ({
+        componentName: 'Button',
+        props: [{ children: Numbers[i] }],
+      })),
     },
     {
-      children: Array.from(
-        Array(3),
-        (_, i) => `&lt;Button&gt${Numbers[i]}&lt;/Button&gt`
-      ),
+      children: Array.from(Array(3), (_, i) => ({
+        componentName: 'Button',
+        props: [{ children: Numbers[i] }],
+      })),
     },
     {
       attributes: [{ name: 'variant', value: 'Variant.outlined' }],
-      children: Array.from(
-        Array(3),
-        (_, i) => `&lt;Button&gt${Numbers[i]}&lt;/Button&gt`
-      ),
+      children: Array.from(Array(3), (_, i) => ({
+        componentName: 'Button',
+        props: [{ children: Numbers[i] }],
+      })),
     },
   ],
   imports: [
     {
       items: '{ Button, ButtonGroup }',
       path: libraryName,
+    },
+    {
+      items: '{ Variant }',
+      path: `${libraryName}/dist/components/Button/constants`,
     },
   ],
 };
