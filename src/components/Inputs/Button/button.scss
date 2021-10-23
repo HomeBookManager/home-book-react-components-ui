@@ -1,3 +1,5 @@
+@import 'home-book-styles-provider/styles/fonts.scss';
+
 @import '../../../styles/mixins/button/button.scss';
 @import '../../../styles/mixins/button/button-sizes.scss';
 @import '../../../styles/mixins/button/button-variants.scss';
@@ -7,6 +9,7 @@
   @include button-size;
   @include button;
   border-radius: 4px;
+  font-family: 'Nunito', sans-serif;
 
   &__full-width {
     width: 100%;
