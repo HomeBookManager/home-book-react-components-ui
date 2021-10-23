@@ -1,0 +1,9 @@
+@mixin svgReactSizes($height, $width) {
+  height: $height;
+  width: $width;
+
+  div {
+    height: $height;
+    width: $width;
+  }
+}

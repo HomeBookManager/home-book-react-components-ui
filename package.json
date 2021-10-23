@@ -1,6 +1,6 @@
 {
-  "name": "home-book-react-components-ui",
-  "version": "1.0.1",
+  "name": "home-book-manager-test",
+  "version": "1.0.12",
   "main": "dist/index.js",
   "files": [
     "dist",
@@ -46,6 +46,7 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
+    "react-svg": "^14.0.16",
     "react-test-renderer": "^17.0.2",
     "rollup": "^2.40.0",
     "rollup-plugin-postcss": "4.0.0",
@@ -147,8 +148,5 @@
     "msgPrefixSuggestion": "Instead of \"%s\" try \"%s\".",
     "msgseparatorRequired": "Branch \"%s\" must contain a separator \"%s\".",
     "msgDoesNotMatchRegex": "Branch \"%s\" does not match the allowed pattern: \"%s\""
-  },
-  "dependencies": {
-    "history": "^5.0.1"
   }
 }

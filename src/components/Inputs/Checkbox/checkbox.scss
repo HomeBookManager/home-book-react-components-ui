@@ -1,0 +1,125 @@
+@import '../../../styles/colors/common.scss';
+@import '../../../styles/colors/input/input.scss';
+@import '../../../styles/fonts.scss';
+@import '../../../styles/mixins/svg-react-sizes.scss';
+@import '../../../styles/mixins/commons.scss';
+
+.Checkbox {
+  /* stylelint-disable-next-line */
+  $self: &;
+  align-items: center;
+  display: flex;
+  position: relative;
+
+  &__input {
+    cursor: pointer;
+    height: 36px;
+    margin: 0;
+    opacity: 0;
+    position: absolute;
+    width: 36px;
+
+    &:disabled {
+      cursor: not-allowed;
+
+      & + #{$self}__icon-wrapper {
+        & #{$self}__rectangle {
+          border-color: $--hb-checkbox-unchecked-border-disabled;
+        }
+
+        & path {
+          fill: $--hb-checkbox-checked-icon-disabled;
+        }
+
+        & + #{$self}__label {
+          color: $--hb-label-disabled;
+          cursor: not-allowed;
+        }
+      }
+    }
+
+    &:focus {
+      & + #{$self}__icon-wrapper {
+        background-color: $--hb-checkbox-unchecked-background-focus;
+
+        & #{$self}__rectangle {
+          border-color: $--hb-checkbox-unchecked-border-focus;
+        }
+      }
+
+      &:checked {
+        & + #{$self}__icon-wrapper {
+          background-color: $--hb-checkbox-checked-background-focus;
+
+          & path {
+            fill: $--hb-checkbox-checked-icon-hover;
+          }
+        }
+      }
+    }
+
+    &:checked + #{$self}__icon-wrapper {
+      & #{$self}__rectangle {
+        display: none;
+      }
+
+      & #{$self}__icon {
+        display: initial;
+      }
+    }
+
+    &:hover:not(:disabled):not(:focus) {
+      & + #{$self}__icon-wrapper {
+        background-color: $--hb-checkbox-unchecked-background-hover;
+
+        & #{$self}__rectangle {
+          border-color: $--hb-checkbox-unchecked-border-hover;
+        }
+      }
+
+      &:checked {
+        & + #{$self}__icon-wrapper {
+          background-color: $--hb-checkbox-checked-background-hover;
+
+          & path {
+            fill: $--hb-checkbox-checked-icon-hover;
+          }
+        }
+      }
+    }
+  }
+
+  &__icon-wrapper {
+    @include transition;
+    border-radius: 50%;
+    padding: 9px;
+    pointer-events: none;
+    position: relative;
+  }
+
+  &__rectangle {
+    border: 2px solid $--hb-checkbox-unchecked-border;
+    border-radius: 2px;
+    box-sizing: border-box;
+    height: 18px;
+    width: 18px;
+  }
+
+  &__icon {
+    @include svgReactSizes(18px, 18px);
+    display: none;
+
+    & path {
+      fill: $--hb-checkbox-checked-icon;
+    }
+  }
+
+  &__label {
+    color: $--hb-label;
+    cursor: pointer;
+    font-family: 'Nunito', sans-serif;
+    font-size: 16px;
+    margin: 0;
+    margin-left: 6px;
+  }
+}
