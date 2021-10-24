@@ -1,12 +1,16 @@
 import { ChangeEvent, FC, useRef, useState } from 'react';
 import { ReactSVG } from 'react-svg';
 
+// components
+import CirclePulse from '../../../shared/CirclePulse/CirclePulse';
+
 // others
 import Check from '../../../assets/icons/check.svg';
 import { className as checkboxClassName } from './constants';
 
 // services
 import getStyleClassNames from '../../../services/getStyleClassNames';
+import getRandomKey from '../../../services/getRandomKey';
 
 // styles
 import './checkbox.scss';
@@ -15,6 +19,7 @@ export type TProps = {
   checked?: boolean;
   className?: string;
   disabled?: boolean;
+  disablePulseEffect?: boolean;
   forcedFocus?: boolean;
   forcedHover?: boolean;
   label?: string;
@@ -24,10 +29,12 @@ export const Checkbox: FC<TProps> = ({
   checked: initialChecked = false,
   className = '',
   disabled = false,
+  disablePulseEffect = false,
   forcedFocus,
   forcedHover = false,
   label = '',
 }) => {
+  const [pulseElements, setPulseElements] = useState<Array<string>>([]);
   const [checked, setChecked] = useState(initialChecked);
   const inputRef = useRef<HTMLInputElement>(null);
   const classNames = [checkboxClassName, className];
@@ -41,6 +48,10 @@ export const Checkbox: FC<TProps> = ({
     const {
       currentTarget: { checked },
     } = event;
+
+    if (!disablePulseEffect) {
+      setPulseElements([...pulseElements, getRandomKey(pulseElements)]);
+    }
 
     setChecked(checked);
   };
@@ -58,6 +69,16 @@ export const Checkbox: FC<TProps> = ({
       <div className={`${checkboxClassName}__icon-wrapper`}>
         <div className={`${checkboxClassName}__rectangle`} />
         <ReactSVG className={`${checkboxClassName}__icon`} src={Check} />
+
+        {pulseElements.map((key) => (
+          <CirclePulse
+            animationDuration={1000}
+            className={`${checkboxClassName}__circle-pulse`}
+            pulseElements={pulseElements}
+            setPulseElements={setPulseElements}
+            key={key}
+          />
+        ))}
       </div>
       {label && (
         <span
