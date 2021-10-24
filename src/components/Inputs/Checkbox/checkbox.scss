@@ -38,10 +38,6 @@
       }
     }
 
-    & + #{$self}__icon-wrapper #{$self}__circle-pulse {
-      background-color: $--hb-checkbox-unchecked-background-click;
-    }
-
     &-forced-focus,
     &:focus {
       & + #{$self}__icon-wrapper {
@@ -80,6 +76,10 @@
           background-color: $--hb-checkbox-checked-background-hover;
         }
       }
+    }
+
+    & + #{$self}__icon-wrapper #{$self}__circle-pulse {
+      background-color: $--hb-checkbox-unchecked-background-click;
     }
   }
 
