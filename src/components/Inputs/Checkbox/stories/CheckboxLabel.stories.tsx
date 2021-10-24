@@ -16,7 +16,7 @@ const description = [
 ];
 
 const blockCodeData: TStoryBlockCode = {
-  componentName: 'Checkbox Label',
+  componentName: 'Checkbox',
   props: [
     {
       attributes: [{ name: 'label', value: 'Label' }],
