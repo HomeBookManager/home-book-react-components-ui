@@ -105,6 +105,12 @@ const Template: ComponentStory<typeof Checkbox> = (args) => (
 
 export const CheckboxLabel = Template.bind({});
 
-CheckboxLabel.argTypes = {};
+CheckboxLabel.argTypes = {
+  label: {
+    table: {
+      disable: true,
+    },
+  },
+};
 
 CheckboxLabel.args = {};
