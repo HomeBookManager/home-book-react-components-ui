@@ -19,6 +19,7 @@ import './checkbox.scss';
 export type TProps = {
   checked?: boolean;
   className?: string;
+  color?: string;
   disabled?: boolean;
   disablePulseEffect?: boolean;
   forcedFocus?: boolean;
@@ -45,6 +46,7 @@ export const Checkbox: FC<TProps> = ({
     `${checkboxClassName}__input`,
     `${forcedFocus ? `${checkboxClassName}__input-forced-focus` : ''}`,
     `${forcedHover ? `${checkboxClassName}__input-forced-hover` : ''}`,
+    `${checkboxClassName}__input--${size}`,
   ];
   const iconWrapperClassNames = [
     `${checkboxClassName}__icon-wrapper`,
@@ -81,6 +83,7 @@ export const Checkbox: FC<TProps> = ({
         <ReactSVG
           className={`${checkboxClassName}__checked-icon`}
           src={Check}
+          style={{ color: 'dark' }}
         />
 
         {pulseElements.map((key) => (

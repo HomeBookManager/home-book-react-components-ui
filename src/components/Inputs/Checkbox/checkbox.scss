@@ -1,5 +1,7 @@
 @import 'home-book-styles-provider/styles/fonts.scss';
 
+@import '../../../styles/mixins/checkbox/checkbox-icon-wrapper-styles.scss';
+@import '../../../styles/mixins/checkbox/checkbox-input-styles.scss';
 @import '../../../styles/colors/common.scss';
 @import '../../../styles/colors/input/input.scss';
 @import '../../../styles/mixins/common.scss';
@@ -12,126 +14,12 @@
   position: relative;
 
   &__input {
-    cursor: pointer;
-    height: 36px;
-    margin: 0;
-    opacity: 0;
-    position: absolute;
-    width: 36px;
-
-    &:disabled {
-      cursor: not-allowed;
-
-      & + #{$self}__icon-wrapper {
-        & #{$self}__unchecked-icon path {
-          fill: $--hb-checkbox-unchecked-icon-disabled;
-        }
-
-        & #{$self}__checked-icon path {
-          fill: $--hb-checkbox-checked-icon-disabled;
-        }
-
-        & + #{$self}__label {
-          color: $--hb-label-disabled;
-          cursor: not-allowed;
-        }
-      }
-    }
-
-    &-forced-focus,
-    &:focus {
-      & + #{$self}__icon-wrapper {
-        background-color: $--hb-checkbox-unchecked-background-focus;
-      }
-
-      &:checked {
-        & + #{$self}__icon-wrapper {
-          background-color: $--hb-checkbox-checked-background-focus;
-        }
-      }
-    }
-
-    &:checked + #{$self}__icon-wrapper {
-      & #{$self}__unchecked-icon {
-        display: none;
-      }
-
-      & #{$self}__checked-icon {
-        display: initial;
-      }
-
-      & #{$self}__circle-pulse {
-        background-color: $--hb-checkbox-checked-background-click;
-      }
-    }
-
-    &-forced-hover,
-    &:hover:not(:disabled):not(:focus) {
-      & + #{$self}__icon-wrapper {
-        background-color: $--hb-checkbox-unchecked-background-hover;
-      }
-
-      &:checked {
-        & + #{$self}__icon-wrapper {
-          background-color: $--hb-checkbox-checked-background-hover;
-        }
-      }
-    }
-
-    & + #{$self}__icon-wrapper #{$self}__circle-pulse {
-      background-color: $--hb-checkbox-unchecked-background-click;
-    }
+    @include input-styles($self);
   }
 
   &__icon-wrapper {
     @include transition;
-    border-radius: 50%;
-    pointer-events: none;
-    position: relative;
-
-    &--small {
-      /* stylelint-disable-next-line */
-      $size: 15px;
-      height: $size;
-      padding: 6px;
-      width: $size;
-
-      & svg {
-        height: $size;
-        width: $size;
-      }
-
-      & + #{$self}__label {
-        font-size: 14px;
-        margin-left: 9px;
-      }
-    }
-
-    &--medium {
-      /* stylelint-disable-next-line */
-      $size: 18px;
-      height: $size;
-      padding: 9px;
-      width: $size;
-    }
-
-    &--large {
-      /* stylelint-disable-next-line */
-      $size: 21px;
-      height: $size;
-      padding: 12px;
-      width: $size;
-
-      & svg {
-        height: $size;
-        width: $size;
-      }
-
-      & + #{$self}__label {
-        font-size: 18px;
-        margin-left: 3px;
-      }
-    }
+    @include icon-wrapper-styles($self);
   }
 
   &__unchecked-icon path {

@@ -49,3 +49,4 @@ export const checkboxAPI = `${checkboxPrefix}/Checkbox API`;
 export const basicCheckbox = `${checkboxExamplePrefix}/Basic Checkbox`;
 export const checkboxLabel = `${checkboxExamplePrefix}/Checkbox Label`;
 export const checkboxSize = `${checkboxExamplePrefix}/Checkbox Size`;
+export const checkboxColor = `${checkboxExamplePrefix}/Checkbox Color`;

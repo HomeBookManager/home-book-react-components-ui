@@ -1,0 +1,54 @@
+$--hb-icon-sizes: (
+  'small': 15px,
+  'medium': 18px,
+  'large': 21px,
+);
+
+@mixin icon-wrapper-styles($self) {
+  border-radius: 50%;
+  pointer-events: none;
+  position: relative;
+
+  &--small {
+    height: map-get($map: $--hb-icon-sizes, $key: 'small');
+    padding: 6px;
+    width: map-get($map: $--hb-icon-sizes, $key: 'small');
+
+    & svg {
+      height: map-get($map: $--hb-icon-sizes, $key: 'small');
+      width: map-get($map: $--hb-icon-sizes, $key: 'small');
+    }
+
+    & + #{$self}__label {
+      font-size: 14px;
+      margin-left: 9px;
+    }
+  }
+
+  &--medium {
+    height: map-get($map: $--hb-icon-sizes, $key: 'medium');
+    padding: 9px;
+    width: map-get($map: $--hb-icon-sizes, $key: 'medium');
+
+    & svg {
+      height: map-get($map: $--hb-icon-sizes, $key: 'medium');
+      width: map-get($map: $--hb-icon-sizes, $key: 'medium');
+    }
+  }
+
+  &--large {
+    height: map-get($map: $--hb-icon-sizes, $key: 'large');
+    padding: 12px;
+    width: map-get($map: $--hb-icon-sizes, $key: 'large');
+
+    & svg {
+      height: map-get($map: $--hb-icon-sizes, $key: 'large');
+      width: map-get($map: $--hb-icon-sizes, $key: 'large');
+    }
+
+    & + #{$self}__label {
+      font-size: 18px;
+      margin-left: 3px;
+    }
+  }
+}
