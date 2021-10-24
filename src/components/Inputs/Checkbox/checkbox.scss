@@ -28,7 +28,7 @@
           border-color: $--hb-checkbox-unchecked-border-disabled;
         }
 
-        & path {
+        & #{$self}__checked-icon path {
           fill: $--hb-checkbox-checked-icon-disabled;
         }
 
@@ -47,19 +47,11 @@
     &:focus {
       & + #{$self}__icon-wrapper {
         background-color: $--hb-checkbox-unchecked-background-focus;
-
-        & #{$self}__rectangle {
-          border-color: $--hb-checkbox-unchecked-border-focus;
-        }
       }
 
       &:checked {
         & + #{$self}__icon-wrapper {
           background-color: $--hb-checkbox-checked-background-focus;
-
-          & path {
-            fill: $--hb-checkbox-checked-icon-hover;
-          }
         }
       }
     }
@@ -69,7 +61,7 @@
         display: none;
       }
 
-      & #{$self}__icon {
+      & #{$self}__checked-icon {
         display: initial;
       }
 
@@ -82,19 +74,11 @@
     &:hover:not(:disabled):not(:focus) {
       & + #{$self}__icon-wrapper {
         background-color: $--hb-checkbox-unchecked-background-hover;
-
-        & #{$self}__rectangle {
-          border-color: $--hb-checkbox-unchecked-border-hover;
-        }
       }
 
       &:checked {
         & + #{$self}__icon-wrapper {
           background-color: $--hb-checkbox-checked-background-hover;
-
-          & path {
-            fill: $--hb-checkbox-checked-icon-hover;
-          }
         }
       }
     }
@@ -159,11 +143,8 @@
     width: 100%;
   }
 
-  &__icon {
-    @include svgReactSizes(18px, 18px);
+  &__checked-icon {
     display: none;
-    height: 100%;
-    width: 100%;
 
     & path {
       fill: $--hb-checkbox-checked-icon;

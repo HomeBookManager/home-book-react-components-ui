@@ -74,7 +74,10 @@ export const Checkbox: FC<TProps> = ({
       />
       <div className={getStyleClassNames(iconWrapperClassNames)}>
         <div className={`${checkboxClassName}__rectangle`} />
-        <ReactSVG className={`${checkboxClassName}__icon`} src={Check} />
+        <ReactSVG
+          className={`${checkboxClassName}__checked-icon`}
+          src={Check}
+        />
 
         {pulseElements.map((key) => (
           <CirclePulse
