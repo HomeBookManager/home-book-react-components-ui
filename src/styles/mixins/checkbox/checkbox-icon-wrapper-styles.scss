@@ -14,8 +14,12 @@ $--hb-icon-sizes: (
     padding: 6px;
     width: map-get($map: $--hb-icon-sizes, $key: 'small');
 
+    & div {
+      height: map-get($map: $--hb-icon-sizes, $key: 'medium');
+      width: map-get($map: $--hb-icon-sizes, $key: 'medium');
+    }
+
     & svg {
-      height: map-get($map: $--hb-icon-sizes, $key: 'small');
       width: map-get($map: $--hb-icon-sizes, $key: 'small');
     }
 
@@ -30,8 +34,12 @@ $--hb-icon-sizes: (
     padding: 9px;
     width: map-get($map: $--hb-icon-sizes, $key: 'medium');
 
-    & svg {
+    & div {
       height: map-get($map: $--hb-icon-sizes, $key: 'medium');
+      width: map-get($map: $--hb-icon-sizes, $key: 'medium');
+    }
+
+    & svg {
       width: map-get($map: $--hb-icon-sizes, $key: 'medium');
     }
   }
@@ -41,8 +49,12 @@ $--hb-icon-sizes: (
     padding: 12px;
     width: map-get($map: $--hb-icon-sizes, $key: 'large');
 
+    & div {
+      height: map-get($map: $--hb-icon-sizes, $key: 'medium');
+      width: map-get($map: $--hb-icon-sizes, $key: 'medium');
+    }
+
     & svg {
-      height: map-get($map: $--hb-icon-sizes, $key: 'large');
       width: map-get($map: $--hb-icon-sizes, $key: 'large');
     }
 

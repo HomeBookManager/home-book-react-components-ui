@@ -18,6 +18,7 @@ import './checkbox.scss';
 
 export type TProps = {
   checked?: boolean;
+  checkIcon?: string;
   className?: string;
   color?: string;
   disabled?: boolean;
@@ -26,10 +27,12 @@ export type TProps = {
   forcedHover?: boolean;
   label?: string;
   size?: Size;
+  uncheckIcon?: string;
 };
 
 export const Checkbox: FC<TProps> = ({
   checked: initialChecked = false,
+  checkIcon = '',
   className = '',
   disabled = false,
   disablePulseEffect = false,
@@ -37,6 +40,7 @@ export const Checkbox: FC<TProps> = ({
   forcedHover = false,
   label = '',
   size = Size.medium,
+  uncheckIcon = '',
 }) => {
   const [pulseElements, setPulseElements] = useState<Array<string>>([]);
   const [checked, setChecked] = useState(initialChecked);
@@ -78,12 +82,11 @@ export const Checkbox: FC<TProps> = ({
       <div className={getStyleClassNames(iconWrapperClassNames)}>
         <ReactSVG
           className={`${checkboxClassName}__unchecked-icon`}
-          src={Uncheck}
+          src={uncheckIcon ? uncheckIcon : Uncheck}
         />
         <ReactSVG
           className={`${checkboxClassName}__checked-icon`}
-          src={Check}
-          style={{ color: 'dark' }}
+          src={checkIcon ? checkIcon : Check}
         />
 
         {pulseElements.map((key) => (
