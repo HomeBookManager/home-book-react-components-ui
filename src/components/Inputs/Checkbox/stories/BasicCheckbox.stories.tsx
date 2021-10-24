@@ -2,7 +2,9 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 // components
 import Checkbox from '../Checkbox';
-import StoryComponent from '../../../../stories/components/StoryComponent/StoryComponent';
+import StoryComponent, {
+  ContentGridFlow,
+} from '../../../../stories/components/StoryComponent/StoryComponent';
 
 // others
 import { basicCheckbox } from '../../../../stories/constants';
@@ -10,12 +12,44 @@ import { libraryName } from '../../../../constants';
 import { TStoryBlockCode } from '../../../../stories/components/StoryBlockCode/types';
 
 const description = [
-  'The <code>Button</code> comes with three variants: text, contained, and outlined.',
+  'Checkboxes allow the user to select one or more items from a set.',
 ];
 
 const blockCodeData: TStoryBlockCode = {
   componentName: 'Checkbox',
-  props: [],
+  props: [
+    {
+      children: '',
+    },
+    {
+      attributes: [{ name: 'forcedHover' }],
+      children: '',
+    },
+    {
+      attributes: [{ name: 'forcedFocus' }],
+      children: '',
+    },
+    {
+      attributes: [{ name: 'disabled' }],
+      children: '',
+    },
+    {
+      attributes: [{ name: 'checked' }],
+      children: '',
+    },
+    {
+      attributes: [{ name: 'checked' }, { name: 'forcedHover' }],
+      children: '',
+    },
+    {
+      attributes: [{ name: 'checked' }, { name: 'forcedFocus' }],
+      children: '',
+    },
+    {
+      attributes: [{ name: 'checked' }, { name: 'disabled' }],
+      children: '',
+    },
+  ],
   imports: [
     {
       items: '{ Checkbox }',
@@ -38,10 +72,21 @@ export default {
 const Template: ComponentStory<typeof Checkbox> = (args) => (
   <StoryComponent
     blockCodeData={blockCodeData}
+    contentGridFlow={ContentGridFlow.maxFourColumns}
     description={description}
     title="Basic checkbox"
   >
+    {/* UNCHECKED */}
     <Checkbox {...args} />
+    <Checkbox forcedHover {...args} />
+    <Checkbox forcedFocus {...args} />
+    <Checkbox disabled {...args} />
+
+    {/* CHECKED */}
+    <Checkbox checked {...args} />
+    <Checkbox checked forcedHover {...args} />
+    <Checkbox checked forcedFocus {...args} />
+    <Checkbox checked disabled {...args} />
   </StoryComponent>
 );
 

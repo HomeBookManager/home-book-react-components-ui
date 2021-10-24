@@ -12,14 +12,30 @@ import getStyleClassNames from '../../../services/getStyleClassNames';
 import './checkbox.scss';
 
 export type TProps = {
+  checked?: boolean;
   className?: string;
   disabled?: boolean;
+  forcedFocus?: boolean;
+  forcedHover?: boolean;
+  label?: string;
 };
 
-export const Checkbox: FC<TProps> = ({ className = '', disabled = false }) => {
-  const [checked, setChecked] = useState(false);
+export const Checkbox: FC<TProps> = ({
+  checked: initialChecked = false,
+  className = '',
+  disabled = false,
+  forcedFocus,
+  forcedHover = false,
+  label = '',
+}) => {
+  const [checked, setChecked] = useState(initialChecked);
   const inputRef = useRef<HTMLInputElement>(null);
   const classNames = [checkboxClassName, className];
+  const inputClassNames = [
+    `${checkboxClassName}__input`,
+    `${forcedFocus ? `${checkboxClassName}__input-forced-focus` : ''}`,
+    `${forcedHover ? `${checkboxClassName}__input-forced-hover` : ''}`,
+  ];
 
   const onChangeHandler = (event: ChangeEvent<HTMLInputElement>): void => {
     const {
@@ -33,7 +49,7 @@ export const Checkbox: FC<TProps> = ({ className = '', disabled = false }) => {
     <div className={getStyleClassNames(classNames)}>
       <input
         checked={checked}
-        className={`${checkboxClassName}__input`}
+        className={getStyleClassNames(inputClassNames)}
         disabled={disabled}
         onChange={onChangeHandler}
         ref={inputRef}
@@ -43,12 +59,14 @@ export const Checkbox: FC<TProps> = ({ className = '', disabled = false }) => {
         <div className={`${checkboxClassName}__rectangle`} />
         <ReactSVG className={`${checkboxClassName}__icon`} src={Check} />
       </div>
-      <span
-        className={`${checkboxClassName}__label`}
-        onClick={() => !disabled && inputRef.current?.click()}
-      >
-        Label
-      </span>
+      {label && (
+        <span
+          className={`${checkboxClassName}__label`}
+          onClick={() => !disabled && inputRef.current?.click()}
+        >
+          Label
+        </span>
+      )}
     </div>
   );
 };

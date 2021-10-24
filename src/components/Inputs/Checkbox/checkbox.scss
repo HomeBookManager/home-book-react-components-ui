@@ -39,6 +39,7 @@
       }
     }
 
+    &-forced-focus,
     &:focus {
       & + #{$self}__icon-wrapper {
         background-color: $--hb-checkbox-unchecked-background-focus;
@@ -69,6 +70,7 @@
       }
     }
 
+    &-forced-hover,
     &:hover:not(:disabled):not(:focus) {
       & + #{$self}__icon-wrapper {
         background-color: $--hb-checkbox-unchecked-background-hover;

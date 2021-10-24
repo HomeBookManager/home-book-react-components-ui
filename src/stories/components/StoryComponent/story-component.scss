@@ -55,6 +55,11 @@
         grid-row-gap: 15px;
         grid-template-columns: repeat(3, auto);
       }
+
+      &-max-four-columns {
+        grid-row-gap: 15px;
+        grid-template-columns: repeat(4, auto);
+      }
     }
   }
 }
