@@ -1,5 +1,3 @@
-// others
-
 export const className = 'ButtonIcon';
 
 export enum Size {

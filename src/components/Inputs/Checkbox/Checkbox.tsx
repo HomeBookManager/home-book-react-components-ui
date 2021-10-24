@@ -6,7 +6,7 @@ import CirclePulse from '../../../shared/CirclePulse/CirclePulse';
 
 // others
 import Check from '../../../assets/icons/check.svg';
-import { className as checkboxClassName } from './constants';
+import { className as checkboxClassName, Size } from './constants';
 
 // services
 import getStyleClassNames from '../../../services/getStyleClassNames';
@@ -23,6 +23,7 @@ export type TProps = {
   forcedFocus?: boolean;
   forcedHover?: boolean;
   label?: string;
+  size?: Size;
 };
 
 export const Checkbox: FC<TProps> = ({
@@ -33,6 +34,7 @@ export const Checkbox: FC<TProps> = ({
   forcedFocus,
   forcedHover = false,
   label = '',
+  size = Size.medium,
 }) => {
   const [pulseElements, setPulseElements] = useState<Array<string>>([]);
   const [checked, setChecked] = useState(initialChecked);
@@ -42,6 +44,10 @@ export const Checkbox: FC<TProps> = ({
     `${checkboxClassName}__input`,
     `${forcedFocus ? `${checkboxClassName}__input-forced-focus` : ''}`,
     `${forcedHover ? `${checkboxClassName}__input-forced-hover` : ''}`,
+  ];
+  const iconWrapperClassNames = [
+    `${checkboxClassName}__icon-wrapper`,
+    `${checkboxClassName}__icon-wrapper--${size}`,
   ];
 
   const onChangeHandler = (event: ChangeEvent<HTMLInputElement>): void => {
@@ -66,7 +72,7 @@ export const Checkbox: FC<TProps> = ({
         ref={inputRef}
         type="checkbox"
       />
-      <div className={`${checkboxClassName}__icon-wrapper`}>
+      <div className={getStyleClassNames(iconWrapperClassNames)}>
         <div className={`${checkboxClassName}__rectangle`} />
         <ReactSVG className={`${checkboxClassName}__icon`} src={Check} />
 

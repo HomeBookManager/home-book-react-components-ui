@@ -103,9 +103,52 @@
   &__icon-wrapper {
     @include transition;
     border-radius: 50%;
-    padding: 9px;
     pointer-events: none;
     position: relative;
+
+    &--small {
+      /* stylelint-disable-next-line */
+      $size: 15px;
+      height: $size;
+      padding: 6px;
+      width: $size;
+
+      & svg {
+        height: $size;
+        width: $size;
+      }
+
+      & + #{$self}__label {
+        font-size: 14px;
+        margin-left: 9px;
+      }
+    }
+
+    &--medium {
+      /* stylelint-disable-next-line */
+      $size: 18px;
+      height: $size;
+      padding: 9px;
+      width: $size;
+    }
+
+    &--large {
+      /* stylelint-disable-next-line */
+      $size: 21px;
+      height: $size;
+      padding: 12px;
+      width: $size;
+
+      & svg {
+        height: $size;
+        width: $size;
+      }
+
+      & + #{$self}__label {
+        font-size: 18px;
+        margin-left: 3px;
+      }
+    }
   }
 
   &__circle-pulse {
@@ -117,13 +160,15 @@
     border: 2px solid $--hb-checkbox-unchecked-border;
     border-radius: 2px;
     box-sizing: border-box;
-    height: 18px;
-    width: 18px;
+    height: 100%;
+    width: 100%;
   }
 
   &__icon {
     @include svgReactSizes(18px, 18px);
     display: none;
+    height: 100%;
+    width: 100%;
 
     & path {
       fill: $--hb-checkbox-checked-icon;
