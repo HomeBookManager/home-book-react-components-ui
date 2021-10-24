@@ -2,9 +2,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 // components
 import Checkbox from '../Checkbox';
-import StoryComponent, {
-  ContentGridFlow,
-} from '../../../../stories/components/StoryComponent/StoryComponent';
+import StoryComponent from '../../../../stories/components/StoryComponent/StoryComponent';
 
 // others
 import Bookmark from '../../../../stories/assets/icons/bookmark.svg';
@@ -75,7 +73,6 @@ export default {
 const Template: ComponentStory<typeof Checkbox> = (args) => (
   <StoryComponent
     blockCodeData={blockCodeData}
-    contentGridFlow={ContentGridFlow.maxThreeColumns}
     description={description}
     title="Checkbox icon"
   >
