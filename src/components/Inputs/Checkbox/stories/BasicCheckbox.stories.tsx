@@ -92,6 +92,27 @@ const Template: ComponentStory<typeof Checkbox> = (args) => (
 
 export const BasicCheckbox = Template.bind({});
 
-BasicCheckbox.argTypes = {};
+BasicCheckbox.argTypes = {
+  checked: {
+    table: {
+      disable: true,
+    },
+  },
+  disabled: {
+    table: {
+      disable: true,
+    },
+  },
+  forcedFocus: {
+    table: {
+      disable: true,
+    },
+  },
+  forcedHover: {
+    table: {
+      disable: true,
+    },
+  },
+};
 
 BasicCheckbox.args = {};

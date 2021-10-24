@@ -90,6 +90,11 @@ const Template: ComponentStory<typeof Checkbox> = (args) => (
 export const CheckboxSize = Template.bind({});
 
 CheckboxSize.argTypes = {
+  label: {
+    table: {
+      disable: true,
+    },
+  },
   size: {
     table: {
       disable: true,

@@ -84,7 +84,12 @@ const Template: ComponentStory<typeof Checkbox> = (args) => (
 export const CheckboxIcon = Template.bind({});
 
 CheckboxIcon.argTypes = {
-  size: {
+  checkIcon: {
+    table: {
+      disable: true,
+    },
+  },
+  uncheckIcon: {
     table: {
       disable: true,
     },

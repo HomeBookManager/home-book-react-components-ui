@@ -20,13 +20,14 @@ export type TProps = {
   checked?: boolean;
   checkIcon?: string;
   className?: string;
-  color?: string;
   disabled?: boolean;
   disablePulseEffect?: boolean;
   forcedFocus?: boolean;
   forcedHover?: boolean;
   label?: string;
+  onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
   size?: Size;
+  style?: { [key: string]: number | string };
   uncheckIcon?: string;
 };
 
@@ -39,7 +40,9 @@ export const Checkbox: FC<TProps> = ({
   forcedFocus,
   forcedHover = false,
   label = '',
+  onChange = null,
   size = Size.medium,
+  style = {},
   uncheckIcon = '',
 }) => {
   const [pulseElements, setPulseElements] = useState<Array<string>>([]);
@@ -66,11 +69,15 @@ export const Checkbox: FC<TProps> = ({
       setPulseElements([...pulseElements, getRandomKey(pulseElements)]);
     }
 
+    if (onChange) {
+      onChange(event);
+    }
+
     setChecked(checked);
   };
 
   return (
-    <div className={getStyleClassNames(classNames)}>
+    <div className={getStyleClassNames(classNames)} style={style}>
       <input
         checked={checked}
         className={getStyleClassNames(inputClassNames)}

@@ -50,3 +50,4 @@ export const basicCheckbox = `${checkboxExamplePrefix}/Basic Checkbox`;
 export const checkboxLabel = `${checkboxExamplePrefix}/Checkbox Label`;
 export const checkboxSize = `${checkboxExamplePrefix}/Checkbox Size`;
 export const checkboxIcon = `${checkboxExamplePrefix}/Checkbox Icon`;
+export const checkboxControlled = `${checkboxExamplePrefix}/Checkbox Controlled`;
