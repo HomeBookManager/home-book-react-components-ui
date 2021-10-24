@@ -6,6 +6,7 @@ import CirclePulse from '../../../shared/CirclePulse/CirclePulse';
 
 // others
 import Check from '../../../assets/icons/check.svg';
+import Uncheck from '../../../assets/icons/uncheck.svg';
 import { className as checkboxClassName, Size } from './constants';
 
 // services
@@ -73,7 +74,10 @@ export const Checkbox: FC<TProps> = ({
         type="checkbox"
       />
       <div className={getStyleClassNames(iconWrapperClassNames)}>
-        <div className={`${checkboxClassName}__rectangle`} />
+        <ReactSVG
+          className={`${checkboxClassName}__unchecked-icon`}
+          src={Uncheck}
+        />
         <ReactSVG
           className={`${checkboxClassName}__checked-icon`}
           src={Check}

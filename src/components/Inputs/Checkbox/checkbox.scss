@@ -23,8 +23,8 @@
       cursor: not-allowed;
 
       & + #{$self}__icon-wrapper {
-        & #{$self}__rectangle {
-          border-color: $--hb-checkbox-unchecked-border-disabled;
+        & #{$self}__unchecked-icon path {
+          fill: $--hb-checkbox-unchecked-icon-disabled;
         }
 
         & #{$self}__checked-icon path {
@@ -56,7 +56,7 @@
     }
 
     &:checked + #{$self}__icon-wrapper {
-      & #{$self}__rectangle {
+      & #{$self}__unchecked-icon {
         display: none;
       }
 
@@ -134,12 +134,8 @@
     }
   }
 
-  &__rectangle {
-    border: 2px solid $--hb-checkbox-unchecked-border;
-    border-radius: 2px;
-    box-sizing: border-box;
-    height: 100%;
-    width: 100%;
+  &__unchecked-icon path {
+    fill: $--hb-checkbox-unchecked-icon;
   }
 
   &__checked-icon {
