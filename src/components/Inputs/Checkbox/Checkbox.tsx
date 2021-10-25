@@ -24,8 +24,10 @@ export type TProps = {
   disablePulseEffect?: boolean;
   forcedFocus?: boolean;
   forcedHover?: boolean;
+  index?: number;
   label?: string;
   onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
+  setCheckedGroup?: (index: number) => void;
   size?: Size;
   style?: { [key: string]: number | string };
   uncheckIcon?: string;
@@ -39,8 +41,10 @@ export const Checkbox: FC<TProps> = ({
   disablePulseEffect = false,
   forcedFocus,
   forcedHover = false,
+  index = 0,
   label = '',
   onChange = null,
+  setCheckedGroup = null,
   size = Size.medium,
   style = {},
   uncheckIcon = '',
@@ -71,6 +75,10 @@ export const Checkbox: FC<TProps> = ({
 
     if (onChange) {
       onChange(event);
+    }
+
+    if (setCheckedGroup) {
+      setCheckedGroup(index);
     }
 
     setChecked(checked);
