@@ -80,6 +80,17 @@ const Template: ComponentStory<typeof ButtonIcon> = (args) => (
 
 export const BasicButtonIcon = Template.bind({});
 
-BasicButtonIcon.argTypes = {};
+BasicButtonIcon.argTypes = {
+  disabled: {
+    table: {
+      disable: true,
+    },
+  },
+  forcedHover: {
+    table: {
+      disable: true,
+    },
+  },
+};
 
 BasicButtonIcon.args = {};

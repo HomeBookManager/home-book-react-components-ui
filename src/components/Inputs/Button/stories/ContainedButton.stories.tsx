@@ -67,6 +67,16 @@ const Template: ComponentStory<typeof Button> = (args) => (
 export const ContainedButton = Template.bind({});
 
 ContainedButton.argTypes = {
+  disabled: {
+    table: {
+      disable: true,
+    },
+  },
+  forcedHover: {
+    table: {
+      disable: true,
+    },
+  },
   variant: {
     table: {
       disable: true,

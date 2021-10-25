@@ -95,6 +95,12 @@ const Template: ComponentStory<typeof ButtonGroup> = (args) => (
 
 export const ButtonGroupVertical = Template.bind({});
 
-ButtonGroupVertical.argTypes = {};
+ButtonGroupVertical.argTypes = {
+  orientation: {
+    table: {
+      disable: true,
+    },
+  },
+};
 
 ButtonGroupVertical.args = {};

@@ -70,6 +70,17 @@ const Template: ComponentStory<typeof ButtonGroup> = (args) => (
 
 export const BasicButtonGroup = Template.bind({});
 
-BasicButtonGroup.argTypes = {};
+BasicButtonGroup.argTypes = {
+  disabled: {
+    table: {
+      disable: true,
+    },
+  },
+  forcedHover: {
+    table: {
+      disable: true,
+    },
+  },
+};
 
 BasicButtonGroup.args = {};
