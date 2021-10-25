@@ -119,7 +119,7 @@ describe('ButtonIcon', () => {
     expect(mockCallBack.mock.calls.length).toBe(1);
   });
 
-  it('should fire onclick event', () => {
+  it('should fire onClick event', () => {
     const { getByText } = render(
       <ButtonIcon onClick={mockCallBack}>Click</ButtonIcon>
     );

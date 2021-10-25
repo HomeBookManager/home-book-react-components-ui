@@ -89,6 +89,7 @@ export const Checkbox: FC<TProps> = ({
       <input
         checked={checked}
         className={getStyleClassNames(inputClassNames)}
+        data-testid="input"
         disabled={disabled}
         onChange={onChangeHandler}
         ref={inputRef}
