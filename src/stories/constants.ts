@@ -55,7 +55,7 @@ export const checkboxControlled = `${checkboxExamplePrefix}/Checkbox Controlled`
 /**
  * CHECKBOX GROUP
  */
- export const checkboxGroupPrefix = `${inputs}/Checkbox Group`;
- export const checkboxGroupExamplePrefix = `${checkboxGroupPrefix}/Example`;
- export const checkboxGroupAPI = `${checkboxGroupPrefix}/Checkbox Group API`;
- export const basicCheckboxGroup = `${checkboxGroupExamplePrefix}/Basic Checkbox Group`;
+export const checkboxGroupPrefix = `${inputs}/Checkbox Group`;
+export const checkboxGroupExamplePrefix = `${checkboxGroupPrefix}/Example`;
+export const checkboxGroupAPI = `${checkboxGroupPrefix}/Checkbox Group API`;
+export const basicCheckboxGroup = `${checkboxGroupExamplePrefix}/Basic Checkbox Group`;

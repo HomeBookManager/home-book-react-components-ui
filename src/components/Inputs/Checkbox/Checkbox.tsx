@@ -49,6 +49,7 @@ export const Checkbox: FC<TProps> = ({
   style = {},
   uncheckedIcon = '',
 }) => {
+  console.log(index);
   const [pulseElements, setPulseElements] = useState<Array<string>>([]);
   const [checked, setChecked] = useState(initialChecked);
   const inputRef = useRef<HTMLInputElement>(null);
