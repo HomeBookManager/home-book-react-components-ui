@@ -1,6 +1,6 @@
 {
-  "name": "home-book-manager-test",
-  "version": "1.0.12",
+  "name": "home-book-components-ui",
+  "version": "1.0.0",
   "main": "dist/index.js",
   "files": [
     "dist",
