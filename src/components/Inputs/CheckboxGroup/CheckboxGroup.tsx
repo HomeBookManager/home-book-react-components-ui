@@ -14,9 +14,6 @@ import Checkbox, { TProps as TCheckboxProps } from '../Checkbox/Checkbox';
 // others
 import Indeterminate from '../../../assets/icons/indeterminate.svg';
 
-// services
-import getChildrenLength from '../../../services/react-children/getChildrenLength';
-
 export type TProps = {
   children: Array<ReactElement>;
 };
@@ -24,7 +21,7 @@ export type TProps = {
 export const CheckboxGroup: FC<TProps> = ({ children }) => {
   const [checked, setChecked] = useState(false);
   const [checkedGroup, setCheckedGroup] = useState(
-    Array.from(Array(getChildrenLength(children)), () => false)
+    children.map(({ props: { checked } }: { props: TCheckboxProps }) => checked)
   );
   const uncheckedIcon = useMemo(
     () => (checkedGroup.some((checked) => checked) ? Indeterminate : ''),

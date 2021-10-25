@@ -24,17 +24,19 @@ describe('Checkbox', () => {
   });
 
   it('should render checked icon', () => {
-    const { container } = render(<Checkbox />);
-    expect(container.firstChild.childNodes[1].childNodes[1]).toHaveClass(
+    const { container } = render(<Checkbox checked />);
+    expect(container.firstChild.childNodes[1].firstChild).toHaveClass(
       'Checkbox__checked-icon'
     );
   });
 
   it('should render custom checked icon', () => {
     const checkedIcon = './assets/icons/icon.svg';
-    const { container } = render(<Checkbox checkedIcon={checkedIcon} />);
+    const { container } = render(
+      <Checkbox checked checkedIcon={checkedIcon} />
+    );
 
-    expect(container.firstChild.childNodes[1].childNodes[1]).toHaveAttribute(
+    expect(container.firstChild.childNodes[1].firstChild).toHaveAttribute(
       'src',
       checkedIcon
     );
@@ -114,7 +116,7 @@ describe('Checkbox', () => {
     const checkbox = getByTestId('input');
 
     fireEvent.click(checkbox);
-    expect(mockCallBack).toHaveBeenCalledWith(10);
+    expect(mockCallBack).toHaveBeenCalledWith(true, 10);
   });
 
   it('should have medium size', () => {
