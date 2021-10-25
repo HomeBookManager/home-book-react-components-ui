@@ -4,7 +4,7 @@ import isObject from 'lodash/isObject';
 import { cloneElement, isValidElement, ReactElement, ReactNode } from 'react';
 
 // services
-import getRandomKey from './getRandomKey';
+import getRandomKey from '../getRandomKey';
 
 const shouldPassProps = (child: ReactElement, componentName: string): boolean =>
   // @ts-ignore
