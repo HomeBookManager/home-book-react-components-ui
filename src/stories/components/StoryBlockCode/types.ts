@@ -12,7 +12,7 @@ export type TProps = {
 
 export type TComponents = {
   props?: Array<TProps>;
-  componentName: string;
+  componentName?: string;
 };
 
 export type TStoryBlockCode = TComponents & {

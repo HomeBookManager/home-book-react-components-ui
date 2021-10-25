@@ -73,6 +73,16 @@ const Template: ComponentStory<typeof Button> = (args) => (
 export const ButtonWithIcon = Template.bind({});
 
 ButtonWithIcon.argTypes = {
+  endIcon: {
+    table: {
+      disable: true,
+    },
+  },
+  startIcon: {
+    table: {
+      disable: true,
+    },
+  },
   variant: {
     table: {
       disable: true,

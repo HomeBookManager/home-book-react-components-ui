@@ -1,24 +1,30 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 // components
-import ButtonIcon from '../ButtonIcon';
+import Checkbox from '../Checkbox';
 import StoryApi from '../../../../stories/components/StoryApi/StoryApi';
 
 // others
-import { buttonIconAPI } from '../../../../stories/constants';
+import { checkboxAPI } from '../../../../stories/constants';
 import { libraryName } from '../../../../constants';
 import { TStoryBlockCode } from '../../../../stories/components/StoryBlockCode/types';
 import { TTableBody } from '../../../../stories/components/StoryPropsTable/StoryPropsTable';
 
 const description = [
-  'API documentation for the React Button Icon component. Learn about the available props.',
+  'API documentation for the React Checkbox component. Learn about the available props.',
 ];
 
 const tableBodyData: Array<TTableBody> = [
   {
-    name: 'children',
-    type: 'node',
-    description: 'The content of the component.',
+    name: 'checked',
+    type: 'bool',
+    defaultValue: 'false',
+    description: 'If true, the component is <code>checked</code>.',
+  },
+  {
+    name: 'checkedIcon',
+    type: 'string',
+    description: 'The icon to display when the component is checked.',
   },
   {
     name: 'className',
@@ -38,10 +44,11 @@ const tableBodyData: Array<TTableBody> = [
     description: 'If <code>true</code>, the pulse effect is disabled.',
   },
   {
-    name: 'externalLink',
+    name: 'forcedFocus',
     type: 'boolean',
     defaultValue: 'false',
-    description: 'If forwareded then user will be redirect on page in new tab.',
+    description:
+      'If <code>true</code>, the focus will be active without user friction.',
   },
   {
     name: 'forcedHover',
@@ -51,21 +58,28 @@ const tableBodyData: Array<TTableBody> = [
       'If <code>true</code>, the hover will be active without user friction.',
   },
   {
-    name: 'history',
-    type: 'History',
+    name: 'index',
+    type: 'number',
     description:
-      'History has to be pass from <code>react-router-dom</code> library to call push.',
+      'Index is provided by <code>CheckboxGroup</code> to update proper flag in state as array.',
   },
   {
-    name: 'href',
+    name: 'label',
     type: 'string',
     description:
-      'The URL to link to when the button is clicked. If passed History, <code>history.push(href)</code> will be call from <code>react-router-dom</code>.',
+      'Intended to describe a particular element associated with a form.',
   },
   {
-    name: 'onClick',
-    type: '(event: React.MouseEvent<HTMLButtonElement>) => void',
-    description: '<code>Function</code> to call action after the click button.',
+    name: 'onChange',
+    type: '(event: React.ChangeEvent<HTMLInputElement>) => void',
+    description:
+      'function(event: React.ChangeEvent<HTMLInputElement>) => void event: The event source of the callback.',
+  },
+  {
+    name: 'setCheckedGroup',
+    type: '(index: number) => void',
+    description:
+      'Function which is provided by <code>CheckboxGroup</code> to update state in this component.',
   },
   {
     name: 'size',
@@ -79,29 +93,34 @@ const tableBodyData: Array<TTableBody> = [
     type: 'object',
     description: 'Override styles by object of styles.',
   },
+  {
+    name: 'uncheckedIcon',
+    type: 'string',
+    description: 'The icon to display when the component is unchecked.',
+  },
 ];
 
 const blockCodeData: TStoryBlockCode = {
   imports: [
     {
-      items: '{ ButtonIcon }',
+      items: '{ Checkbox }',
       path: libraryName,
     },
   ],
 };
 
 export default {
-  component: ButtonIcon,
-  title: buttonIconAPI,
-} as ComponentMeta<typeof ButtonIcon>;
+  component: Checkbox,
+  title: checkboxAPI,
+} as ComponentMeta<typeof Checkbox>;
 
-const Template: ComponentStory<typeof ButtonIcon> = () => (
+const Template: ComponentStory<typeof Checkbox> = () => (
   <StoryApi
     blockCodeData={blockCodeData}
     description={description}
     tableBodyData={tableBodyData}
-    title="Button Icon API"
+    title="Checkbox API"
   />
 );
 
-export const ButtonIconAPI = Template.bind({});
+export const CheckboxAPI = Template.bind({});

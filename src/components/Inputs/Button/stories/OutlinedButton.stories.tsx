@@ -79,6 +79,16 @@ const Template: ComponentStory<typeof Button> = (args) => (
 export const OutlinedButton = Template.bind({});
 
 OutlinedButton.argTypes = {
+  disabled: {
+    table: {
+      disable: true,
+    },
+  },
+  forcedHover: {
+    table: {
+      disable: true,
+    },
+  },
   variant: {
     table: {
       disable: true,

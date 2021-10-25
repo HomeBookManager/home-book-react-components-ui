@@ -2,8 +2,6 @@
 @import '../../../styles/mixins/button/button.scss';
 @import '../../../styles/mixins/button/button-sizes.scss';
 
-$--hb-padding: 0;
-
 .ButtonIcon {
   @include button-size(true);
   @include button;
@@ -25,23 +23,5 @@ $--hb-padding: 0;
 
   &__circle-pulse {
     background-color: $--hb-btn-icon-background-click;
-
-    &--small {
-      $--hb-padding: map-get($--hb-padding-left-right-map, 'small-size');
-      height: calc(100% + #{$--hb-padding});
-      width: calc(100% + #{$--hb-padding});
-    }
-
-    &--medium {
-      $--hb-padding: map-get($--hb-padding-left-right-map, 'medium-size');
-      height: calc(100% + #{$--hb-padding});
-      width: calc(100% + #{$--hb-padding});
-    }
-
-    &--large {
-      $--hb-padding: map-get($--hb-padding-left-right-map, 'large-size');
-      height: calc(100% + #{$--hb-padding});
-      width: calc(100% + #{$--hb-padding});
-    }
   }
 }

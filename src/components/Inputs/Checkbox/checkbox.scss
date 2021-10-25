@@ -1,0 +1,45 @@
+@import 'home-book-styles-provider/styles/fonts.scss';
+
+@import '../../../styles/mixins/checkbox/checkbox-icon-wrapper-styles.scss';
+@import '../../../styles/mixins/checkbox/checkbox-input-styles.scss';
+@import '../../../styles/colors/common.scss';
+@import '../../../styles/colors/input/input.scss';
+@import '../../../styles/mixins/common.scss';
+
+.Checkbox {
+  /* stylelint-disable-next-line */
+  $self: &;
+  align-items: center;
+  display: flex;
+  position: relative;
+
+  &__input {
+    @include input-styles($self);
+  }
+
+  &__icon-wrapper {
+    @include transition;
+    @include icon-wrapper-styles($self);
+  }
+
+  &__unchecked-icon path {
+    fill: $--hb-checkbox-unchecked-icon;
+  }
+
+  &__checked-icon {
+    display: none;
+
+    & path {
+      fill: $--hb-checkbox-checked-icon;
+    }
+  }
+
+  &__label {
+    color: $--hb-label;
+    cursor: pointer;
+    font-family: 'Nunito', sans-serif;
+    font-size: 16px;
+    margin: 0;
+    margin-left: 6px;
+  }
+}

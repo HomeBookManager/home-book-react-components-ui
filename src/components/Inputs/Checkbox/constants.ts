@@ -1,4 +1,4 @@
-export const className = 'ButtonIcon';
+export const className = 'Checkbox';
 
 export enum Size {
   small = 'small',

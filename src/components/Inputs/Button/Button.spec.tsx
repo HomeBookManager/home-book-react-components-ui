@@ -4,9 +4,9 @@ import { fireEvent, render, waitFor } from '@testing-library/react';
 import Button from './Button';
 
 // others
-import { Color, Size, Variant } from './constants';
 import getWindowLocationHrefSpy from '../../../tests/getWindowLocationHrefSpy';
 import getWindowOpenSpy from '../../../tests/getWindowOpenSpy';
+import { Color, Size, Variant } from './constants';
 
 describe('Button', () => {
   const mockCallBack = jest.fn();
@@ -157,7 +157,7 @@ describe('Button', () => {
     expect(mockCallBack.mock.calls.length).toBe(1);
   });
 
-  it('should fire onclick event', () => {
+  it('should fire onClick event', () => {
     const { getByText } = render(<Button onClick={mockCallBack}>Click</Button>);
     const button = getByText('Click');
 

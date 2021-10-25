@@ -1,0 +1,90 @@
+$--hb-input-sizes: (
+  'small': 27px,
+  'medium': 36px,
+  'large': 45px,
+);
+
+@mixin input-styles($self) {
+  cursor: pointer;
+  margin: 0;
+  opacity: 0;
+  position: absolute;
+
+  &:disabled {
+    cursor: not-allowed;
+
+    & + #{$self}__icon-wrapper {
+      & #{$self}__unchecked-icon path {
+        fill: $--hb-checkbox-unchecked-icon-disabled;
+      }
+
+      & #{$self}__checked-icon path {
+        fill: $--hb-checkbox-checked-icon-disabled;
+      }
+
+      & + #{$self}__label {
+        color: $--hb-label-disabled;
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  &-forced-focus,
+  &:focus {
+    & + #{$self}__icon-wrapper {
+      background-color: $--hb-checkbox-unchecked-background-focus;
+    }
+
+    &:checked {
+      & + #{$self}__icon-wrapper {
+        background-color: $--hb-checkbox-checked-background-focus;
+      }
+    }
+  }
+
+  &:checked + #{$self}__icon-wrapper {
+    & #{$self}__unchecked-icon {
+      display: none;
+    }
+
+    & #{$self}__checked-icon {
+      display: initial;
+    }
+
+    & #{$self}__circle-pulse {
+      background-color: $--hb-checkbox-checked-background-click;
+    }
+  }
+
+  &-forced-hover,
+  &:hover:not(:disabled):not(:focus) {
+    & + #{$self}__icon-wrapper {
+      background-color: $--hb-checkbox-unchecked-background-hover;
+    }
+
+    &:checked {
+      & + #{$self}__icon-wrapper {
+        background-color: $--hb-checkbox-checked-background-hover;
+      }
+    }
+  }
+
+  &--small {
+    height: map-get($map: $--hb-input-sizes, $key: 'small');
+    width: map-get($map: $--hb-input-sizes, $key: 'small');
+  }
+
+  &--medium {
+    height: map-get($map: $--hb-input-sizes, $key: 'medium');
+    width: map-get($map: $--hb-input-sizes, $key: 'medium');
+  }
+
+  &--large {
+    height: map-get($map: $--hb-input-sizes, $key: 'large');
+    width: map-get($map: $--hb-input-sizes, $key: 'large');
+  }
+
+  & + #{$self}__icon-wrapper #{$self}__circle-pulse {
+    background-color: $--hb-checkbox-unchecked-background-click;
+  }
+}

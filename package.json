@@ -1,6 +1,6 @@
 {
   "name": "home-book-react-components-ui",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "main": "dist/index.js",
   "files": [
     "dist",
@@ -46,6 +46,7 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
+    "react-svg": "^14.0.16",
     "react-test-renderer": "^17.0.2",
     "rollup": "^2.40.0",
     "rollup-plugin-postcss": "4.0.0",
@@ -149,6 +150,6 @@
     "msgDoesNotMatchRegex": "Branch \"%s\" does not match the allowed pattern: \"%s\""
   },
   "dependencies": {
-    "history": "^5.0.1"
+    "home-book-styles-provider": "^1.0.1"
   }
 }

@@ -12,6 +12,7 @@ export enum ContentGridFlow {
   column = 'flow-column',
   row = 'flow-row',
   maxThreeColumns = 'flow-max-three-columns',
+  maxFourColumns = 'flow-max-four-columns',
 }
 
 type TProps = TStoryBlockCodeProps & {

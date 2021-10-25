@@ -39,3 +39,15 @@ export const buttonGroupVariants = `${buttonGroupExamplePrefix}/Button Group Var
 export const buttonGroupColor = `${buttonGroupExamplePrefix}/Button Group Color`;
 export const buttonGroupSize = `${buttonGroupExamplePrefix}/Button Group Size`;
 export const buttonGroupVertical = `${buttonGroupExamplePrefix}/Button Group Vertical`;
+
+/**
+ * CHECKBOX
+ */
+export const checkboxPrefix = `${inputs}/Checkbox`;
+export const checkboxExamplePrefix = `${checkboxPrefix}/Example`;
+export const checkboxAPI = `${checkboxPrefix}/Checkbox API`;
+export const basicCheckbox = `${checkboxExamplePrefix}/Basic Checkbox`;
+export const checkboxLabel = `${checkboxExamplePrefix}/Checkbox Label`;
+export const checkboxSize = `${checkboxExamplePrefix}/Checkbox Size`;
+export const checkboxIcon = `${checkboxExamplePrefix}/Checkbox Icon`;
+export const checkboxControlled = `${checkboxExamplePrefix}/Checkbox Controlled`;
