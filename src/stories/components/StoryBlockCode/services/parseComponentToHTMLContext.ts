@@ -24,7 +24,7 @@ const parseAttributesToHTML = (
 
 const parseComponentToHTMLContext = (
   { attributes = [], children }: TProps,
-  componentName: string
+  componentName = ''
 ): string => {
   const parsedComponent = getHTMLEl(
     ClassNameContext.componentName,

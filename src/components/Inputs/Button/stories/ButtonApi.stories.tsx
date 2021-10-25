@@ -82,7 +82,7 @@ const tableBodyData: Array<TTableBody> = [
   },
   {
     name: 'onClick',
-    type: '(event: MouseEvent<HTMLButtonElement>) => void',
+    type: '(event: React.MouseEvent<HTMLButtonElement>) => void',
     description: '<code>Function</code> to call action after the click button.',
   },
   {
