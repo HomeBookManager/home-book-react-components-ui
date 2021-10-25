@@ -11,11 +11,11 @@ import { libraryName } from '../../../../constants';
 import { TStoryBlockCode } from '../../../../stories/components/StoryBlockCode/types';
 
 const description = [
-  'Checkboxes allow the user to select one or more items from a set.',
+  '<code>CheckboxGroup</code> is a helpful wrapper used to group selection control components.',
 ];
 
 const blockCodeData: TStoryBlockCode = {
-  componentName: 'Checkbox',
+  componentName: 'CheckboxGroup',
   props: [
     {
       children: '',
@@ -23,7 +23,7 @@ const blockCodeData: TStoryBlockCode = {
   ],
   imports: [
     {
-      items: '{ Checkbox }',
+      items: '{ CheckboxGroup }',
       path: libraryName,
     },
   ],
