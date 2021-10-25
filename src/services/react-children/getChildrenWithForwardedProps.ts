@@ -15,7 +15,7 @@ const getChildren = (
   props: { [key: string]: any },
   keys: Array<string>,
   componentName: string,
-  index: number,
+  index: number
 ): ReactNode | string => {
   switch (true) {
     case isArray(children):
@@ -23,7 +23,7 @@ const getChildren = (
         children as unknown as Array<ReactElement>,
         props,
         keys,
-        componentName,
+        componentName
       );
     case isObject(children):
       return getChildrenByObject(
@@ -43,7 +43,7 @@ const getChildrenByObject = (
   props: { [key: string]: any },
   keys: Array<string>,
   componentName: string,
-  index: number,
+  index: number
 ): {} => {
   if (!shouldPassProps(children, componentName)) {
     const childrenFromProps = get(children, 'props.children');
@@ -74,8 +74,8 @@ const getChildrenByArray = (
   children: Array<ReactElement>,
   props: { [key: string]: any },
   keys: Array<string>,
-  componentName: string,
-): ReactNode[] => 
+  componentName: string
+): ReactNode[] =>
   children.map((children: ReactElement, index) =>
     getChildren(children, props, keys, componentName, index)
   );

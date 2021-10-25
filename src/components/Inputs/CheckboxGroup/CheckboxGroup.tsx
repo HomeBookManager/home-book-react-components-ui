@@ -14,7 +14,24 @@ import Checkbox, { TProps as TCheckboxProps } from '../Checkbox/Checkbox';
 // others
 import Indeterminate from '../../../assets/icons/indeterminate.svg';
 
-export type TProps = {
+// styles
+import './checkbox-group.scss';
+import getStyleClassNames from '../../../services/getStyleClassNames';
+
+export const checkboxGroupClassName = 'CheckboxGroup';
+
+export type TProps = Pick<
+  TCheckboxProps,
+  | 'className'
+  | 'checkedIcon'
+  | 'disabled'
+  | 'disablePulseEffect'
+  | 'forcedFocus'
+  | 'forcedHover'
+  | 'label'
+  | 'size'
+  | 'uncheckedIcon'
+> & {
   checked?: boolean;
   children: Array<ReactElement>;
 };
@@ -22,7 +39,11 @@ export type TProps = {
 export const CheckboxGroup: FC<TProps> = ({
   checked: controledChecked = false,
   children,
+  className = '',
+  label = '',
+  ...restProps
 }) => {
+  const classNames = [`${checkboxGroupClassName}`, `${className}`];
   const [checked, setChecked] = useState(false);
   const [checkedGroup, setCheckedGroup] = useState(
     children.map(
@@ -36,16 +57,17 @@ export const CheckboxGroup: FC<TProps> = ({
   );
   const checkboxProps: TCheckboxProps = useMemo(
     () => ({
-      setCheckedGroup: (value: boolean, index: number) =>
+      checkedGroup,
+      setCheckedGroup: (value: boolean, index: number): void =>
         setCheckedGroup(
           checkedGroup.map((checked, i) => (i === index ? value : checked))
         ),
-      checkedGroup,
+      ...restProps,
     }),
     [checkedGroup]
   );
 
-  const onChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
+  const onChangeHandler = (event: ChangeEvent<HTMLInputElement>): void => {
     const {
       currentTarget: { checked },
     } = event;
@@ -70,22 +92,25 @@ export const CheckboxGroup: FC<TProps> = ({
   }, [checkedGroup]);
 
   return (
-    <div>
+    <div className={getStyleClassNames(classNames)}>
       <Checkbox
         checked={checked}
-        label="Parent"
+        label={label}
         onChange={onChangeHandler}
         uncheckedIcon={uncheckedIcon}
+        {...restProps}
       />
-      {children.map((children, index) =>
-        cloneElement(children, {
-          ...children.props,
-          ...checkboxProps,
-          index,
-          checked: checkedGroup[index],
-          key: index,
-        })
-      )}
+      <div className={`${checkboxGroupClassName}__inputs`}>
+        {children.map((children, index) =>
+          cloneElement(children, {
+            ...children.props,
+            ...checkboxProps,
+            index,
+            checked: checkedGroup[index],
+            key: index,
+          })
+        )}
+      </div>
     </div>
   );
 };

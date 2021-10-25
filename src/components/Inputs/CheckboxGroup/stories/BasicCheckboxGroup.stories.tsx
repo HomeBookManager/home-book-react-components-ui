@@ -46,7 +46,7 @@ const Template: ComponentStory<typeof CheckboxGroup> = (args) => (
     description={description}
     title="Basic checkbox group"
   >
-    <CheckboxGroup {...args}>
+    <CheckboxGroup label="Parent" {...args}>
       <Checkbox label="Child 1" />
       <Checkbox label="Child 2" />
       <Checkbox label="Child 3" />
