@@ -15,11 +15,11 @@ $--hb-input-sizes: (
 
     & + #{$self}__icon-wrapper {
       & #{$self}__unchecked-icon path {
-        fill: $--hb-checkbox-unchecked-icon-disabled;
+        opacity: 0.5;
       }
 
       & #{$self}__checked-icon path {
-        fill: $--hb-checkbox-checked-icon-disabled;
+        opacity: 0.5;
       }
 
       & + #{$self}__label {
@@ -43,14 +43,6 @@ $--hb-input-sizes: (
   }
 
   &:checked + #{$self}__icon-wrapper {
-    & #{$self}__unchecked-icon {
-      display: none;
-    }
-
-    & #{$self}__checked-icon {
-      display: initial;
-    }
-
     & #{$self}__circle-pulse {
       background-color: $--hb-checkbox-checked-background-click;
     }

@@ -27,8 +27,6 @@
   }
 
   &__checked-icon {
-    display: none;
-
     & path {
       fill: $--hb-checkbox-checked-icon;
     }
