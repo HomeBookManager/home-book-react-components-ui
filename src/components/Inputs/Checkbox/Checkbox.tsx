@@ -89,12 +89,6 @@ export const Checkbox: FC<TProps> = ({
   };
 
   useEffect(() => {
-    if (checkedGroup) {
-      setChecked(checkedGroup[index]);
-    }
-  }, [checkedGroup]);
-
-  useEffect(() => {
     setChecked(controledChecked);
   }, [controledChecked]);
 

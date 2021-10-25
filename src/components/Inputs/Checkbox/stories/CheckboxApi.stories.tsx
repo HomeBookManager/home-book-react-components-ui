@@ -22,6 +22,11 @@ const tableBodyData: Array<TTableBody> = [
     description: 'If true, the component is <code>checked</code>.',
   },
   {
+    name: 'checkedGroup',
+    type: 'Array<boolean>',
+    description: 'Data provided by <code>CheckboxGroup</code>.',
+  },
+  {
     name: 'checkedIcon',
     type: 'string',
     description: 'The icon to display when the component is checked.',
@@ -77,7 +82,7 @@ const tableBodyData: Array<TTableBody> = [
   },
   {
     name: 'setCheckedGroup',
-    type: '(index: number) => void',
+    type: '(checked: boolean; index: number) => void',
     description:
       'Function which is provided by <code>CheckboxGroup</code> to update state in this component.',
   },

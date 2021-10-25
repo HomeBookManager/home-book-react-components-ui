@@ -15,13 +15,20 @@ import Checkbox, { TProps as TCheckboxProps } from '../Checkbox/Checkbox';
 import Indeterminate from '../../../assets/icons/indeterminate.svg';
 
 export type TProps = {
+  checked?: boolean;
   children: Array<ReactElement>;
 };
 
-export const CheckboxGroup: FC<TProps> = ({ children }) => {
+export const CheckboxGroup: FC<TProps> = ({
+  checked: controledChecked = false,
+  children,
+}) => {
   const [checked, setChecked] = useState(false);
   const [checkedGroup, setCheckedGroup] = useState(
-    children.map(({ props: { checked } }: { props: TCheckboxProps }) => checked)
+    children.map(
+      ({ props: { checked } }: { props: TCheckboxProps }) =>
+        controledChecked || checked
+    )
   );
   const uncheckedIcon = useMemo(
     () => (checkedGroup.some((checked) => checked) ? Indeterminate : ''),
@@ -75,6 +82,7 @@ export const CheckboxGroup: FC<TProps> = ({ children }) => {
           ...children.props,
           ...checkboxProps,
           index,
+          checked: checkedGroup[index],
           key: index,
         })
       )}
