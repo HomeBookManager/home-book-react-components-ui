@@ -101,6 +101,12 @@ describe('Checkbox', () => {
     );
   });
 
+  it('should display proper label', () => {
+    const { container } = render(<Checkbox label="Label" />);
+
+    expect(container.firstChild.lastChild).toHaveTextContent('Label');
+  });
+
   it('should fire onChange event', () => {
     const { getByTestId } = render(<Checkbox onChange={mockCallBack} />);
     const checkbox = getByTestId('input');

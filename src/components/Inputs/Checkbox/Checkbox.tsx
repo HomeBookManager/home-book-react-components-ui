@@ -68,8 +68,6 @@ export const Checkbox: FC<TProps> = ({
     `${checkboxClassName}__icon-wrapper--${size}`,
   ];
 
-  console.log(checkedIcon, uncheckedIcon);
-
   const onChangeHandler = (event: ChangeEvent<HTMLInputElement>): void => {
     const {
       currentTarget: { checked },

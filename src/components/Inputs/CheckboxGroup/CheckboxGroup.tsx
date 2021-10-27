@@ -15,8 +15,7 @@ import Checkbox, { TProps as TCheckboxProps } from '../Checkbox/Checkbox';
 // others
 import Indeterminate from '../../../assets/icons/indeterminate.svg';
 
-// styles
-import './checkbox-group.scss';
+// services
 import getStyleClassNames from '../../../services/getStyleClassNames';
 
 export const checkboxGroupClassName = 'CheckboxGroup';
@@ -56,7 +55,7 @@ export const CheckboxGroup: FC<TProps> = ({
   const [checked, setChecked] = useState(false);
   const [checkedGroup, setCheckedGroup] = useState(
     children.map(
-      ({ props: { checked } }: { props: TCheckboxProps }) =>
+      ({ props: { checked = false } }: { props: TCheckboxProps }) =>
         controledChecked || checked
     )
   );
