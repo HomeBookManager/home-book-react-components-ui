@@ -1,4 +1,4 @@
-import { ChangeEvent, FC, useRef, useState } from 'react';
+import { ChangeEvent, FC, useEffect, useRef, useState } from 'react';
 import { ReactSVG } from 'react-svg';
 
 // components
@@ -18,6 +18,7 @@ import './checkbox.scss';
 
 export type TProps = {
   checked?: boolean;
+  checkedGroup?: Array<boolean | undefined>;
   checkedIcon?: string;
   className?: string;
   disabled?: boolean;
@@ -27,19 +28,20 @@ export type TProps = {
   index?: number;
   label?: string;
   onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
-  setCheckedGroup?: (index: number) => void;
+  setCheckedGroup?: (value: boolean, index: number) => void;
   size?: Size;
   style?: { [key: string]: number | string };
   uncheckedIcon?: string;
 };
 
 export const Checkbox: FC<TProps> = ({
-  checked: initialChecked = false,
+  checked: controledChecked = false,
+  checkedGroup,
   checkedIcon = '',
   className = '',
   disabled = false,
   disablePulseEffect = false,
-  forcedFocus,
+  forcedFocus = false,
   forcedHover = false,
   index = 0,
   label = '',
@@ -50,7 +52,9 @@ export const Checkbox: FC<TProps> = ({
   uncheckedIcon = '',
 }) => {
   const [pulseElements, setPulseElements] = useState<Array<string>>([]);
-  const [checked, setChecked] = useState(initialChecked);
+  const [checked, setChecked] = useState(
+    checkedGroup ? checkedGroup[index] : controledChecked
+  );
   const inputRef = useRef<HTMLInputElement>(null);
   const classNames = [checkboxClassName, className];
   const inputClassNames = [
@@ -78,11 +82,15 @@ export const Checkbox: FC<TProps> = ({
     }
 
     if (setCheckedGroup) {
-      setCheckedGroup(index);
+      setCheckedGroup(checked, index);
     }
 
     setChecked(checked);
   };
+
+  useEffect(() => {
+    setChecked(controledChecked);
+  }, [controledChecked]);
 
   return (
     <div className={getStyleClassNames(classNames)} style={style}>
@@ -96,14 +104,20 @@ export const Checkbox: FC<TProps> = ({
         type="checkbox"
       />
       <div className={getStyleClassNames(iconWrapperClassNames)}>
-        <ReactSVG
-          className={`${checkboxClassName}__unchecked-icon`}
-          src={uncheckedIcon ? uncheckedIcon : Uncheck}
-        />
-        <ReactSVG
-          className={`${checkboxClassName}__checked-icon`}
-          src={checkedIcon ? checkedIcon : Check}
-        />
+        {!checked && (
+          <ReactSVG
+            className={
+              uncheckedIcon ? '' : `${checkboxClassName}__unchecked-icon`
+            }
+            src={uncheckedIcon ? uncheckedIcon : Uncheck}
+          />
+        )}
+        {checked && (
+          <ReactSVG
+            className={checkedIcon ? '' : `${checkboxClassName}__checked-icon`}
+            src={checkedIcon ? checkedIcon : Check}
+          />
+        )}
 
         {pulseElements.map((key) => (
           <CirclePulse
@@ -120,7 +134,7 @@ export const Checkbox: FC<TProps> = ({
           className={`${checkboxClassName}__label`}
           onClick={() => !disabled && inputRef.current?.click()}
         >
-          Label
+          {label}
         </span>
       )}
     </div>

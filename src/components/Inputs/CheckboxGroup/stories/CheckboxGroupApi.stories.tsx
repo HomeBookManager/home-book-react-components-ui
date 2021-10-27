@@ -1,17 +1,18 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 // components
-import Checkbox from '../Checkbox';
+import CheckboxGroup from '../CheckboxGroup';
 import StoryApi from '../../../../stories/components/StoryApi/StoryApi';
+import StoryBlockWarning from '../../../../stories/components/StoryBlockWarning/StoryBlockWarning';
 
 // others
-import { checkboxAPI } from '../../../../stories/constants';
+import { checkboxGroupAPI } from '../../../../stories/constants';
 import { libraryName } from '../../../../constants';
 import { TStoryBlockCode } from '../../../../stories/components/StoryBlockCode/types';
 import { TTableBody } from '../../../../stories/components/StoryPropsTable/StoryPropsTable';
 
 const description = [
-  'API documentation for the React Checkbox component. Learn about the available props.',
+  'API documentation for the React CheckboxGroup component. Learn about the available props.',
 ];
 
 const tableBodyData: Array<TTableBody> = [
@@ -19,12 +20,7 @@ const tableBodyData: Array<TTableBody> = [
     name: 'checked',
     type: 'bool',
     defaultValue: 'false',
-    description: 'If true, the component is <code>checked</code>.',
-  },
-  {
-    name: 'checkedGroup',
-    type: 'Array<boolean>',
-    description: 'Data provided by <code>CheckboxGroup</code>.',
+    description: 'If true, the parent checkbox is <code>checked</code>.',
   },
   {
     name: 'checkedIcon',
@@ -63,10 +59,9 @@ const tableBodyData: Array<TTableBody> = [
       'If <code>true</code>, the hover will be active without user friction.',
   },
   {
-    name: 'index',
-    type: 'number',
-    description:
-      'Index is provided by <code>CheckboxGroup</code> to update proper flag in state as array.',
+    name: 'indeterminateIcon',
+    type: 'string',
+    description: 'The icon to display when the some of checkbox is checked.',
   },
   {
     name: 'label',
@@ -79,12 +74,6 @@ const tableBodyData: Array<TTableBody> = [
     type: '(event: React.ChangeEvent<HTMLInputElement>) => void',
     description:
       'function(event: React.ChangeEvent<HTMLInputElement>) => void event: The event source of the callback.',
-  },
-  {
-    name: 'setCheckedGroup',
-    type: '(checked: boolean; index: number) => void',
-    description:
-      'Function which is provided by <code>CheckboxGroup</code> to update state in this component.',
   },
   {
     name: 'size',
@@ -108,24 +97,31 @@ const tableBodyData: Array<TTableBody> = [
 const blockCodeData: TStoryBlockCode = {
   imports: [
     {
-      items: '{ Checkbox }',
+      items: '{ CheckboxGroup }',
       path: libraryName,
     },
   ],
 };
 
 export default {
-  component: Checkbox,
-  title: checkboxAPI,
-} as ComponentMeta<typeof Checkbox>;
+  component: CheckboxGroup,
+  title: checkboxGroupAPI,
+} as ComponentMeta<typeof CheckboxGroup>;
 
-const Template: ComponentStory<typeof Checkbox> = () => (
+const Template: ComponentStory<typeof CheckboxGroup> = () => (
   <StoryApi
     blockCodeData={blockCodeData}
     description={description}
     tableBodyData={tableBodyData}
-    title="Checkbox API"
-  />
+    title="CheckboxGroup API"
+  >
+    <StoryBlockWarning>
+      When you pass Checkbox to CheckboxGroup, CheckboxGroup pass some of props
+      to Checkbox to control them & pass common props. If you use some custom
+      wrapper, as main children for CheckboxGroup, you can do, but every
+      Checkbox as children for wrapper can be passed single.
+    </StoryBlockWarning>
+  </StoryApi>
 );
 
-export const CheckboxAPI = Template.bind({});
+export const CheckboxGroupAPI = Template.bind({});

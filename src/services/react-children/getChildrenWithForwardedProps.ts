@@ -4,7 +4,7 @@ import isObject from 'lodash/isObject';
 import { cloneElement, isValidElement, ReactElement, ReactNode } from 'react';
 
 // services
-import getRandomKey from './getRandomKey';
+import getRandomKey from '../getRandomKey';
 
 const shouldPassProps = (child: ReactElement, componentName: string): boolean =>
   // @ts-ignore
@@ -14,7 +14,8 @@ const getChildren = (
   children: ReactElement | Array<ReactElement>,
   props: { [key: string]: any },
   keys: Array<string>,
-  componentName: string
+  componentName: string,
+  index: number
 ): ReactNode | string => {
   switch (true) {
     case isArray(children):
@@ -29,7 +30,8 @@ const getChildren = (
         children as unknown as ReactElement,
         props,
         keys,
-        componentName
+        componentName,
+        index
       );
     default:
       return children;
@@ -40,7 +42,8 @@ const getChildrenByObject = (
   children: ReactElement,
   props: { [key: string]: any },
   keys: Array<string>,
-  componentName: string
+  componentName: string,
+  index: number
 ): {} => {
   if (!shouldPassProps(children, componentName)) {
     const childrenFromProps = get(children, 'props.children');
@@ -48,7 +51,7 @@ const getChildrenByObject = (
     if (childrenFromProps) {
       return cloneElement(children, {
         ...children.props,
-        children: getChildren(childrenFromProps, props, keys, componentName),
+        children: getChildren(childrenFromProps, props, keys, componentName, 0),
         key: getRandomKey(keys),
       });
     }
@@ -62,6 +65,7 @@ const getChildrenByObject = (
   return cloneElement(children, {
     ...children.props,
     ...props,
+    index,
     key: getRandomKey(keys),
   });
 };
@@ -72,16 +76,14 @@ const getChildrenByArray = (
   keys: Array<string>,
   componentName: string
 ): ReactNode[] =>
-  children.map((children: ReactElement) =>
-    getChildren(children, props, keys, componentName)
+  children.map((children: ReactElement, index) =>
+    getChildren(children, props, keys, componentName, index)
   );
 
 const getChildrenWithForwardedProps = (
   children: ReactElement | Array<ReactElement>,
   props: { [key: string]: any },
   componentName: string
-): ReactNode => {
-  return getChildren(children, props, [], componentName);
-};
+): ReactNode => getChildren(children, props, [], componentName, 0);
 
 export default getChildrenWithForwardedProps;

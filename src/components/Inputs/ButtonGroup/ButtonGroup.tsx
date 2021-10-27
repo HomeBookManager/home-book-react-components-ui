@@ -6,7 +6,7 @@ import { Color, Variant } from '../Button/constants';
 import { TProps as TButtonProps } from '../Button/Button';
 
 // services
-import getChildrenWithForwardedProps from '../../../services/getChildrenWithForwardedProps';
+import getChildrenWithForwardedProps from '../../../services/react-children/getChildrenWithForwardedProps';
 import getStyleClassNames from '../../../services/getStyleClassNames';
 
 // styles

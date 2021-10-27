@@ -76,8 +76,12 @@ const Template: ComponentStory<typeof Checkbox> = (args) => (
     description={description}
     title="Checkbox icon"
   >
-    <Checkbox checkIcon={Heart} uncheckIcon={HeartOutlined} {...args} />
-    <Checkbox checkIcon={Bookmark} uncheckIcon={BokmarkOutlined} {...args} />
+    <Checkbox checkedIcon={Heart} uncheckedIcon={HeartOutlined} {...args} />
+    <Checkbox
+      checkedIcon={Bookmark}
+      uncheckedIcon={BokmarkOutlined}
+      {...args}
+    />
   </StoryComponent>
 );
 
