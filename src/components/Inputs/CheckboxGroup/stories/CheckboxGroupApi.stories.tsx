@@ -3,6 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 // components
 import CheckboxGroup from '../CheckboxGroup';
 import StoryApi from '../../../../stories/components/StoryApi/StoryApi';
+import StoryBlockWarning from '../../../../stories/components/StoryBlockWarning/StoryBlockWarning';
 
 // others
 import { checkboxGroupAPI } from '../../../../stories/constants';
@@ -108,7 +109,14 @@ const Template: ComponentStory<typeof CheckboxGroup> = () => (
     description={description}
     tableBodyData={tableBodyData}
     title="CheckboxGroup API"
-  />
+  >
+    <StoryBlockWarning>
+      When you pass Checkbox to CheckboxGroup, CheckboxGroup pass some of props
+      to Checkbox to control them & pass common props. If you use some custom
+      wrapper, as main children for CheckboxGroup, you can do, but every
+      Checkbox as children for wrapper can be passed single.
+    </StoryBlockWarning>
+  </StoryApi>
 );
 
 export const CheckboxGroupAPI = Template.bind({});

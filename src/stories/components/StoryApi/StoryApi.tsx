@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, ReactNode } from 'react';
 
 // components
 import { TProps as TStoryBlockCodeProps } from '../StoryBlockCode/StoryBlockCode';
@@ -12,11 +12,17 @@ import './story-api.scss';
 
 type TProps = TStoryBlockCodeProps &
   TPropsStoryPropsTable & {
+    children?: ReactNode;
     description?: Array<string>;
     title: string;
   };
 
-const StoryApi: FC<TProps> = ({ description = [], title, ...restProps }) => {
+const StoryApi: FC<TProps> = ({
+  children = null,
+  description = [],
+  title,
+  ...restProps
+}) => {
   const { tableBodyData } = restProps;
 
   return (
@@ -34,6 +40,7 @@ const StoryApi: FC<TProps> = ({ description = [], title, ...restProps }) => {
         title="Import"
         {...restProps}
       ></StoryComponent>
+      {children}
       <StoryPropsTable tableBodyData={tableBodyData} />
     </main>
   );
