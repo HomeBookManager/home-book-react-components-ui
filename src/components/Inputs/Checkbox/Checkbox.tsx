@@ -18,7 +18,7 @@ import './checkbox.scss';
 
 export type TProps = {
   checked?: boolean;
-  checkedGroup?: Array<boolean>;
+  checkedGroup?: Array<boolean | undefined>;
   checkedIcon?: string;
   className?: string;
   disabled?: boolean;

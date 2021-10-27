@@ -18,7 +18,21 @@ const blockCodeData: TStoryBlockCode = {
   componentName: 'CheckboxGroup',
   props: [
     {
-      children: '',
+      attributes: [{ name: 'label', value: 'Parent' }],
+      children: [
+        {
+          componentName: 'Checkbox',
+          props: [{ attributes: [{ name: 'label', value: 'Child 1' }] }],
+        },
+        {
+          componentName: 'Checkbox',
+          props: [{ attributes: [{ name: 'label', value: 'Child 2' }] }],
+        },
+        {
+          componentName: 'Checkbox',
+          props: [{ attributes: [{ name: 'label', value: 'Child 2' }] }],
+        },
+      ],
     },
   ],
   imports: [
