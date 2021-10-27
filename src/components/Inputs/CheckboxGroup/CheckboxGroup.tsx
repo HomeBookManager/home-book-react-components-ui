@@ -29,7 +29,9 @@ export type TProps = Pick<
   | 'forcedFocus'
   | 'forcedHover'
   | 'label'
+  | 'onChange'
   | 'size'
+  | 'style'
   | 'uncheckedIcon'
 > & {
   checked?: boolean;
@@ -41,6 +43,8 @@ export const CheckboxGroup: FC<TProps> = ({
   children,
   className = '',
   label = '',
+  onChange = null,
+  style = {},
   ...restProps
 }) => {
   const classNames = [`${checkboxGroupClassName}`, `${className}`];
@@ -78,6 +82,10 @@ export const CheckboxGroup: FC<TProps> = ({
       setCheckedGroup(checkedGroup.map(() => false));
     }
 
+    if (onChange) {
+      onChange(event);
+    }
+
     setChecked(checked);
   };
 
@@ -92,7 +100,7 @@ export const CheckboxGroup: FC<TProps> = ({
   }, [checkedGroup]);
 
   return (
-    <div className={getStyleClassNames(classNames)}>
+    <div className={getStyleClassNames(classNames)} style={style}>
       <Checkbox
         checked={checked}
         label={label}

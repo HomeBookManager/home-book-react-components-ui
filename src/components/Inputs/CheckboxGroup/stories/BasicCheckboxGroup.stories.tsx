@@ -37,7 +37,7 @@ const blockCodeData: TStoryBlockCode = {
   ],
   imports: [
     {
-      items: '{ CheckboxGroup }',
+      items: '{ Checkbox, CheckboxGroup }',
       path: libraryName,
     },
   ],
@@ -48,7 +48,7 @@ export default {
   parameters: {
     design: {
       type: 'figma',
-      url: 'https://www.figma.com/file/yhTZ31Wn16kIrEeoHHV176/Components---UI?node-id=281%3A2',
+      url: 'https://www.figma.com/file/yhTZ31Wn16kIrEeoHHV176/Components---UI?node-id=318%3A183',
     },
   },
   title: basicCheckboxGroup,
