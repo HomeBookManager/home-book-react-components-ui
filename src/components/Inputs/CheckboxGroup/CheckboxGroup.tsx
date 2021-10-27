@@ -4,6 +4,7 @@ import {
   FC,
   ReactElement,
   useEffect,
+  useCallback,
   useMemo,
   useState,
 } from 'react';
@@ -36,15 +37,19 @@ export type TProps = Pick<
 > & {
   checked?: boolean;
   children: Array<ReactElement>;
+  indeterminateIcon?: string;
 };
 
 export const CheckboxGroup: FC<TProps> = ({
   checked: controledChecked = false,
+  checkedIcon = '',
   children,
   className = '',
   label = '',
+  indeterminateIcon = '',
   onChange = null,
   style = {},
+  uncheckedIcon = '',
   ...restProps
 }) => {
   const classNames = [`${checkboxGroupClassName}`, `${className}`];
@@ -55,19 +60,25 @@ export const CheckboxGroup: FC<TProps> = ({
         controledChecked || checked
     )
   );
-  const uncheckedIcon = useMemo(
-    () => (checkedGroup.some((checked) => checked) ? Indeterminate : ''),
-    [checkedGroup]
-  );
   const checkboxProps: TCheckboxProps = useMemo(
     () => ({
       checkedGroup,
+      checkedIcon,
       setCheckedGroup: (value: boolean, index: number): void =>
         setCheckedGroup(
           checkedGroup.map((checked, i) => (i === index ? value : checked))
         ),
+      uncheckedIcon,
       ...restProps,
     }),
+    [checkedGroup]
+  );
+
+  const getUncheckedIcon = useCallback(
+    () =>
+      checkedGroup.some((checked) => checked)
+        ? indeterminateIcon || Indeterminate
+        : uncheckedIcon || '',
     [checkedGroup]
   );
 
@@ -103,9 +114,10 @@ export const CheckboxGroup: FC<TProps> = ({
     <div className={getStyleClassNames(classNames)} style={style}>
       <Checkbox
         checked={checked}
+        checkedIcon={checkedIcon}
         label={label}
         onChange={onChangeHandler}
-        uncheckedIcon={uncheckedIcon}
+        uncheckedIcon={getUncheckedIcon()}
         {...restProps}
       />
       <div className={`${checkboxGroupClassName}__inputs`}>

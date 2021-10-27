@@ -26,10 +26,8 @@
     fill: $--hb-checkbox-unchecked-icon;
   }
 
-  &__checked-icon {
-    & path {
-      fill: $--hb-checkbox-checked-icon;
-    }
+  &__checked-icon path {
+    fill: $--hb-checkbox-checked-icon;
   }
 
   &__label {

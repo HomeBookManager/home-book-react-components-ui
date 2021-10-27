@@ -59,6 +59,11 @@ const tableBodyData: Array<TTableBody> = [
       'If <code>true</code>, the hover will be active without user friction.',
   },
   {
+    name: 'indeterminateIcon',
+    type: 'string',
+    description: 'The icon to display when the some of checkbox is checked.',
+  },
+  {
     name: 'label',
     type: 'string',
     description:
