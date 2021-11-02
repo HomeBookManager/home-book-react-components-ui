@@ -8,7 +8,7 @@ import { getFiles } from './scripts/buildUtils';
 import { terser } from 'rollup-plugin-terser';
 
 // services
-import rollupPluginSvg from './src/services/library/rollup-plugin-svg.lib';
+import rollupPluginSvg from './scripts/rollup-plugin-svg.lib';
 
 const extensions = ['.js', '.ts', '.tsx'];
 const excludeExtensions = ['.lib.js', '.stories.tsx'];
@@ -36,7 +36,14 @@ export default {
     }),
     postcss({
       extract: false,
-      use: ['sass'],
+      use: [
+        [
+          'sass',
+          {
+            includePaths: ['./node_modules'],
+          },
+        ],
+      ],
     }),
     terser(),
     visualizer({

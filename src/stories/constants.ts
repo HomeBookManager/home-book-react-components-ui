@@ -59,3 +59,11 @@ export const checkboxGroupPrefix = `${inputs}/Checkbox Group`;
 export const checkboxGroupExamplePrefix = `${checkboxGroupPrefix}/Example`;
 export const checkboxGroupAPI = `${checkboxGroupPrefix}/Checkbox Group API`;
 export const basicCheckboxGroup = `${checkboxGroupExamplePrefix}/Basic Checkbox Group`;
+
+/**
+ * RADIO BUTTON
+ */
+export const radioButtonGroupPrefix = `${inputs}/Radio Button`;
+export const radioButtonGroupExamplePrefix = `${radioButtonGroupPrefix}/Example`;
+export const radioButtonGroupAPI = `${radioButtonGroupPrefix}/Radio Button API`;
+export const radioButtonGroup = `${radioButtonGroupExamplePrefix}/Radio Button Group`;

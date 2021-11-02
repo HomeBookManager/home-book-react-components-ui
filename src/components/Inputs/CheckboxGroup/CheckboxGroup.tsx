@@ -16,6 +16,7 @@ import Checkbox, { TProps as TCheckboxProps } from '../Checkbox/Checkbox';
 import Indeterminate from '../../../assets/icons/indeterminate.svg';
 
 // services
+import { getCheckedGroupInitialValue } from './services';
 import getStyleClassNames from '../../../services/getStyleClassNames';
 
 export const checkboxGroupClassName = 'CheckboxGroup';
@@ -35,7 +36,7 @@ export type TProps = Pick<
   | 'uncheckedIcon'
 > & {
   checked?: boolean;
-  children: Array<ReactElement>;
+  children: ReactElement<TCheckboxProps> | Array<ReactElement<TCheckboxProps>>;
   indeterminateIcon?: string;
 };
 
@@ -54,10 +55,7 @@ export const CheckboxGroup: FC<TProps> = ({
   const classNames = [`${checkboxGroupClassName}`, `${className}`];
   const [checked, setChecked] = useState(false);
   const [checkedGroup, setCheckedGroup] = useState(
-    children.map(
-      ({ props: { checked = false } }: { props: TCheckboxProps }) =>
-        controledChecked || checked
-    )
+    getCheckedGroupInitialValue(children, controledChecked)
   );
   const checkboxProps: TCheckboxProps = useMemo(
     () => ({
@@ -120,15 +118,22 @@ export const CheckboxGroup: FC<TProps> = ({
         {...restProps}
       />
       <div className={`${checkboxGroupClassName}__inputs`}>
-        {children.map((children, index) =>
-          cloneElement(children, {
-            ...children.props,
-            ...checkboxProps,
-            index,
-            checked: checkedGroup[index],
-            key: index,
-          })
-        )}
+        {Array.isArray(children)
+          ? children.map((children, index) =>
+              cloneElement(children as ReactElement, {
+                ...(children as ReactElement)?.props,
+                ...checkboxProps,
+                index,
+                checked: checkedGroup[index],
+                key: index,
+              })
+            )
+          : cloneElement(children, {
+              ...children.props,
+              ...checkboxProps,
+              index: 0,
+              checked: checkedGroup[0],
+            })}
       </div>
     </div>
   );
