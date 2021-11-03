@@ -121,7 +121,7 @@ export const CheckboxGroup: FC<TProps> = ({
         {Array.isArray(children)
           ? children.map((children, index) =>
               cloneElement(children as ReactElement, {
-                ...(children as ReactElement)?.props,
+                ...(children as ReactElement).props,
                 ...checkboxProps,
                 index,
                 checked: checkedGroup[index],
